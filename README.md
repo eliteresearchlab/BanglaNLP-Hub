@@ -12,7 +12,10 @@ with Bangla. Search the catalog or browse by task to find papers, datasets, mode
 and tools. Each entry links to its original source, making it easier to check the
 details and choose what to use.
 
-![BanglaNLP Hub with Bangladesh river artwork, bilingual search, and the catalog explorer](docs/screenshots/light.webp)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/dark.webp">
+  <img src="docs/screenshots/light.webp" alt="The BanglaNLP Hub home page, with Bangladesh river artwork behind a bilingual heading and the catalog search">
+</picture>
 
 ## Run locally
 
