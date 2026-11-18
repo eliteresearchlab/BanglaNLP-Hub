@@ -385,6 +385,16 @@ html.dark .theme-moon { display: none; }
 @media (width < 72rem) {
   .navbar { gap: 0.75rem; }
   .contribute-link { display: none; }
+}
+/* A browser without popover support cannot open the menu, so it keeps every
+   link visible on a wrapped row under the brand instead. */
+@supports not selector(:popover-open) {
+  @media (width < 72rem) {
+    .navbar { flex-wrap: wrap; border-radius: var(--radius); }
+    .navrow { order: 1; flex-wrap: wrap; inline-size: 100%; }
+  }
+}
+@supports selector(:popover-open) { @media (width < 72rem) {
   .nav-actions .navtoggle { display: inline-flex; }
   .navrow:not(:popover-open) { display: none; }
   .navrow {
@@ -398,7 +408,7 @@ html.dark .theme-moon { display: none; }
     background: var(--surface); color: var(--text); box-shadow: var(--shadow-popover);
   }
   .navrow .navlink { flex-direction: row; align-items: baseline; justify-content: space-between; gap: 1rem; }
-}
+} }
 @media (width < 56rem) {
   :root { --header-size: 3.75rem; --header-pad: 0.5rem; }
   .navbar { gap: 0.5rem; padding-inline: 0.5rem; }

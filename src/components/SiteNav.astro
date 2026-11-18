@@ -58,6 +58,6 @@ const links = [
   menuButton?.addEventListener('click', (event) => { if (nav) nav.dataset.motion = String(event.detail > 0); });
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && nav) nav.dataset.motion = 'false'; });
   matchMedia('(width >= 72rem)').addEventListener('change', (event) => {
-    if (event.matches && nav?.matches(':popover-open')) nav.hidePopover();
+    if (event.matches && nav && 'hidePopover' in nav && nav.matches(':popover-open')) nav.hidePopover();
   });
 </script>
