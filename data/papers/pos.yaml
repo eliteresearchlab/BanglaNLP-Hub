@@ -248,7 +248,7 @@
   authors: Chaudhury et al.
   venue: Global Journal of Researches in Engineering
   year: 2017
-  link: https://engineeringresearch.org/index.php/GJRE/article/download/1597/1528
+  link: https://engineeringresearch.org/index.php/GJRE/article/view/100812
   task: pos
 - id: chakrabarty-etal-2016-benlem-lemmatizer
   title: "BenLem (A Bengali Lemmatizer) and Its Role in WSD"
@@ -332,5 +332,5 @@
   authors: Ekbal et al.
   venue: Research in computing science
   year: 2008
-  link: https://www.cicling.org/2008/RCS-vol-33/06-Ekbal.pdf
+  link: http://www.cicling.org/2008/RCS-vol-33/06-Ekbal.pdf
   task: pos
