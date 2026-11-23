@@ -20,10 +20,9 @@ import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 
 import { resolve, join } from 'node:path';
 import { gunzipSync } from 'node:zlib';
 import { parse, stringify } from 'yaml';
+import { specific } from './task-rules.ts';
 
 const patterns = {
-  braces: /[{}]/g,
-  titleSeparators: /[^a-z0-9]+/g,
   protocol: /^https?:\/\/(www\.)?/,
   trailingSlashes: /\/+$/,
   www: /^www\./,
@@ -31,33 +30,23 @@ const patterns = {
   speechEmotion: /speech emotion|emotional speech|emotion.*\b(from|in)\b.*(speech|audio|voice)|acoustic.*emotion|\bspeech\b.*\bser\b/,
   speaker: /speaker (identif|recogni|verif|diariz)|diariz/,
   translationWsd: /machine translation.*word sense disambiguation/,
-  opticalRecognition: /optical character recognition/g,
   ocr: /\bocr\b/,
   licensePlate: /licen[cs]e plate/,
   characterUnits: /\b(characters?|digits?)\b/,
   textUnits: /\b(words?|lines?|documents?|scenes?|texts?)\b/,
   bibEntry: /\n@/,
-  whitespace: /\s+/g,
-  authorName: /<name>([^<]+)<\/name>/g,
   arxivVersion: /v\d+$/,
 };
 
-const specific: [RegExp, string][] = [
-  [/speech translation|speech-to-(speech|text) translation|spoken language translation/, 'st'],
-  [/visual question answer|\bvqa\b/, 'vqa'],
-  [/image caption|caption generation/, 'caption'],
-  [/dialogue|conversational system|chatbot/, 'dialogue'],
-  [/grammar error (detection|correction)|grammatical error (detection|correction|explanation)|spelling correction|spell checker/, 'gec'],
-  [/coreference resolution|anaphora resolution/, 'coref'],
-  [/natural language inference|\bnli\b/, 'nli'],
-  [/word sense disambiguation/, 'wsd'],
-  [/punctuation restoration|punctuation prediction/, 'punct'],
-  [/style transfer/, 'style'],
-  [/stance detection/, 'stance'],
-  [/readability|lexical complexity/, 'readab'],
-  [/\bocr\b(?!['’`]d)|optical character recognition|scene text recognition/, 'ocr'],
-  [/entity linking/, 'el'],
-];
+// Global patterns keep lastIndex state between .test() and .exec() calls, so
+// they live apart and are only used with replace(), match() and matchAll().
+const globalPatterns = {
+  braces: /[{}]/g,
+  titleSeparators: /[^a-z0-9]+/g,
+  opticalRecognition: /optical character recognition/g,
+  whitespace: /\s+/g,
+  authorName: /<name>([^<]+)<\/name>/g,
+};
 
 const rules: [RegExp, string][] = [
   [/sentiment|emotion|polarity/, 'sentiment'],
@@ -122,7 +111,7 @@ type Candidate = {
 
 // ---------------------------------------------------------------- existing set
 const norm = (s: string) =>
-  String(s ?? '').toLowerCase().replace(patterns.braces, '').replace(patterns.titleSeparators, ' ').trim();
+  String(s ?? '').toLowerCase().replace(globalPatterns.braces, '').replace(globalPatterns.titleSeparators, ' ').trim();
 const normUrl = (link: string) => {
   let parsed: URL;
   try {
@@ -204,7 +193,7 @@ function guessTask(text: string): string | undefined {
   if (patterns.speechEmotion.test(t)) return 'ser';
   if (patterns.speaker.test(t)) return 'speaker';
   if (patterns.translationWsd.test(t)) return 'mt';
-  const ocrSubject = t.replace(patterns.opticalRecognition, 'ocr');
+  const ocrSubject = t.replace(globalPatterns.opticalRecognition, 'ocr');
   if (patterns.ocr.test(ocrSubject) &&
     (patterns.licensePlate.test(ocrSubject) || (patterns.characterUnits.test(ocrSubject) && !patterns.textUnits.test(ocrSubject)))) return undefined;
 
@@ -228,7 +217,7 @@ async function fromAcl(): Promise<Candidate[]> {
 
   const field = (src: string, name: keyof typeof fieldPatterns) => {
     const m = src.match(fieldPatterns[name]);
-    return m ? m[1].replace(patterns.whitespace, ' ').trim() : undefined;
+    return m ? m[1].replace(globalPatterns.whitespace, ' ').trim() : undefined;
   };
 
   const out: Candidate[] = [];
@@ -237,7 +226,7 @@ async function fromAcl(): Promise<Candidate[]> {
     if (!rawTitle) continue;
     // ACL brace-protects capitals ("{B}engali"), so braces must be stripped
     // BEFORE keyword matching or nothing ever matches.
-    const title = rawTitle.replace(patterns.braces, '');
+    const title = rawTitle.replace(globalPatterns.braces, '');
     if (!TERMS.test(title)) continue;
     const url = field(raw, 'url');
     if (!url) continue;
@@ -276,11 +265,11 @@ async function fromArxiv(): Promise<Candidate[]> {
     const entries = xml.split('<entry>').slice(1);
     if (!entries.length) break;
     for (const e of entries) {
-      const pick = (tag: keyof typeof entryPatterns) => e.match(entryPatterns[tag])?.[1]?.replace(patterns.whitespace, ' ').trim();
+      const pick = (tag: keyof typeof entryPatterns) => e.match(entryPatterns[tag])?.[1]?.replace(globalPatterns.whitespace, ' ').trim();
       const title = pick('title');
       const id = pick('id');
       if (!title || !id) continue;
-      const authors = [...e.matchAll(patterns.authorName)].map((m) => m[1]);
+      const authors = [...e.matchAll(globalPatterns.authorName)].map((m) => m[1]);
       out.push({
         source: 'arxiv',
         kind: 'paper',

@@ -19,18 +19,12 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { parse, stringify } from 'yaml';
+import { specific } from './task-rules.ts';
 
 const patterns = {
-  whitespace: /\s+/g,
-  bracedAccent: /\{\\[`'"^~=.]\{?([A-Za-z])\}?\}/g,
-  accent: /\\[`'"^~=.]\{?([A-Za-z])\}?/g,
-  latexCommand: /\{\\([a-z])\s*([A-Za-z])\}/g,
-  latexResidue: /[{}\\]/g,
-  braces: /[{}]/g,
   findings: /^Findings of the Association for Computational Linguistics:?\s*(ACL|EMNLP|NAACL|EACL|IJCNLP)?/i,
   blp: /Workshop on Bangla Language Processing/i,
   blpEdition: /\(BLP-(\d{4})\)/,
-  parentheses: /\([^)]+\)/g,
   trailingYear: /[\s-]*\d{4}\s*$/,
   acronym: /^[A-Za-z][A-Za-z-]{1,14}$/,
   capitals: /[A-Z][A-Za-z-]*[A-Z]/,
@@ -47,7 +41,6 @@ const patterns = {
   speechEmotion: /speech emotion|emotional speech|emotion.*\b(from|in)\b.*(speech|audio|voice)|acoustic.*emotion|\bspeech\b.*\bser\b/,
   speaker: /speaker (identif|recogni|verif|diariz)|diariz/,
   translationWsd: /machine translation.*word sense disambiguation/,
-  opticalRecognition: /optical character recognition/g,
   ocr: /\bocr\b/,
   licensePlate: /licen[cs]e plate/,
   characterUnits: /\b(characters?|digits?)\b/,
@@ -59,12 +52,25 @@ const patterns = {
   bibEntry: /\n@/,
   bibKey: /^[a-z]+\{([^,]+),/i,
   trailingSlashes: /\/+$/,
-  titleSeparators: /[^a-z0-9]+/g,
   singleWhitespace: /\s/,
   arxivId: /(\d{4}\.\d{4,5})/,
+  anthologyId: /(\d{4}\.[a-z-]+\.\d+)/i,
+};
+
+// Global patterns keep lastIndex state between .test() and .exec() calls, so
+// they live apart and are only used with replace(), match() and matchAll().
+const globalPatterns = {
+  whitespace: /\s+/g,
+  bracedAccent: /\{\\[`'"^~=.]\{?([A-Za-z])\}?\}/g,
+  accent: /\\[`'"^~=.]\{?([A-Za-z])\}?/g,
+  latexCommand: /\{\\([a-z])\s*([A-Za-z])\}/g,
+  latexResidue: /[{}\\]/g,
+  braces: /[{}]/g,
+  parentheses: /\([^)]+\)/g,
+  opticalRecognition: /optical character recognition/g,
+  titleSeparators: /[^a-z0-9]+/g,
   spaces: / /g,
   idSeparators: /[^a-z0-9-_]/g,
-  anthologyId: /(\d{4}\.[a-z-]+\.\d+)/i,
   dots: /\./g,
 };
 
@@ -101,23 +107,6 @@ const venueRules: [RegExp, string][] = [
   [/Gender Bias in Natural Language Processing|GeBNLP/i, 'GeBNLP'],
   [/Australasian Language Technology|\bALTA\b/i, 'ALTA'],
   [/Conference on Language Modeling|\bCOLM\b/i, 'COLM'],
-];
-
-const specific: [RegExp, string][] = [
-  [/speech translation|speech-to-(speech|text) translation|spoken language translation/, 'st'],
-  [/visual question answer|\bvqa\b/, 'vqa'],
-  [/image caption|caption generation/, 'caption'],
-  [/dialogue|conversational system|chatbot/, 'dialogue'],
-  [/grammar error (detection|correction)|grammatical error (detection|correction|explanation)|spelling correction|spell checker/, 'gec'],
-  [/coreference resolution|anaphora resolution/, 'coref'],
-  [/natural language inference|\bnli\b/, 'nli'],
-  [/word sense disambiguation/, 'wsd'],
-  [/punctuation restoration|punctuation prediction/, 'punct'],
-  [/style transfer/, 'style'],
-  [/stance detection/, 'stance'],
-  [/readability|lexical complexity/, 'readab'],
-  [/\bocr\b(?!['’`]d)|optical character recognition|scene text recognition/, 'ocr'],
-  [/entity linking/, 'el'],
 ];
 
 const rules: [RegExp, string][] = [
@@ -188,22 +177,22 @@ const fieldPatterns = {
  */
 const field = (src: string, name: keyof typeof fieldPatterns) => {
   const quoted = src.match(fieldPatterns[name][0]);
-  if (quoted) return quoted[1].replace(patterns.whitespace, ' ').trim();
+  if (quoted) return quoted[1].replace(globalPatterns.whitespace, ' ').trim();
   const braced = src.match(fieldPatterns[name][1]);
-  return braced ? braced[1].replace(patterns.whitespace, ' ').trim() : undefined;
+  return braced ? braced[1].replace(globalPatterns.whitespace, ' ').trim() : undefined;
 };
 
 /** Strip the LaTeX accent forms the anthology uses: {\"O}zlem -> Ozlem. */
 const delatex = (s: string) =>
   s
-    .replace(patterns.bracedAccent, '$1')
-    .replace(patterns.accent, '$1')
-    .replace(patterns.latexCommand, '$2')
-    .replace(patterns.latexResidue, '')
+    .replace(globalPatterns.bracedAccent, '$1')
+    .replace(globalPatterns.accent, '$1')
+    .replace(globalPatterns.latexCommand, '$2')
+    .replace(globalPatterns.latexResidue, '')
     .trim();
 
 /** ACL brace-protects capitals: "{B}engali" -> "Bengali". */
-const debrace = (s: string) => s.replace(patterns.braces, '');
+const debrace = (s: string) => s.replace(globalPatterns.braces, '');
 
 /** "Sadhu, Jayanta and Khan, Ayan and ..." -> "Sadhu et al." */
 function authorLabel(raw: string | undefined): string | undefined {
@@ -252,7 +241,7 @@ function normalizeVenue(bookRaw: string | undefined, key: string): string | unde
    * and `PSAL` — the latter a fragment of `{CH}i{PSAL}`. Requiring parentheses
    * and at least two capitals keeps real acronyms and rejects protected words.
    */
-  for (const group of bookRaw.match(patterns.parentheses) ?? []) {
+  for (const group of bookRaw.match(globalPatterns.parentheses) ?? []) {
     const inner = debrace(group.slice(1, -1))
       .replace(patterns.trailingYear, '')
       .trim();
@@ -280,7 +269,7 @@ function normalizeVenue(bookRaw: string | undefined, key: string): string | unde
     // --- A Resource Perspective". Same treatment as the colon above.
     .replace(patterns.dashSubtitle, '')
     .replace(patterns.venueSubtitle, '')
-    .replace(patterns.whitespace, ' ')
+    .replace(globalPatterns.whitespace, ' ')
     .trim();
   return short.length > 2 ? short : undefined;
 }
@@ -312,7 +301,7 @@ function classify(title: string): string | undefined {
   //   "speaker adaptation" (an ASR technique) deliberately does not match.
   if (patterns.speaker.test(t)) return 'speaker';
   if (patterns.translationWsd.test(t)) return 'mt';
-  const ocrSubject = t.replace(patterns.opticalRecognition, 'ocr');
+  const ocrSubject = t.replace(globalPatterns.opticalRecognition, 'ocr');
   if (patterns.ocr.test(ocrSubject) &&
     (patterns.licensePlate.test(ocrSubject) || (patterns.characterUnits.test(ocrSubject) && !patterns.textUnits.test(ocrSubject)))) return undefined;
 
@@ -375,7 +364,7 @@ const knownIds = new Set<string>();
 const knownLinks = new Set<string>();
 const knownTitles = new Set<string>();
 const knownNames = new Set<string>();
-const normTitle = (s: string) => String(s ?? '').toLowerCase().replace(patterns.titleSeparators, ' ').trim();
+const normTitle = (s: string) => String(s ?? '').toLowerCase().replace(globalPatterns.titleSeparators, ' ').trim();
 
 /**
  * A distinctive system name from a "BEnQA: …" style title: the single token
@@ -419,7 +408,7 @@ for (const c of candidates) {
   // (title/authors/year), venue is honestly "arXiv". Title-dedup against the
   // catalog so a preprint whose published version we already hold is skipped. ---
   if (c.kind === 'paper' && c.source === 'arxiv') {
-    const title = debrace(String(c.title ?? '')).replace(patterns.whitespace, ' ').trim();
+    const title = debrace(String(c.title ?? '')).replace(globalPatterns.whitespace, ' ').trim();
     if (!title || !BANGLA_TITLE.test(title)) {
       leftover.push(c);
       note('arxiv: title not about Bangla — likely tangential multilingual');
@@ -444,7 +433,7 @@ for (const c of candidates) {
     }
     // arXiv ids contain a dot (2308.13545); the id schema allows only [a-z0-9-_].
     const arxivId = link.match(patterns.arxivId)?.[1]?.replace('.', '-');
-    let id = arxivId ? `arxiv-${arxivId}` : `arxiv-${normTitle(title).replace(patterns.spaces, '-').slice(0, 40)}`;
+    let id = arxivId ? `arxiv-${arxivId}` : `arxiv-${normTitle(title).replace(globalPatterns.spaces, '-').slice(0, 40)}`;
     if (knownIds.has(id)) {
       leftover.push(c);
       note('id collision');
@@ -495,9 +484,9 @@ for (const c of candidates) {
   }
 
   // Anthology bibkeys are unique, lowercase, and hyphenated — a natural id.
-  let id = rec.key.toLowerCase().replace(patterns.idSeparators, '-');
+  let id = rec.key.toLowerCase().replace(globalPatterns.idSeparators, '-');
   if (!id || knownIds.has(id)) {
-    const suffix = rec.link.match(patterns.anthologyId)?.[1]?.replace(patterns.dots, '-');
+    const suffix = rec.link.match(patterns.anthologyId)?.[1]?.replace(globalPatterns.dots, '-');
     id = suffix ? `${id}-${suffix}` : `${id}-${rec.year}`;
   }
   if (knownIds.has(id)) {
