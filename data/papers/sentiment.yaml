@@ -64,7 +64,7 @@
 - id: hasan-etal-2026-enhancing
   title: Enhancing Mental Health Counseling Support in Bangladesh using Culturally-grounded Knowledge
   authors: Hasan et al.
-  venue: CLP
+  venue: CLPsych
   year: 2026
   link: https://aclanthology.org/2026.clpsych-1.13/
   task: sentiment
@@ -97,7 +97,7 @@
   link: http://arxiv.org/abs/2602.12921
   task: sentiment
 - id: kawser-etal-2025-hybrid
-  title: A Hybrid Transformer--Sequential Model for Depression Detection in Bangla--English Code-Mixed Text
+  title: A Hybrid Transformer–Sequential Model for Depression Detection in Bangla–English Code-Mixed Text
   authors: Kawser et al.
   venue: BLP @ IJCNLP-AACL
   year: 2025
@@ -252,7 +252,7 @@
   task: sentiment
 - id: arxiv-2510-01276
   title: LLM Based Sentiment Classification From Bangladesh E-Commerce Reviews
-  authors: Tabassum et al.
+  authors: Tabassum
   venue: arXiv
   year: 2025
   link: http://arxiv.org/abs/2510.01276
@@ -316,7 +316,7 @@
 - id: lora-etal-2024-ben-sarc-self-annotated-corpus
   title: "Ben-Sarc: A self-annotated corpus for sarcasm detection from Bengali social media comments and its baseline evaluation"
   authors: Lora et al.
-  venue: Natural language processing.
+  venue: Natural Language Processing
   year: 2024
   link: https://doi.org/10.1017/nlp.2024.11
   task: sentiment
@@ -344,7 +344,7 @@
 - id: raihan-etal-2024-emomix
   title: "EmoMix-3L: A Code-Mixed Dataset for Bangla-English-Hindi for Emotion Detection"
   authors: Raihan et al.
-  venue: Workshop on Indian Language Data
+  venue: WILDRE
   year: 2024
   link: https://aclanthology.org/2024.wildre-1.2/
   task: sentiment
@@ -419,7 +419,7 @@
   link: https://doi.org/10.1371/journal.pone.0308050
   task: sentiment
 - id: mia-etal-2024-verse-emotion-bengali-music-lyricsusing
-  title: Verse-Based Emotion Analysis of Bengali Music from LyricsUsing Machine Learning and Neural Network Classifiers
+  title: Verse-Based Emotion Analysis of Bengali Music from Lyrics Using Machine Learning and Neural Network Classifiers
   authors: Mia et al.
   venue: International Journal of Computing and Digital Systems
   year: 2024
@@ -673,7 +673,7 @@
 - id: islam-etal-2022-emonoba
   title: "EmoNoBa: A Dataset for Analyzing Fine-Grained Emotions on Noisy Bangla Texts"
   authors: Islam et al.
-  venue: IJCNLP
+  venue: AACL
   year: 2022
   link: https://aclanthology.org/2022.aacl-short.17/
   task: sentiment
@@ -694,7 +694,7 @@
 - id: hassan-etal-2022-sentiment-bangla-conversation-machine-learning
   title: Sentiment analysis on Bangla conversation using machine learning approach
   authors: Hassan et al.
-  venue: International Journal of Power Electronics and Drive Systems/International Journal of Electrical and Computer Engineering
+  venue: International Journal of Electrical and Computer Engineering
   year: 2022
   link: https://doi.org/10.11591/ijece.v12i5.pp5562-5572
   task: sentiment
@@ -772,7 +772,7 @@
 - id: jamatia-etal-2020-deep-learning-sentiment-code-mixed
   title: Deep Learning Based Sentiment Analysis in a Code-Mixed English-Hindi and English-Bengali Social Media Corpus
   authors: Jamatia et al.
-  venue: International Journal of Artificial Intelligence Tools
+  venue: International Journal on Artificial Intelligence Tools
   year: 2020
   link: https://doi.org/10.1142/s0218213020500141
   task: sentiment
@@ -834,23 +834,23 @@
   link: https://www.scielo.org.mx/pdf/poli/n45/n45a7.pdf
   task: sentiment
 - id: das-bandyopadhyay-2010-discerning
-  title: Discerning Emotions of Bloggers based on Topics -- a Supervised Coreference Approach in Bengali
+  title: Discerning Emotions of Bloggers based on Topics – a Supervised Coreference Approach in Bengali
   authors: Das et al.
   venue: ROCLING
   year: 2010
   link: https://aclanthology.org/O10-2008/
   task: sentiment
 - id: das-bandyopadhyay-2010-finding
-  title: Finding Emotion Holder from Bengali Blog Texts---An Unsupervised Syntactic Approach
+  title: Finding Emotion Holder from Bengali Blog Texts—An Unsupervised Syntactic Approach
   authors: Das et al.
   venue: PACLIC
   year: 2010
   link: https://aclanthology.org/Y10-1071/
   task: sentiment
 - id: das-bandyopadhyay-2010-labeling
-  title: Labeling Emotion in Bengali Blog Corpus -- A Fine Grained Tagging at Sentence Level
+  title: Labeling Emotion in Bengali Blog Corpus – A Fine Grained Tagging at Sentence Level
   authors: Das et al.
-  venue: Eighth Workshop on Asian Language Resouces
+  venue: ALR
   year: 2010
   link: https://aclanthology.org/W10-3207/
   task: sentiment

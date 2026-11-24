@@ -47,11 +47,9 @@ Computational Linguistics: green
 ConTeNTS: gray
 EACL: blue
 EAMT: gray
-Eighth Workshop on Asian Language Resouces: gray
 Fifth Workshop on Computational Approaches to Linguistic Code-Switching: gray
 First International Workshop on Free/Open-Source Rule-Based Machine Translation: gray
 First Workshop in South East Asian Language Processing: gray
-First Workshop on Challenges in Processing South Asian Languages: gray
 First Workshop on Cross-Cultural Considerations in NLP: gray
 First Workshop on Multimodal Machine Translation for Low Resource Languages: gray
 GeBNLP: gray
@@ -80,13 +78,13 @@ WSSANLP: gray
 "Workshop on Benchmarks, Harmonization, Annotation, and Standardization for Human-Centric AI in Indian Languages": gray
 Workshop on Biomedical Language Processing: gray
 Workshop on Computational Approaches to Subjectivity: gray
-Workshop on Indian Language Data: gray
+WILDRE: gray
 Workshop on Language Models for Underserved Communities: gray
 Workshop on Mathematical Natural Language Processing: gray
 Workshop on Multimodal Models for Low-Resource Contexts and Social Impact: gray
 Workshop on Speech and Multimodal Interaction in Assistive Environments: gray
 Workshop on example-based machine translation: gray
-CLP: gray
+CLPsych: gray
 
 # --- discover/promote sweep (2026-08-10): workshops render gray ---
 CHiPSAL: gray
@@ -98,7 +96,6 @@ ACM Transactions on Asian and Low-Resource Language Information Processing: gray
 Annals of Emerging Technologies in Computing: gray
 Big Data and Cognitive Computing: gray
 Bulletin of Electrical Engineering and Informatics: gray
-Computers and the Humanities: gray
 Computing and Informatics: gray
 Discover Applied Sciences: gray
 Discover Computing: gray
@@ -195,7 +192,7 @@ Applied Soft Computing: gray
 International Journal of Cognitive Computing in Engineering: gray
 Journal of Information System and Technology Management: gray
 International Journal of Research in Business and Social Science (2147-4478): gray
-Natural language processing.: gray
+Natural Language Processing: gray
 "Business & IT": gray
 Malaysian Journal of Science and Advanced Technology: gray
 "Computer Modeling in Engineering & Sciences": gray
@@ -207,17 +204,17 @@ Journal of Information Technology Research: gray
 Journal of Discrete Mathematical Sciences and Cryptography: gray
 JMIR Formative Research: gray
 BOHR International Journal of Computer Science: gray
-International Journal of Power Electronics and Drive Systems/International Journal of Electrical and Computer Engineering: gray
+International Journal of Electrical and Computer Engineering: gray
 Natural Language Processing Research: gray
 PeerJ Computer Science: gray
 "AI & Society": gray
-International Journal of Artificial Intelligence Tools: gray
+International Journal on Artificial Intelligence Tools: gray
 Journal of Emerging Technologies and Innovative Research: gray
 
 # --- speech bucket (2026-07-21): journals render gray ---
 Dhaka University Journal of Science: gray
-IEEE data descriptions.: gray
-Mathematical Modelling and Engineering Problems: gray
+IEEE Data Descriptions: gray
+Mathematical Modelling of Engineering Problems: gray
 TESOL Bangladesh journal: gray
 Journal of King Saud University - Computer and Information Sciences: gray
 Journal of Ambient Intelligence and Humanized Computing: gray
@@ -225,7 +222,7 @@ Expert Systems: gray
 Applied Sciences: gray
 Artificial Intelligence Review: gray
 Speech Communication: gray
-Nippon Onkyo Gakkaishi/Acoustical science and technology/Nihon Onkyo Gakkaishi: gray
+Acoustical Science and Technology: gray
 Turkish Online Journal of Qualitative Inquiry: gray
 The Journal of Engineering: gray
 International Journal of Image Graphics and Signal Processing: gray
@@ -246,7 +243,7 @@ Journal of The Institution of Engineers (India) Series B: gray
 Research in computing science: gray
 
 # --- mt bucket (2026-07-21): journals render gray ---
-Cureus Journal of Computer Science.: gray
+Cureus Journal of Computer Science: gray
 IJARCCE: gray
 IOSR Journal of Computer Engineering: gray
 Computer Science Journal of Moldova: gray
@@ -272,14 +269,14 @@ International Journal of Mathematical Sciences and Computing: gray
 # dialogue, speech translation). Journals and non-ACL conferences render gray,
 # the honest default: this NLP-family palette has no tier for them. ---
 Computer Speech & Language: gray
-Computers, materials & continua/Computers, materials & continua (Print): gray
+"Computers, Materials & Continua": gray
 Discover Artificial Intelligence: gray
 IALP: gray
 ICECCME: gray
 IET Image Processing: gray
 International Journal on Document Analysis and Recognition (IJDAR): gray
 Journal of Quantitative Linguistics: gray
-Lecture notes in computer science: gray
+CICLing: gray
 Lecture notes in networks and systems: gray
 MM-NLG: gray
 Neural Computing and Applications: gray
@@ -290,3 +287,12 @@ Research in Computing Science: gray
 # Published workshop records verified against ACL Anthology (2026-11-04).
 SALMA: gray
 GroundLM: gray
+
+# Workshops and special interest group meetings that were labelled as their host
+# conference. Labels follow the ACL Anthology volume (2026-11-24).
+BUCC: gray
+SIGMORPHON: gray
+Third ACL-SIGSEM Workshop on Prepositions: gray
+IJCNLP-08 Workshop on NLP for Less Privileged Languages: gray
+IJCNLP-08 Workshop on Named Entity Recognition for South and South East Asian Languages: gray
+Workshop on Machine Translation and Parsing in Indian Languages: gray

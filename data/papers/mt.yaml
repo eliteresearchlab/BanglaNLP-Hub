@@ -22,7 +22,7 @@
 - id: seal-etal-2026-computation-machine-translation-errors-through
   title: Computation of Machine Translation Errors Through Implicit Consideration of Word Sense Disambiguation in Bengali Text
   authors: Seal et al.
-  venue: Cureus Journal of Computer Science.
+  venue: Cureus Journal of Computer Science
   year: 2026
   link: https://doi.org/10.7759/s44389-025-00026-2
   task: mt
@@ -111,7 +111,7 @@
   link: http://arxiv.org/abs/2508.10687
   task: mt
 - id: shahrier-etal-2025-cuet
-  title: "CUET\\_Expelliarmus at BLP2025 Task 2: Leveraging Instruction Translation and Refinement for Bangla-to-Python Code Generation with Open-Source LLMs"
+  title: "CUET_Expelliarmus at BLP2025 Task 2: Leveraging Instruction Translation and Refinement for Bangla-to-Python Code Generation with Open-Source LLMs"
   authors: Shahrier et al.
   venue: BLP @ IJCNLP-AACL
   year: 2025
@@ -126,13 +126,13 @@
   task: mt
 - id: arxiv-2511-08601
   title: "Evaluating DisCoCirc in Translation Tasks &amp; its Limitations: A Comparative Study Between Bengali &amp; English"
-  authors: Moon et al.
+  authors: Moon
   venue: arXiv
   year: 2025
   link: http://arxiv.org/abs/2511.08601
   task: mt
 - id: mahjabin-etal-2025-human
-  title: "Human--LLM Benchmarks for Bangla Dialect Translation: Sylheti and Chittagonian on the BanglaCHQ-Summ Corpus"
+  title: "Human–LLM Benchmarks for Bangla Dialect Translation: Sylheti and Chittagonian on the BanglaCHQ-Summ Corpus"
   authors: Mahjabin et al.
   venue: BLP @ IJCNLP-AACL
   year: 2025
@@ -183,7 +183,7 @@
 - id: saha-etal-2024-bnpc
   title: "BnPC: A Gold Standard Corpus for Paraphrase Detection in Bangla, and its Evaluation"
   authors: Saha et al.
-  venue: LREC-COLING
+  venue: BUCC
   year: 2024
   link: https://aclanthology.org/2024.bucc-1.8/
   task: mt
@@ -465,7 +465,7 @@
 - id: naskar-bandyopadhyay-2006-handling
   title: Handling of Prepositions in English to Bengali Machine Translation
   authors: Naskar et al.
-  venue: ACL
+  venue: Third ACL-SIGSEM Workshop on Prepositions
   year: 2006
   link: https://aclanthology.org/W06-2113/
   task: mt

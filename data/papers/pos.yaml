@@ -1,5 +1,5 @@
 - id: arxiv-2508-15711
-  title: Stemming -- The Evolution and Current State with a Focus on Bangla
+  title: Stemming – The Evolution and Current State with a Focus on Bangla
   authors: Paul et al.
   venue: arXiv
   year: 2025
@@ -22,7 +22,7 @@
 - id: majumdar-etal-2022-bengali
   title: Bengali and Magahi PUD Treebank and Parser
   authors: Majumdar et al.
-  venue: LREC
+  venue: WILDRE
   year: 2022
   link: https://aclanthology.org/2022.wildre-1.11/
   task: pos
@@ -141,7 +141,7 @@
 - id: das-etal-2012-evaluation
   title: Evaluation of Two Bengali Dependency Parsers
   authors: Das et al.
-  venue: WMT
+  venue: Workshop on Machine Translation and Parsing in Indian Languages
   year: 2012
   link: https://aclanthology.org/W12-5613/
   task: pos
@@ -174,7 +174,7 @@
   link: https://aclanthology.org/W10-3710/
   task: pos
 - id: dandapat-etal-2009-complex
-  title: Complex Linguistic Annotation -- No Easy Way Out! A Case from Bangla and Hindi POS Labeling Tasks
+  title: Complex Linguistic Annotation – No Easy Way Out! A Case from Bangla and Hindi POS Labeling Tasks
   authors: Dandapat et al.
   venue: LAW
   year: 2009
@@ -190,19 +190,19 @@
 - id: sarkar-bandyopadhyay-2008-design
   title: Design of a Rule-based Stemmer for Natural Language Text in Bengali
   authors: Sarkar et al.
-  venue: IJCNLP
+  venue: IJCNLP-08 Workshop on NLP for Less Privileged Languages
   year: 2008
   link: https://aclanthology.org/I08-3012/
   task: pos
 - id: choudhury-etal-2007-evolution
   title: "Evolution, Optimization, and Language Change: The Case of Bengali Verb Inflections"
   authors: Choudhury et al.
-  venue: ACL
+  venue: SIGMORPHON
   year: 2007
   link: https://aclanthology.org/W07-1309/
   task: pos
 - id: sengupta-chaudhuri-1997-delayed
-  title: A Delayed Syntactic-Encoding-based LFG parsing strategy for an Indian Language -- Bangla
+  title: A Delayed Syntactic-Encoding-based LFG parsing strategy for an Indian Language – Bangla
   authors: Sengupta et al.
   venue: Computational Linguistics
   year: 1997
@@ -288,12 +288,12 @@
 - id: dasgupta-etal-2007-bengali-unsupervised-morphological-parsing
   title: "Unsupervised morphological parsing of Bengali"
   authors: Dasgupta et al.
-  venue: Computers and the Humanities
+  venue: Language Resources and Evaluation
   year: 2007
   link: https://doi.org/10.1007/s10579-007-9031-y
   task: pos
 - id: saha-2006-parsing-bengali-text
-  title: "Parsing Bengali text"
+  title: "Parsing Bengali text: an intelligent approach"
   authors: Saha
   venue: Ubiquity
   year: 2006

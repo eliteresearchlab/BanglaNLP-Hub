@@ -3,6 +3,21 @@
 Known gaps, deliberately left empty rather than filled with invented values.
 Contributions welcome — see CONTRIBUTING.md.
 
+## Paper record audit (2026-11-24)
+
+Compared 792 of the 821 papers with their own source record: the ACL Anthology bib,
+the arXiv API, or Crossref by DOI. The other 29 link to hosts without such a record
+(PMC, publisher pages, PDFs) and were not checked.
+
+- **Withdrawn or retracted.** arXiv 1607.05755 was [withdrawn by its author](https://arxiv.org/abs/1607.05755).
+  The ICCCNT 2024 version of arXiv 2501.18766 was [retracted by the publisher](https://doi.org/10.1109/icccnt61001.2024.11422704)
+  on 2026-03-05. Both entries stay with a note, so a later sweep does not file them
+  again without one.
+- **Years left alone.** For 17 journal papers Crossref's year is one later than ours,
+  or two in one case. They look like online-first dates, which Crossref does not
+  record for these papers. Settle them per publisher page before changing any.
+- **`deephateexplainer`** keeps `IEEE DSAA` 2021 while its link is the 2020 preprint.
+
 ## Dataset release provenance (2026-10-23)
 
 | id | release evidence and caveat |
@@ -152,9 +167,8 @@ translations, not sourced terms. Same caveat as `vqa` carried in August.
 
 **Venue labels.** 15 new venues were added to `data/venues.yaml`, all gray. Two
 IEEE conference labels (`ICECCME`, `IALP`) come from the Crossref `event` name.
-OpenAlex series names are kept verbatim where that is what the record says, so two
-coreference papers read `Lecture notes in computer science` rather than `CICLing`.
-Correcting those to the conference is a good first contribution.
+The two coreference papers that carried the OpenAlex series name now read `CICLing`,
+the volume Crossref records for both chapters.
 
 ## VQA task added (2026-08-10)
 

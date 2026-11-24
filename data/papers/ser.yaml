@@ -1,6 +1,6 @@
 - id: abrar-etal-2026-emotion-recognition-bangla-dialect-speech
   title: "Emotion recognition from Bangla dialect speech using privacy-aware deep learning models: a comparative analysis"
-  authors: Abrar et al.
+  authors: Abrar Khan et al.
   venue: International Journal of Speech Technology
   year: 2026
   link: https://doi.org/10.1007/s10772-026-10261-0
@@ -50,7 +50,7 @@
 - id: sultana-etal-2023-acoustic-feature-analysis-bangla-speech-emotion
   title: Acoustic feature analysis and optimization for Bangla speech emotion recognition
   authors: Sultana et al.
-  venue: Nippon Onkyo Gakkaishi/Acoustical science and technology/Nihon Onkyo Gakkaishi
+  venue: Acoustical Science and Technology
   year: 2023
   link: https://doi.org/10.1250/ast.44.157
   task: ser

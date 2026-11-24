@@ -83,7 +83,7 @@
   link: https://aclanthology.org/2022.semeval-1.196/
   task: ner
 - id: singh-etal-2022-silpa
-  title: "silpa\\_nlp at SemEval-2022 Tasks 11: Transformer based NER models for Hindi and Bangla languages"
+  title: "silpa_nlp at SemEval-2022 Tasks 11: Transformer based NER models for Hindi and Bangla languages"
   authors: Singh et al.
   venue: SemEval
   year: 2022
@@ -106,14 +106,14 @@
 - id: chaudhuri-bhattacharya-2008-experiment
   title: An Experiment on Automatic Detection of Named Entities in Bangla
   authors: Chaudhuri et al.
-  venue: IJCNLP
+  venue: IJCNLP-08 Workshop on Named Entity Recognition for South and South East Asian Languages
   year: 2008
   link: https://aclanthology.org/I08-5011/
   task: ner
 - id: ekbal-bandyopadhyay-2008-bengali
   title: Bengali Named Entity Recognition Using Support Vector Machine
   authors: Ekbal et al.
-  venue: IJCNLP
+  venue: IJCNLP-08 Workshop on Named Entity Recognition for South and South East Asian Languages
   year: 2008
   link: https://aclanthology.org/I08-5008/
   task: ner
@@ -232,7 +232,7 @@
 - id: ekbal-etal-2008-web-bengali-news-corpus-ner
   title: "A web-based Bengali news corpus for named entity recognition"
   authors: Ekbal et al.
-  venue: Computers and the Humanities
+  venue: Language Resources and Evaluation
   year: 2008
   link: https://doi.org/10.1007/s10579-008-9064-x
   task: ner

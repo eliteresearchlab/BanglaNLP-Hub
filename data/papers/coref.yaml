@@ -15,14 +15,14 @@
 - id: sikdar-etal-2015-feature-selection-anaphora-resolution-bengali-multiobjective
   title: "Feature Selection in Anaphora Resolution for Bengali: A Multiobjective Approach"
   authors: Sikdar et al.
-  venue: Lecture notes in computer science
+  venue: CICLing
   year: 2015
   link: https://doi.org/10.1007/978-3-319-18111-0_20
   task: coref
 - id: senapati-etal-2014-maximum-entropy-honorificity-identification-bengali-pronominal
   title: A Maximum Entropy Based Honorificity Identification for Bengali Pronominal Anaphora Resolution
   authors: Senapati et al.
-  venue: Lecture notes in computer science
+  venue: CICLing
   year: 2014
   link: https://doi.org/10.1007/978-3-642-54906-9_26
   task: coref
