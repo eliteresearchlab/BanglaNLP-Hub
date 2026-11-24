@@ -12,9 +12,10 @@ cannot source.**
 
 - No invented scores, citation counts, star counts, or BibTeX. If a field is
   unknown, omit it — the UI already hides the affected element.
-- Of the 11 leaderboards, 9 intentionally have `rows: []`; B-REASO (`llm.yaml`)
-  and BanglaRQA (`qa.yaml`) are populated from cited sources. Do not populate the empty ones
-  with plausible numbers. Rows require a citation to the paper the score came from.
+- Of the 11 leaderboards, 7 intentionally have `rows: []`; B-REASO (`llm.yaml`),
+  BanglaRQA (`qa.yaml`), BD-SHS (`hate.yaml`) and BanFakeNews (`textcls.yaml`) are
+  populated from cited sources. Do not populate the empty ones with plausible numbers.
+  Rows require a citation to the paper the score came from.
 - Do not "fix" a broken entry by guessing a replacement URL. Verify it first.
 
 ### This data has a fabrication history

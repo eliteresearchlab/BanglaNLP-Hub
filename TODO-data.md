@@ -369,17 +369,15 @@ as macro or weighted F1, or derive corrected F1 from the paper's recall column.
 Each has a real dataset and metric but zero score rows, and renders an empty state
 until rows are added with a citation to the paper the score comes from.
 
-| Task | Benchmark |
-| --- | --- |
-| `hate` | BD-SHS |
-| `llm` | BEnQA (bn) |
-| `mt` | FLORES-200 bn→en |
-| `ner` | B-NER |
-| `pos` | UD Bengali-BRU |
-| `sentiment` | SentNoB |
-| `sentiment` | BEmoC |
-| `summ` | XL-Sum (bn) |
-| `textcls` | BanFakeNews |
+| Task | Benchmark | What blocks it (checked 2026-11-24) |
+| --- | --- | --- |
+| `llm` | BEnQA (bn) | [Table 8](https://aclanthology.org/2024.findings-acl.68.pdf#page=17) reports accuracy for each of 15 subjects and no overall score. An average of ours would not be a published number. |
+| `mt` | FLORES-200 bn→en | Not searched in this pass. |
+| `ner` | B-NER | The paper is closed. Its abstract gives one rounded score, 86% macro F1 for fine-tuned IndicBERT. |
+| `pos` | UD Bengali-BRU | Not searched in this pass. |
+| `sentiment` | SentNoB | See the evaluation audit above. |
+| `sentiment` | BEmoC | The paper is closed and the repository README states no score. |
+| `summ` | XL-Sum (bn) | [BanglaNLG Table 2](https://aclanthology.org/2023.findings-eacl.54.pdf#page=4) has six ROUGE-2 scores on the listed split, BanglaT5 first at 13.7, but that paper is filed under `mt` and rows must cite a paper of their own task. The [XL-Sum paper](https://aclanthology.org/2021.findings-acl.413.pdf#page=7) scores an earlier release of 8,226 samples. |
 
 ## Citation curation (2026-09-08)
 
