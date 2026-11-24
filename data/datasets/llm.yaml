@@ -3,11 +3,11 @@
   task: llm
   size: 5,161 questions
   sizeN: 5161
-  license: CC BY-NC-SA 4.0
+  license: CC BY-SA 4.0
   year: 2024
   source: BEnQA (2024)
   link: https://github.com/sheikhshafayat/BEnQA
-  verified: 2026-07-19
+  verified: 2026-11-24
   desc: Parallel Bangla–English science exam questions for LLM evaluation.
   bibtex: |-
     @inproceedings{shafayat-etal-2024-benqa,

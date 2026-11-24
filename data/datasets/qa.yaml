@@ -7,8 +7,8 @@
   year: 2021
   source: BanglaBERT benchmarks
   link: https://huggingface.co/datasets/csebuetnlp/squad_bn
-  verified: 2026-07-19
-  desc: Machine-translated + human-curated SQuAD 2.0 for Bangla.
+  verified: 2026-11-24
+  desc: SQuAD 2.0 machine translated and filtered for training, with Bengali TyDi QA questions for validation and test.
   bibtex: |-
     @inproceedings{bhattacharjee-etal-2022-banglabert,
         title = "{B}angla{BERT}: Language Model Pretraining and Benchmarks for Low-Resource Language Understanding Evaluation in {B}angla",
@@ -37,11 +37,11 @@
   task: qa
   size: 14,889 QA pairs
   sizeN: 14889
-  license: CC BY-NC 4.0
+  license: CC BY-NC-SA 4.0
   year: 2022
   source: BanglaRQA (Findings EMNLP 2022)
   link: https://github.com/sartajekram419/BanglaRQA
-  verified: 2026-06-15
+  verified: 2026-11-24
   desc: Human-annotated reading comprehension with answerable/unanswerable questions.
   bibtex: |-
     @inproceedings{ekram-etal-2022-banglarqa,

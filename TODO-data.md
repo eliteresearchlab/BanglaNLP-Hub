@@ -65,6 +65,33 @@ lists `unknown`; the displayed license is attributed to the original release,
 not to that card. These labels record source statements without deciding their
 legal effect or granting permission for every item of content.
 
+## Dataset license and size audit (2026-11-24)
+
+The [Kaggle dataset API](https://www.kaggle.com/api/v1/datasets/view/mdzahidulhaquealvi/b-ner)
+and the [Mendeley API](https://data.mendeley.com/public-api/datasets/v362rp78dc?version=2)
+answer without credentials, so several entries listed as not checkable now are. When two
+author sources disagree, the field names both, as `bnsentmix` already does.
+
+| id | was | now | source |
+| --- | --- | --- | --- |
+| `banglanmt` | Research only | CC BY-NC-SA 4.0 | [pinned README](https://github.com/csebuetnlp/banglanmt/blob/361801040950e5a50ddf51d4c02d36269fe5dd91/README.md#license), [HF card](https://huggingface.co/datasets/csebuetnlp/BanglaNMT/blob/bb866b91ea96935b3f2ba1746fd62d0c136015e8/README.md) |
+| `banglarqa` | CC BY-NC 4.0 | CC BY-NC-SA 4.0 | [pinned README](https://github.com/sartajekram419/BanglaRQA/blob/b7ccfb2bc02c02e8fa8532a8f5ca2f8a9cfbd42b/README.md#license), [HF card](https://huggingface.co/datasets/sartajekram/BanglaRQA/blob/f55f490265170e69073ae2d62c9c79ff405be6e6/README.md) |
+| `benqa` | CC BY-NC-SA 4.0 | CC BY-SA 4.0 | [paper, PDF page 9](https://aclanthology.org/2024.findings-acl.68.pdf#page=9): dataset CC BY-SA 4.0, code MIT |
+| `bner` | MIT | CC BY-NC-SA 4.0 (Kaggle); CC BY 4.0 (repository README) | [Kaggle API](https://www.kaggle.com/api/v1/datasets/view/mdzahidulhaquealvi/b-ner), [pinned README](https://github.com/alvi75/B-NER/blob/7668a814271c4f844fec2e902f65f0cbfb34d478/README.md). Nothing found supports MIT. |
+| `bansdata` | Research only | CC0 | [Kaggle API](https://www.kaggle.com/api/v1/datasets/view/prithwirajsust/bengali-news-summarization-dataset) |
+| `banfakenews` | CC BY-NC 4.0 | CC0 | [Kaggle API](https://www.kaggle.com/api/v1/datasets/view/cryptexcode/banfakenews) for the release the [author README](https://github.com/Rowan1224/FakeNews/blob/e310b6832dbb7857e8c81a7a45fbc5b2af862d0b/README.md) links. CC BY-NC is the LREC paper's license. |
+| `samanantar` | CC0, 8.6M pairs | CC0 (packaging, project page); CC BY-NC 4.0 (HF card), 8,604,580 pairs | [project page](https://indicnlp.ai4bharat.org/samanantar/), [HF card](https://huggingface.co/datasets/ai4bharat/samanantar/blob/ead34c5b22a0354d350e7dfdd6aece7df5a48f37/README.md) `bn` config |
+| `multiconer` | CC BY 4.0, 15,300 sentences | CC BY 4.0 (AWS registry); CC BY-SA 4.0 (paper), 149,219 sentences | [registry](https://registry.opendata.aws/multiconer/), [dataset paper](https://aclanthology.org/2022.coling-1.334.pdf#page=4), [task paper Table 2](https://aclanthology.org/2022.semeval-1.196.pdf#page=3). The old value was the train split alone. |
+| `potrika` | 665k articles, 2022 | 664,880 articles, 2021 | Mendeley v2, issued 2021-10-20. CC BY 4.0 confirmed. |
+| `vashantor` | 2023 | 2024 | Mendeley v1 is dated 2024-01-12 and v2 2024-01-15. CC BY 4.0 confirmed. |
+| `squadbn` | description | description | [HF card](https://huggingface.co/datasets/csebuetnlp/squad_bn/blob/1dcbca66e65528e8d0bfb69eb32230d693a80630/README.md#dataset-creation): the test and validation sets are TyDi QA, not curated SQuAD |
+| `banglaser` | description | description | [Mendeley v5](https://data.mendeley.com/datasets/t9h6p943xy/5) describes nonprofessional actors, so not "realistic" |
+
+Confirmed without a change: `bansdata` 19,096 pairs, `bner` 22,144 sentences, `tbolid`
+5,000 comments (4,000 train and 1,000 test records), `absa` 5,038 rows (2,979 cricket and
+2,059 restaurant, headers excluded), `oodspeech` 1,177.94 training hours, the `udbru` and
+`openslr53` CC BY-SA 4.0 licenses, and Apache 2.0 for `banfakenews2`.
+
 ## Bengali-Loop ASR corpus filed (2026-08-10)
 
 From issue #86. Every field is sourced from the Bengali-Loop paper
@@ -166,11 +193,9 @@ Outstanding:
 
 - **BanglaProtha dataset not filed.** The Kaggle release
   (`kaggle.com/datasets/sourove/bangla-culturally-relevant-vqa`) resolves, but its
-  `license` and `size` could not be read without Kaggle credentials — the page is
-  JS-rendered and the only `License-Identifier` strings in its HTML belong to bundled
-  JS libraries, not the dataset. Both fields are schema-required, so the dataset is
-  deliberately absent rather than guessed. Needs a human with a Kaggle account, or
-  the figures from the paper.
+  license field is `Unknown` in the [Kaggle API](https://www.kaggle.com/api/v1/datasets/view/sourove/bangla-culturally-relevant-vqa)
+  (version 5, checked 2026-11-24) and its description is empty. `license` is
+  schema-required, so the dataset stays out until the authors declare one.
 - **Scope.** Admitting vision-language work invites image captioning, OCR-VQA, and
   document VQA. Whether those belong is still open.
 
@@ -431,11 +456,11 @@ These discrepancies surfaced during citation matching. The remaining discrepanci
 need a separate metadata and release review.
 
 - `bnmmlu`: the [ACL 2026 paper](https://aclanthology.org/2026.findings-acl.593/) and [pinned author README](https://github.com/samanjoy2/bnmmlu/blob/0030d622ea1fcb462f9aa17b410d533c48667120/README.md) report 41 domains and 134,375 question option pairs. The paper record now describes the published version. The dataset release year remains 2025.
-- `vashantor`: the [paper](https://arxiv.org/abs/2311.11142) and [Mendeley v2](https://data.mendeley.com/datasets/bj5jgk878b/2) describe Bangla, Banglish, and English forms. The 32,500 total is sentences, not distinct parallel pairs. Resolve the 2023 catalog year, January 2024 v2 release, and 2025 revised citation separately.
+- `vashantor`: the [paper](https://arxiv.org/abs/2311.11142) and [Mendeley v2](https://data.mendeley.com/datasets/bj5jgk878b/2) describe Bangla, Banglish, and English forms. The 32,500 total is sentences, not distinct parallel pairs. Resolve the 2023 catalog year, January 2024 v2 release, and 2025 revised citation separately. Year resolved on 2026-11-24, see the license audit of that date.
 - `somadhan`: [paper v2](https://arxiv.org/html/2505.21354v2) section 4.3 describes 4,000 annotated samples and a planned v2. [Mendeley v2](https://data.mendeley.com/datasets/34bs5cxk9j/2), released August 5, 2025, describes 8,792 problems. Do not use the paper's experimental sample to validate the later release size.
 - `bnsentmix`: the [pinned CSV](https://huggingface.co/datasets/aplycaebous/BnSentMix/resolve/0e6d8a275ce4a54c428dff018577342e7d741a3d/dataset.csv) contains 20,015 labeled records and 19,809 distinct sentences. The [HF card](https://huggingface.co/datasets/aplycaebous/BnSentMix/blob/0e6d8a275ce4a54c428dff018577342e7d741a3d/README.md) reports 20,000 samples and 21,873 unique sentences, which do not match that file. The card declares MIT, the [repository license](https://github.com/Nishita2000/BnSentMix/blob/588f7222230bcd74916b3ed6355e7156cdfc92d9/LICENSE) declares Apache-2.0, and the [paper](https://aclanthology.org/2025.loreslm-1.4.pdf) states CC BY 4.0 on page 74. The entry uses the CSV record count and attributes all three license statements. The license conflict and the cause of the count differences remain unresolved.
 - `ancholikner`: the [arXiv record](https://arxiv.org/abs/2502.11198) links a February 2026 [PLOS publication](https://doi.org/10.1371/journal.pone.0342786), while [Mendeley v4](https://data.mendeley.com/datasets/gbkszkt8z3/4) was released April 8, 2026. The catalog retains 2025; the paper citation does not establish v4 metadata.
-- `potrika`: the [paper](https://arxiv.org/abs/2210.09389) and [Mendeley v2](https://data.mendeley.com/datasets/v362rp78dc/2) distinguish 664,880 raw articles from 320,000 balanced articles. Catalog `sizeN: 665000` is rounded. Mendeley v2 is dated 2021, while the paper and catalog say 2022.
+- `potrika`: the [paper](https://arxiv.org/abs/2210.09389) and [Mendeley v2](https://data.mendeley.com/datasets/v362rp78dc/2) distinguish 664,880 raw articles from 320,000 balanced articles. Catalog `sizeN: 665000` is rounded. Mendeley v2 is dated 2021, while the paper and catalog say 2022. Resolved on 2026-11-24.
 
 The earlier export failures for `banspemo`, `kothon`, and `banglameder` are
 superseded by official registry exports obtained and added on 2026-09-08.
@@ -595,23 +620,12 @@ this pending list; its HF card's `unknown` metadata is documented above.
 | `tbolid` | CC BY 4.0 | repo LICENSE is AGPL-3.0 (may cover code only; README silent) |
 | `megaverse` | Mixed | repo LICENSE is MIT |
 | `bnmmlu` | CC BY-SA 4.0 | LICENSE file text says CC BY-SA 4.0; GitHub reports NOASSERTION — ours is probably right |
-| `benqa` | CC BY-NC-SA 4.0 | repo declares no LICENSE |
-| `banglanmt` | Research only | repo declares no LICENSE |
-| `banglarqa` | CC BY-NC 4.0 | repo declares no LICENSE |
 | `bemoc` | Research only | repo declares no LICENSE |
 | `absa` | Research only | repo declares no LICENSE |
-| `banfakenews` | CC BY-NC 4.0 | repo declares no LICENSE |
 | `bard` | Research only | repo declares no LICENSE |
-| `samanantar` | CC0 | hosted at indicnlp.ai4bharat.org — not machine-checkable |
-| `multiconer` | CC BY 4.0 | hosted at registry.opendata.aws — not machine-checkable |
-| `bner` | MIT | hosted on Kaggle — not machine-checkable |
-| `udbru` | CC BY-SA 4.0 | hosted at universaldependencies.org — not machine-checkable |
 | `snltr` | Research only | hosted at nltr.org — not machine-checkable |
-| `openslr53` | CC BY-SA 4.0 | hosted at openslr.org — not machine-checkable |
 | `commonvoice` | CC0 | hosted at commonvoice.mozilla.org — not machine-checkable |
 | `oodspeech` | CC BY-NC 4.0 | hosted at bengaliai.github.io — not machine-checkable |
-| `bansdata` | Research only | hosted on Kaggle — not machine-checkable |
-| `potrika` | CC BY 4.0 | hosted at doi.org — not machine-checkable |
 
 ## Dataset sizes and years
 
@@ -647,11 +661,9 @@ No source consulted states a figure, so these remain as inherited from the proto
 
 | id | field(s) | why |
 | --- | --- | --- |
-| `absa` | 5,038 comments | not stated in README |
-| `tbolid` | 5,000 comments | README not readable via fetch |
 | `breaso` | 13,497 questions | HF viewer fails to parse the files; card states no count |
-| `bner`, `bansdata` | sizes | hosted on Kaggle — not machine-checkable |
-| `samanantar`, `snltr`, `openslr53`, `commonvoice`, `oodspeech`, `potrika`, `multiconer` | sizes | hosted off-platform — not machine-checkable |
+| `openslr53` | 229 hrs | the page states ~196K utterances and no hours |
+| `snltr`, `commonvoice` | sizes | hosted off-platform — not machine-checkable |
 
 ### Unit inconsistency in `sizeN`
 

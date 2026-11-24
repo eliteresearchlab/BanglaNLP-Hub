@@ -47,8 +47,8 @@
   year: 2022
   source: BanglaSER (Data in Brief 2022)
   link: https://data.mendeley.com/datasets/t9h6p943xy/5
-  verified: 2026-07-26
-  desc: Realistic Bangla emotional speech from 34 speakers, balanced by gender, across 5 emotions.
+  verified: 2026-11-24
+  desc: Acted Bangla emotional speech from 34 nonprofessional speakers, balanced by gender, across 5 emotions.
   bibtex: |-
     @article{Das_2022, title={BanglaSER: A speech emotion recognition dataset for the Bangla language}, volume={42}, ISSN={2352-3409}, url={http://dx.doi.org/10.1016/j.dib.2022.108091}, DOI={10.1016/j.dib.2022.108091}, journal={Data in Brief}, publisher={Elsevier BV}, author={Das, Rakesh Kumar and Islam, Nahidul and Ahmed, Md. Rayhan and Islam, Salekul and Shatabda, Swakkhar and Islam, A.K.M. Muzahidul}, year={2022}, month=June, pages={108091} }
 - id: kbes
