@@ -11,6 +11,7 @@ BLP: gray
 NAACL: blue
 Findings NAACL: blue
 Findings EACL: blue
+Findings IJCNLP: gold
 AACL: gold
 LREC: gold
 LREC-COLING: gold
@@ -63,12 +64,16 @@ LAW: gray
 LDK: gray
 LoResLM: gray
 MIA: gray
+MMLoW: gray
 MT Summit: gray
+MRL: gray
 Ninth Workshop on NLP for Similar Languages: gray
 PACLIC: gray
+NLLP: gray
 QuantumNLP: gray
 RANLP: gray
 ROCLING: gray
+SIGUL: gray
 Second International Workshop on Resources and Techniques for User Information in Abusive Language Analysis: gray
 Second Workshop on Computational Approaches to Code Switching: gray
 "Second Workshop on Trolling, Aggression and Cyberbullying": gray
@@ -76,7 +81,9 @@ Second Workshop on Computational Approaches to Code Switching: gray
 W-NUT: gray
 WAT: gray
 WMT: gray
+WiNLP: gray
 WSSANLP: gray
+WSLP: gray
 "Workshop on Benchmarks, Harmonization, Annotation, and Standardization for Human-Centric AI in Indian Languages": gray
 Workshop on Biomedical Language Processing: gray
 Workshop on Computational Approaches to Subjectivity: gray

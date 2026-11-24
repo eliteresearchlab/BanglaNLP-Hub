@@ -61,12 +61,26 @@
   year: 2026
   link: https://doi.org/10.1109/ojcs.2026.3697802
   task: sentiment
+- id: alim-etal-2026-llms
+  title: Can LLMs Follow the Pulse of a Crisis? Evaluating Crisis Sentiment in Bangladesh's July Uprising
+  authors: Alim et al.
+  venue: AACL
+  year: 2026
+  link: https://aclanthology.org/2026.aacl-long.77/
+  task: sentiment
 - id: hasan-etal-2026-enhancing
   title: Enhancing Mental Health Counseling Support in Bangladesh using Culturally-grounded Knowledge
   authors: Hasan et al.
   venue: CLP
   year: 2026
   link: https://aclanthology.org/2026.clpsych-1.13/
+  task: sentiment
+- id: raihan-etal-2026-one
+  title: "One Head, Three Transcripts: A Controlled Oracle-to-ASR Audit of Bangla Speech–Text Sentiment Analysis"
+  authors: Raihan et al.
+  venue: MMLoW
+  year: 2026
+  link: https://aclanthology.org/2026.mmlow-main.4/
   task: sentiment
 - id: khandokar-etal-2026-ssabe-tscm-drift-aware-interpretable
   title: "SSABE-TSCM: drift-aware and interpretable financial sentiment analysis for low-resource Bangla via adaptive semi-supervised and temporal contrastive modeling"

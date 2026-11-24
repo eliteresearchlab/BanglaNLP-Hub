@@ -40,6 +40,13 @@
   year: 2024
   link: http://arxiv.org/abs/2406.00039
   task: gec
+- id: oshin-etal-2023-bateclacor
+  title: "BaTEClaCor: A Novel Dataset for Bangla Text Error Classification and Correction"
+  authors: Oshin et al.
+  venue: BLP @ EMNLP
+  year: 2023
+  link: https://aclanthology.org/2023.banglalp-1.14/
+  task: gec
 - id: rahman-etal-2023-bspell
   title: "BSpell: A CNN-Blended BERT Based Bangla Spell Checker"
   authors: Rahman et al.

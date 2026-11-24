@@ -47,6 +47,13 @@
   year: 2026
   link: http://arxiv.org/abs/2601.12132
   task: textcls
+- id: al-shafi-etal-2026-bist
+  title: "BiST: A Gold Standard Bangla-English Bilingual Corpus for Sentence Structure and Tense Classification with Inter-Annotator Agreement"
+  authors: Al Shafi et al.
+  venue: SIGUL
+  year: 2026
+  link: https://aclanthology.org/2026.sigul-1.15/
+  task: textcls
 - id: tanjim-etal-2026-bangla-fake-news-linguistic-psychological
   title: Detecting Fake News in Bangla Using Linguistic and Psychological Features
   authors: Tanjim et al.
@@ -74,6 +81,20 @@
   venue: arXiv
   year: 2026
   link: http://arxiv.org/abs/2605.17481
+  task: textcls
+- id: manoshi-etal-2026-marker
+  title: "Marker Signal Void: Linguistic Deception Fingerprinting and Transformer Benchmarking on a Domain-Stratified Bangla Rumour Corpus"
+  authors: Manoshi et al.
+  venue: WiNLP
+  year: 2026
+  link: https://aclanthology.org/2026.winlp-main.8/
+  task: textcls
+- id: saha-saha-2026-transformer
+  title: "transformer_1376 at SemEval-2026 Task 9: A Multi-Stage Pipeline with Calibrated Ensembles and Lexical Post-Processing for Online Polarization Detection in Bengali"
+  authors: Saha et al.
+  venue: SemEval
+  year: 2026
+  link: https://aclanthology.org/2026.semeval-1.262/
   task: textcls
 - id: jakaria-etal-2025-bangla-document-categorization-ml
   title: A Comparative Study on different Machine Learning Approaches for Categorizing Bangla Documents
@@ -523,6 +544,13 @@
   venue: ICON
   year: 2015
   link: https://aclanthology.org/W15-5915/
+  task: textcls
+- id: rakshit-etal-2015-automated
+  title: Automated Analysis of Bangla Poetry for Classification and Poet Identification
+  authors: Rakshit et al.
+  venue: ICON
+  year: 2015
+  link: https://aclanthology.org/W15-5937/
   task: textcls
 - id: mandal-etal-2014-bangla-web-document-categorization
   title: Supervised Learning Methods for Bangla Web Document Categorization

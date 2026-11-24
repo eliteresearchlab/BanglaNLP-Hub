@@ -17958,20 +17958,6 @@
   year: 1876
   authors: Mendies et al.
   venue: Medical Entomology and Zoology
-- source: acl
-  kind: paper
-  title: "Bangla Key2Text: Text Generation from Keywords for a Low Resource Language"
-  link: https://aclanthology.org/2026.lrec-1.303/
-  year: 2026
-  authors: Talukder et al.
-  venue: Proceedings of the Fifteenth Language Resources and Evaluation Conference
-- source: acl
-  kind: paper
-  title: "BanSuite: A Unified Toolkit and Software Platform for Low-Resource NLP in Bangla"
-  link: https://aclanthology.org/2026.eacl-demo.44/
-  year: 2026
-  authors: Sayed et al.
-  venue: "Proceedings of the 19th Conference of the {E}uropean Chapter of the {A}ssociation for {C}omputational {L}inguistics (Volume 3: System Demonstrations)"
 - source: arxiv
   kind: paper
   title: "Beyond Clean Text: Evaluating Encoder and Decoder Robustness for Bangla Event Detection in Noisy Text"
@@ -17980,13 +17966,6 @@
   authors: Sijan et al.
   venue: arXiv
   suggestedTask: speech
-- source: acl
-  kind: paper
-  title: "BiST: A Gold Standard Bangla-English Bilingual Corpus for Sentence Structure and Tense Classification with Inter-Annotator Agreement"
-  link: https://aclanthology.org/2026.sigul-1.15/
-  year: 2026
-  authors: Al Shafi et al.
-  venue: "Proceedings of the {SIGUL} 2026 Joint Workshop with {ELE}, {EURALI}, and {DCLRL}: Towards Inclusivity and Equality: Language Resources and Technologies for Under-Resourced and Endangered Languages"
 - source: arxiv
   kind: paper
   title: "BLAD: A Historically Contextualized, Multilingual Dataset of Bangladeshi Legal Acts (1799 to 2025)"
@@ -18104,14 +18083,6 @@
   suggestedTask: mt
 - source: arxiv
   kind: paper
-  title: "Many Dialects, Many Languages, One Cultural Lens: Evaluating Multilingual VLMs for Bengali Culture Understanding Across Historically Linked Languages and Regional Dialects"
-  link: http://arxiv.org/abs/2603.21165
-  year: 2026
-  authors: Sayeedi et al.
-  venue: arXiv
-  suggestedTask: qa
-- source: arxiv
-  kind: paper
   title: "MedAidDialog: A Multilingual Multi-Turn Medical Dialogue Dataset for Accessible Healthcare"
   link: http://arxiv.org/abs/2603.24132
   year: 2026
@@ -18197,13 +18168,6 @@
   authors: Chintada et al.
   venue: arXiv
   suggestedTask: sentiment
-- source: acl
-  kind: paper
-  title: "transformer\\_1376 at SemEval-2026 Task 9: A Multi-Stage Pipeline with Calibrated Ensembles and Lexical Post-Processing for Online Polarization Detection in Bengali"
-  link: https://aclanthology.org/2026.semeval-1.262/
-  year: 2026
-  authors: Saha et al.
-  venue: Proceedings of the 20th {I}nternational {W}orkshop on {S}emantic {E}valuation (2026)
 - source: arxiv
   kind: paper
   title: When Does Knowledge Distillation Hurt? Reliability-Aware Distillation for Low-Resource Language Summarization
@@ -18246,25 +18210,11 @@
   suggestedTask: mt
 - source: acl
   kind: paper
-  title: "BanglaByT5: Byte-Level Modelling for Bangla"
-  link: https://aclanthology.org/2025.findings-emnlp.297/
-  year: 2025
-  authors: Bhattacharyya et al.
-  venue: "Findings of the Association for Computational Linguistics: EMNLP 2025"
-- source: acl
-  kind: paper
   title: "BiCap: Bangla Image Captioning Using Attention-based Encoder-Decoder Architecture"
   link: https://aclanthology.org/2025.banglalp-1.6/
   year: 2025
   authors: Bulbul et al.
   venue: Proceedings of the Second Workshop on Bangla Language Processing (BLP-2025)
-- source: acl
-  kind: paper
-  title: "Culturally Aware Content Moderation for Facebook Reels: A Cross-Modal Attention-Based Fusion Model for Bengali Code-Mixed Data"
-  link: https://aclanthology.org/2025.ldk-1.13/
-  year: 2025
-  authors: Labib et al.
-  venue: Proceedings of the 5th Conference on Language, Data and Knowledge
 - source: acl
   kind: paper
   title: "Enhancing Textual Understanding: Automated Claim Span Identification in English, Hindi, Bengali, and CodeMix"
@@ -18274,13 +18224,6 @@
   venue: Proceedings of the 15th International Conference on Recent Advances in Natural Language Processing - Natural Language Processing in the Generative AI Era
 - source: acl
   kind: paper
-  title: Form-aware Poetic Generation for Bangla
-  link: https://aclanthology.org/2025.banglalp-1.30/
-  year: 2025
-  authors: Amina et al.
-  venue: Proceedings of the Second Workshop on Bangla Language Processing (BLP-2025)
-- source: acl
-  kind: paper
   title: "GraDeT-HTR: A Resource-Efficient Bengali Handwritten Text Recognition System utilizing Grapheme-based Tokenizer and Decoder-only Transformer"
   link: https://aclanthology.org/2025.emnlp-demos.52/
   year: 2025
@@ -18288,32 +18231,11 @@
   venue: "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing: System Demonstrations"
 - source: acl
   kind: paper
-  title: "Leveraging Machine-Generated Data for Joint Intent Detection and Slot Filling in Bangla: A Resource-Efficient Approach"
-  link: https://aclanthology.org/2025.chipsal-1.21/
-  year: 2025
-  authors: undefined et al.
-  venue: Proceedings of the First Workshop on Challenges in Processing South Asian Languages (CHiPSAL 2025)
-- source: acl
-  kind: paper
   title: "LP-FT-LoRA: A Three-Stage PEFT Framework for Efficient Domain Adaptation in Bangla NLP Tasks"
   link: https://aclanthology.org/2025.banglalp-1.17/
   year: 2025
   authors: Tomal et al.
   venue: Proceedings of the Second Workshop on Bangla Language Processing (BLP-2025)
-- source: acl
-  kind: paper
-  title: "SOMAJGYAAN: A Dataset for Evaluating LLMs on Bangla Culture, Social Knowledge, and Low-Resource Language Adaptation"
-  link: https://aclanthology.org/2025.findings-ijcnlp.134/
-  year: 2025
-  authors: Shifa et al.
-  venue: Proceedings of the 14th International Joint Conference on Natural Language Processing and the 4th Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics
-- source: acl
-  kind: paper
-  title: Too Late to Train, Too Early To Use? A Study on Necessity and Viability of Low-Resource Bengali LLMs
-  link: https://aclanthology.org/2025.coling-main.79/
-  year: 2025
-  authors: Mahfuz et al.
-  venue: Proceedings of the 31st International Conference on Computational Linguistics
 - source: acl
   kind: paper
   title: "BanglaAutoKG: Automatic Bangla Knowledge Graph Construction with Semantic Neural Graph Filtering"
@@ -18330,24 +18252,10 @@
   venue: Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024)
 - source: acl
   kind: paper
-  title: The Bangla/Bengali Seed Dataset Submission to the WMT24 Open Language Data Initiative Shared Task
-  link: https://aclanthology.org/2024.wmt-1.42/
-  year: 2024
-  authors: Ahmed et al.
-  venue: Proceedings of the Ninth Conference on Machine Translation
-- source: acl
-  kind: paper
   title: Advancing Bangla Punctuation Restoration by a Monolingual Transformer-Based Method and a Large-Scale Corpus
   link: https://aclanthology.org/2023.banglalp-1.3/
   year: 2023
   authors: Bijoy et al.
-  venue: Proceedings of the First Workshop on Bangla Language Processing (BLP-2023)
-- source: acl
-  kind: paper
-  title: "BaTEClaCor: A Novel Dataset for Bangla Text Error Classification and Correction"
-  link: https://aclanthology.org/2023.banglalp-1.14/
-  year: 2023
-  authors: Oshin et al.
   venue: Proceedings of the First Workshop on Bangla Language Processing (BLP-2023)
 - source: acl
   kind: paper
@@ -18370,13 +18278,6 @@
   year: 2023
   authors: Ali et al.
   venue: "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing: Industry Track"
-- source: acl
-  kind: paper
-  title: "Intent Detection and Slot Filling for Home Assistants: Dataset and Analysis for Bangla and Sylheti"
-  link: https://aclanthology.org/2023.banglalp-1.6/
-  year: 2023
-  authors: Sakib et al.
-  venue: Proceedings of the First Workshop on Bangla Language Processing (BLP-2023)
 - source: acl
   kind: paper
   title: "Low-Resource Text Style Transfer for Bangla: Data \\& Models"
@@ -18419,13 +18320,6 @@
   year: 2023
   authors: Hasan et al.
   venue: Proceedings of the Workshop on Multimodal, Multilingual Natural Language Generation and Multilingual WebNLG Challenge (MM-NLG 2023)
-- source: acl
-  kind: paper
-  title: "BAN-Cap: A Multi-Purpose English-Bangla Image Descriptions Dataset"
-  link: https://aclanthology.org/2022.lrec-1.740/
-  year: 2022
-  authors: Khan et al.
-  venue: Proceedings of the Thirteenth Language Resources and Evaluation Conference
 - source: acl
   kind: paper
   title: CNN for Modeling Sanskrit Originated Bengali and Hindi Language
@@ -18484,14 +18378,6 @@
   venue: Proceedings of the 9th Global Wordnet Conference
 - source: acl
   kind: paper
-  title: "Training Deployable General Domain MT for a Low Resource Language Pair: English-Bangla"
-  link: https://aclanthology.org/2018.eamt-main.11/
-  year: 2018
-  authors: Dandapat et al.
-  venue: Proceedings of the 21st Annual Conference of the European Association for Machine Translation
-  suggestedTask: mt
-- source: acl
-  kind: paper
   title: Study on Visual Word Recognition in Bangla across Different Reader Groups
   link: https://aclanthology.org/W17-7553/
   year: 2017
@@ -18511,13 +18397,6 @@
   year: 2016
   authors: Chanda et al.
   venue: Proceedings of the Second Workshop on Computational Approaches to Code Switching
-- source: acl
-  kind: paper
-  title: Automated Analysis of Bangla Poetry for Classification and Poet Identification
-  link: https://aclanthology.org/W15-5937/
-  year: 2015
-  authors: Rakshit et al.
-  venue: Proceedings of the 12th International Conference on Natural Language Processing
 - source: acl
   kind: paper
   title: Measuring Semantic Similarity for Bengali Tweets Using WordNet
@@ -18588,13 +18467,6 @@
   year: 2010
   authors: Bhattacharja et al.
   venue: Proceedings of the 24th Pacific Asia Conference on Language, Information and Computation
-- source: acl
-  kind: paper
-  title: Bengali, Hindi and Telugu to English Ad-hoc Bilingual Task
-  link: https://aclanthology.org/I08-6011/
-  year: 2008
-  authors: Bandyopadhyay et al.
-  venue: Proceedings of the 2nd workshop on Cross Lingual Information Access ({CLIA}) Addressing the Information Need of Multilingual Societies
 - source: acl
   kind: paper
   title: "AN ARCHITECTURE FOR A UNIVERSAL LEXICON: A Case Study on Shared Syntactic Information in Japanese, Hindi, Bengali, Greek, and English"

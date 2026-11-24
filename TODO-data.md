@@ -16,6 +16,28 @@ Contributions welcome — see CONTRIBUTING.md.
 
 The pinned [Indic to English model API](https://huggingface.co/api/models/ai4bharat/indictrans2-indic-en-1B/revision/ac3daf0ecd37be3b6957764a9179ab2b07fa9d6a) and [English to Indic model API](https://huggingface.co/api/models/ai4bharat/indictrans2-en-indic-1B/revision/89cd0007fd7b9e0693a2fd4404d187e07dac79fd) report MIT, automatic gated access, `ben_Beng` language support, and architecture `IndicTransForConditionalGeneration`. The [official project](https://github.com/AI4Bharat/IndicTrans2/blob/4f08e39cc6bf13cd62e2445dc725f22bff1a9219/README.md#multilingual-translation-models) identifies both artifacts as base benchmarking models and lists their translation directions. The catalog leaves `stage` unset because the cards do not establish it.
 
+## ACL Anthology additions (2026-11-24)
+
+Swept every Anthology title naming Bangla, Bengali, Sylheti or Chakma against the catalog
+and filed 34 papers. Title, authors, year and link come from each paper's own BibTeX.
+Tasks were set from the abstract, or from the title for the two 2008 and 2015 papers that
+have none. Where the fit was a judgment call:
+
+- Chakma papers are filed under `mt` only when Bangla is one of the translated languages.
+- Tokenizer, language model architecture and free text generation papers go to `llm`,
+  as the catalog already did for `BengaliBPE` and `BnVec`.
+- Intent detection and slot filling goes to `dialogue`.
+
+**Held because no task fits:** event detection
+([2026.wnut-1.3](https://aclanthology.org/2026.wnut-1.3/)), Text2Cypher and retrieval
+([2026.nora-1.6](https://aclanthology.org/2026.nora-1.6/),
+[2026.nora-1.8](https://aclanthology.org/2026.nora-1.8/)), claim spans, knowledge graphs,
+WordNets, word embeddings, multiword expressions and language identification.
+**Held as another language:** Chakma only
+([2026.wmt-main.192](https://aclanthology.org/2026.wmt-main.192/),
+[2025.banglalp-1.23](https://aclanthology.org/2025.banglalp-1.23/)) and Manipuri
+([2026.wmt-main.200](https://aclanthology.org/2026.wmt-main.200/)).
+
 ## Dataset metadata audit (2026-09-08)
 
 Checked the following five entries against primary GitHub/Hugging Face metadata

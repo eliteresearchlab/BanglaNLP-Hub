@@ -1,3 +1,24 @@
+- id: talukder-shahariar-2026-bangla
+  title: "Bangla Key2Text: Text Generation from Keywords for a Low Resource Language"
+  authors: Talukder et al.
+  venue: LREC
+  year: 2026
+  link: https://aclanthology.org/2026.lrec-1.303/
+  task: llm
+- id: samu-islam-2026-bap
+  title: "BaP-Bench: A Bias-Aware Bangla Paraphrase Benchmark for Measuring Instruction-Guided Gender Debiasing and Evaluating Transformer Models"
+  authors: Samu et al.
+  venue: GeBNLP
+  year: 2026
+  link: https://aclanthology.org/2026.gebnlp-1.9/
+  task: llm
+- id: kashyap-etal-2026-far
+  title: How Far Can Current Tokenizers Go in Bangla? A Benchmark and a Morphology-Aware Solution
+  authors: Kashyap et al.
+  venue: Findings EMNLP
+  year: 2026
+  link: https://aclanthology.org/2026.findings-emnlp.2436/
+  task: llm
 - id: arxiv-2607-21780
   title: "Khondo: A Multimodal Benchmark for Document Packet Splitting of Bangla Forms"
   authors: Azad et al.
@@ -131,6 +152,20 @@
   year: 2026
   link: http://arxiv.org/abs/2605.06940
   task: llm
+- id: islam-etal-2026-register
+  title: "Register Shifts Break LLM Safety: A Bengali Benchmark with Culturally Grounded Harms"
+  authors: Islam et al.
+  venue: Findings EMNLP
+  year: 2026
+  link: https://aclanthology.org/2026.findings-emnlp.1403/
+  task: llm
+- id: al-farib-etal-2026-state
+  title: "State Tracking vs. Attention in a Morphologically Rich Low-Resource Language: A Controlled Bangla Case Study with Mamba-3"
+  authors: al Farib et al.
+  venue: MRL
+  year: 2026
+  link: https://aclanthology.org/2026.mrl-1.22/
+  task: llm
 - id: arxiv-2606-16383
   title: "Surpassing Scale by Efficiency: A Compact 135M Parameter Foundational LLM Natively Adapted for the Bangla Language"
   authors: Nandi et al.
@@ -180,6 +215,13 @@
   venue: Workshop on Mathematical Natural Language Processing
   year: 2025
   link: https://aclanthology.org/2025.mathnlp-main.10/
+  task: llm
+- id: bhattacharyya-bhattacharya-2025-banglabyt5
+  title: "BanglaByT5: Byte-Level Modelling for Bangla"
+  authors: Bhattacharyya et al.
+  venue: Findings EMNLP
+  year: 2025
+  link: https://aclanthology.org/2025.findings-emnlp.297/
   task: llm
 - id: kamruzzaman-etal-2025-banstereoset
   title: "BanStereoSet: A Dataset to Measure Stereotypical Social Biases in LLMs for Bangla"
@@ -287,6 +329,13 @@
   venue: arXiv
   year: 2025
   link: http://arxiv.org/abs/2511.05324
+  task: llm
+- id: amina-etal-2025-form
+  title: Form-aware Poetic Generation for Bangla
+  authors: Amina et al.
+  venue: BLP @ IJCNLP-AACL
+  year: 2025
+  link: https://aclanthology.org/2025.banglalp-1.30/
   task: llm
 - id: chowdhury-etal-2025-facts
   title: "From Facts to Folklore: Evaluating Large Language Models on Bengali Cultural Knowledge"
@@ -414,6 +463,13 @@
   year: 2025
   link: https://aclanthology.org/2025.loreslm-1.16/
   task: llm
+- id: shifa-etal-2025-somajgyaan
+  title: "SOMAJGYAAN: A Dataset for Evaluating LLMs on Bangla Culture, Social Knowledge, and Low-Resource Language Adaptation"
+  authors: Shifa et al.
+  venue: Findings IJCNLP
+  year: 2025
+  link: https://aclanthology.org/2025.findings-ijcnlp.134/
+  task: llm
 - id: arxiv-2512-05580
   title: Structured Reasoning with Tree-of-Thoughts for Bengali Math Word Problems
   authors: Mahmood et al.
@@ -450,6 +506,13 @@
   link: https://arxiv.org/abs/2502.11187
   task: llm
   note: Bangla-adapted Llama models.
+- id: mahfuz-etal-2025-late
+  title: Too Late to Train, Too Early To Use? A Study on Necessity and Viability of Low-Resource Bengali LLMs
+  authors: Mahfuz et al.
+  venue: COLING
+  year: 2025
+  link: https://aclanthology.org/2025.coling-main.79/
+  task: llm
 - id: farazi-reza-2025-troopers
   title: "Troopers at BLP-2025 Task 2: Reward-Selective Fine-Tuning based Code Generation Approach for Bangla Prompts"
   authors: Farazi et al.

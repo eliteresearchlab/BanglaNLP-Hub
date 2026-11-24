@@ -19,6 +19,20 @@
   year: 2026
   link: https://aclanthology.org/2026.acl-srw.34/
   task: mt
+- id: chakma-etal-2026-chakmanmt
+  title: "ChakmaNMT: Machine Translation for a Low-Resource and Endangered Language via Transliteration"
+  authors: Chakma et al.
+  venue: WMT
+  year: 2026
+  link: https://aclanthology.org/2026.wmt-main.5/
+  task: mt
+- id: yadav-kuila-2026-code
+  title: "Code & Corpus at WMT 2026: Checkpoint-Pool Minimum Bayes Risk Decoding for Arabic-Hindi and Arabic-Bangla Translation"
+  authors: Yadav et al.
+  venue: WMT
+  year: 2026
+  link: https://aclanthology.org/2026.wmt-main.177/
+  task: mt
 - id: seal-etal-2026-computation-machine-translation-errors-through
   title: Computation of Machine Translation Errors Through Implicit Consideration of Word Sense Disambiguation in Bengali Text
   authors: Seal et al.
@@ -40,6 +54,13 @@
   year: 2026
   link: https://pmc.ncbi.nlm.nih.gov/articles/PMC13141989/
   task: mt
+- id: abedin-khan-2026-machine
+  title: "Machine-Translated Bengali in the Wild: A Provenance Benchmark and a Detector-Flagged Shift Toward Translation in Common Crawl"
+  authors: Abedin et al.
+  venue: WAT
+  year: 2026
+  link: https://aclanthology.org/2026.wat-1.7/
+  task: mt
 - id: niloy-etal-2026-meaning
   title: "Meaning Over Morphology: A Multi-Metric Benchmark of LLMs for Bangla Dialect Translation"
   authors: Niloy et al.
@@ -53,6 +74,20 @@
   venue: ACM Transactions on Asian and Low-Resource Language Information Processing
   year: 2026
   link: https://doi.org/10.1145/3806198
+  task: mt
+- id: singh-etal-2026-reasoning
+  title: "Reasoning as Supportive Context for Machine Translation: A Case Study on Hindi to Bengali Language Pair"
+  authors: Singh et al.
+  venue: EAMT
+  year: 2026
+  link: https://aclanthology.org/2026.eamt-2.25/
+  task: mt
+- id: saha-etal-2026-spamo
+  title: "SpaMo-BdSL: Gloss-Free Bangla Sign Language Translation Using Spatial Configurations and Motion Dynamics with LLMs"
+  authors: Saha et al.
+  venue: WSLP
+  year: 2026
+  link: https://aclanthology.org/2026.wslp-1.17/
   task: mt
 - id: sami-etal-2025-comparative
   title: A Comparative Analysis of Retrieval-Augmented Generation Techniques for Bengali Standard-to-Dialect Machine Translation Using LLMs
@@ -103,6 +138,13 @@
   year: 2025
   link: http://arxiv.org/abs/2501.05749
   task: mt
+- id: rahman-etal-2025-chakmabridge
+  title: "ChakmaBridge: A Five-Way Parallel Corpus for Navigating the Script Divide in an Endangered Language"
+  authors: Rahman et al.
+  venue: BLP @ IJCNLP-AACL
+  year: 2025
+  link: https://aclanthology.org/2025.banglalp-1.21/
+  task: mt
 - id: arxiv-2508-10687
   title: "Continuous Bangla Sign Language Translation: Mitigating the Expense of Gloss Annotation with the Assistance of Graph"
   authors: Arib et al.
@@ -151,6 +193,13 @@
   venue: arXiv
   year: 2025
   link: http://arxiv.org/abs/2511.08507
+  task: mt
+- id: prama-2025-llms
+  title: "LLMs for Low-Resource Dialect Translation Using Context-Aware Prompting: A Case Study on Sylheti"
+  authors: Prama
+  venue: BLP @ IJCNLP-AACL
+  year: 2025
+  link: https://aclanthology.org/2025.banglalp-1.24/
   task: mt
 - id: hossain-etal-2025-bangla-english-word-recognition
   title: Recognition of Bangla and English Words in Bengali Texts Using a Modified BERT-base-NER Model
@@ -221,6 +270,13 @@
   venue: arXiv
   year: 2024
   link: http://arxiv.org/abs/2412.16497
+  task: mt
+- id: ahmed-etal-2024-bangla
+  title: The Bangla/Bengali Seed Dataset Submission to the WMT24 Open Language Data Initiative Shared Task
+  authors: Ahmed et al.
+  venue: WMT
+  year: 2024
+  link: https://aclanthology.org/2024.wmt-1.42/
   task: mt
 - id: shiam-etal-2023-neural-attention-encoder-decoder-english
   title: A Neural Attention-Based Encoder-Decoder Approach for English to Bangla Translation
@@ -392,6 +448,13 @@
   year: 2018
   link: https://aclanthology.org/2018.icon-1.25/
   task: mt
+- id: dandapat-lewis-2018-training
+  title: "Training Deployable General Domain MT for a Low Resource Language Pair: English-Bangla"
+  authors: Dandapat et al.
+  venue: EAMT
+  year: 2018
+  link: https://aclanthology.org/2018.eamt-main.11/
+  task: mt
 - id: islam-etal-2015-automatically-identify-naming-word-bengali
   title: "A New Approach: Automatically Identify Naming Word from Bengali Sentence for Machine Translation"
   authors: Islam et al.
@@ -461,6 +524,13 @@
   venue: CLIA
   year: 2008
   link: https://aclanthology.org/I08-6010/
+  task: mt
+- id: bandyopadhyay-etal-2008-bengali
+  title: Bengali, Hindi and Telugu to English Ad-hoc Bilingual Task
+  authors: Bandyopadhyay et al.
+  venue: CLIA
+  year: 2008
+  link: https://aclanthology.org/I08-6011/
   task: mt
 - id: naskar-bandyopadhyay-2006-handling
   title: Handling of Prepositions in English to Bengali Machine Translation
