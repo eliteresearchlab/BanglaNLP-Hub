@@ -13,11 +13,11 @@
   link: http://arxiv.org/abs/2605.25463
   task: ner
 - id: arxiv-2502-11198
-  title: "ANCHOLIK-NER: A Benchmark Dataset for Bangla Regional Named Entity Recognition"
+  title: "ANCHOLIK-NER: A benchmark dataset for Bangla regional named entity recognition"
   authors: Paul et al.
-  venue: arXiv
-  year: 2025
-  link: http://arxiv.org/abs/2502.11198
+  venue: PLoS ONE
+  year: 2026
+  link: https://doi.org/10.1371/journal.pone.0342786
   task: ner
 - id: mahtab-etal-2025-bannerd
   title: "BanNERD: A Benchmark Dataset and Context-Driven Approach for Bangla Named Entity Recognition"

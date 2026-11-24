@@ -260,9 +260,9 @@
 - id: arxiv-2401-06787
   title: Deep Learning Based Cyberbullying Detection in Bangla Language
   authors: Nath et al.
-  venue: arXiv
+  venue: Annals of Emerging Technologies in Computing
   year: 2024
-  link: http://arxiv.org/abs/2401.06787
+  link: https://doi.org/10.33166/aetic.2024.01.005
   task: hate
 - id: fahim-2023-aambela
   title: "Aambela at BLP-2023 Task 1: Focus on UNK tokens: Analyzing Violence Inciting Bangla Text with Adding Dataset Specific New Word Tokens"
@@ -284,13 +284,6 @@
   venue: BLP @ EMNLP
   year: 2023
   link: https://aclanthology.org/2023.banglalp-1.17/
-  task: hate
-- id: arxiv-2310-10781
-  title: "BanglaNLP at BLP-2023 Task 1: Benchmarking different Transformer Models for Violence Inciting Text Detection in Bengali"
-  authors: Saha et al.
-  venue: arXiv
-  year: 2023
-  link: http://arxiv.org/abs/2310.10781
   task: hate
 - id: arxiv-2312-10528
   title: "Cross-Linguistic Offensive Language Detection: BERT-Based Analysis of Bengali, Assamese, &amp; Bodo Conversational Hateful Content from Social Media"
@@ -319,13 +312,6 @@
   venue: BLP @ EMNLP
   year: 2023
   link: https://aclanthology.org/2023.banglalp-1.29/
-  task: hate
-- id: arxiv-2311-15029
-  title: "nlpBDpatriots at BLP-2023 Task 1: A Two-Step Classification for Violence Inciting Text Detection in Bangla"
-  authors: Raihan et al.
-  venue: arXiv
-  year: 2023
-  link: http://arxiv.org/abs/2311.15029
   task: hate
 - id: raihan-etal-2023-nlpbdpatriots
   title: "nlpBDpatriots at BLP-2023 Task 1: Two-Step Classification for Violence Inciting Text Detection in Bangla - Leveraging Back-Translation and Multilinguality"

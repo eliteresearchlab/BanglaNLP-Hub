@@ -12,6 +12,60 @@ Contributions welcome — see CONTRIBUTING.md.
 | `banglawriting` | The [Mendeley v1 release](https://data.mendeley.com/datasets/r43wkvdk4w/1) is dated October 19, 2020, and declares CC BY-NC 3.0. The [paper's abstract and Table 1](https://pmc.ncbi.nlm.nih.gov/articles/PMC7744928/) report 260 pages, 21,234 words, and 32,787 characters. The dataset citation follows the [registered DataCite record](https://api.datacite.org/dois/10.17632/r43wkvdk4w.1), which credits Mridha. The paper appeared online in December 2020 and in the February 2021 issue. Its CC BY 4.0 license applies to the article, not the dataset. |
 | `banglalekha-image-captions` | The [Mendeley v2 release](https://data.mendeley.com/datasets/rxxch9vw59/2) reports 9,154 images with human Bengali captions and CC BY 4.0. The [file list](https://data.mendeley.com/public-api/datasets/rxxch9vw59/files?folder_id=root&version=2&%24start=0&%24limit=1000) includes `captions.json` and a 6.76 GB image archive; version 1 lists only the image archive. The caption file has 9,154 records and SHA256 `bc6954835eee358df675cf1f76195ccfc4d961762256f04d669be8e57aaec665`. The citation follows the [registered DataCite record](https://api.datacite.org/dois/10.17632/rxxch9vw59.2), which credits Nafees Mansoor and gives 2019 as the release year. |
 
+## Preprints with a published record (2026-11-24)
+
+Checked all 178 arXiv entries against the ACL Anthology, Crossref titles and the DOI on
+the arXiv record. Thirteen moved to a published record that is open access, and six
+entries were removed because the published paper was already in the catalog.
+
+- **Kept as two papers.** arXiv 2607.23446 and
+  [2026.nllp-1.24](https://aclanthology.org/2026.nllp-1.24/) share their authors and
+  half a title, but the abstracts report different experiments.
+- **Wrong DOI at the source.** arXiv 2305.10510 carries the DOI of an unrelated
+  computing education paper.
+
+These 35 entries have a published record that is not open access at the publisher, so
+they still link to the preprint. Moving them trades a readable link for the venue, which
+is a maintainer decision.
+
+| Paper id | Published DOI |
+| --- | --- |
+| `arxiv-2012-12139` | [10.1109/iccit51783.2020.9392697](https://doi.org/10.1109/iccit51783.2020.9392697) |
+| `arxiv-2102-07192` | [10.1007/978-981-16-0586-4_18](https://doi.org/10.1007/978-981-16-0586-4_18) |
+| `arxiv-2110-12442` | [10.1007/978-981-19-2445-3_44](https://doi.org/10.1007/978-981-19-2445-3_44) |
+| `arxiv-2209-12650` | [10.1145/3587828.3587872](https://doi.org/10.1145/3587828.3587872) |
+| `arxiv-2209-13461` | [10.1109/csde56538.2022.10089322](https://doi.org/10.1109/csde56538.2022.10089322) |
+| `arxiv-2303-12772` | [10.1109/ccwc57344.2023.10099331](https://doi.org/10.1109/ccwc57344.2023.10099331) |
+| `arxiv-2304-02739` | [10.1109/icnlp58431.2023.00011](https://doi.org/10.1109/icnlp58431.2023.00011) |
+| `arxiv-2304-04087` | [10.1109/ecce57851.2023.10101588](https://doi.org/10.1109/ecce57851.2023.10101588) |
+| `arxiv-2306-06147` | [10.1145/3580305.3599904](https://doi.org/10.1145/3580305.3599904) |
+| `arxiv-2307-06979` | [10.1007/s42979-025-04398-z](https://doi.org/10.1007/s42979-025-04398-z) |
+| `arxiv-2401-09446` | [10.1109/iccit60459.2023.10441342](https://doi.org/10.1109/iccit60459.2023.10441342) |
+| `arxiv-2402-05158` | [10.1109/wacvw60836.2024.00120](https://doi.org/10.1109/wacvw60836.2024.00120) |
+| `arxiv-2403-05519` | [10.1145/3530691](https://doi.org/10.1145/3530691) |
+| `arxiv-2407-19528` | [10.1109/tensymp61132.2024.10752197](https://doi.org/10.1109/tensymp61132.2024.10752197) |
+| `arxiv-2409-17130` | [10.1007/978-981-96-1758-6_46](https://doi.org/10.1007/978-981-96-1758-6_46) |
+| `arxiv-2411-06548` | [10.1109/icaect63952.2025.10958920](https://doi.org/10.1109/icaect63952.2025.10958920) |
+| `arxiv-2412-02058` | [10.1109/iccit64611.2024.11022087](https://doi.org/10.1109/iccit64611.2024.11022087) |
+| `arxiv-2501-05749` | [10.1109/iccit64611.2024.11022371](https://doi.org/10.1109/iccit64611.2024.11022371) |
+| `arxiv-2503-04781` | [10.1109/icccnt51525.2021.9580035](https://doi.org/10.1109/icccnt51525.2021.9580035) |
+| `arxiv-2505-05070` | [10.1109/iccit64611.2024.11022034](https://doi.org/10.1109/iccit64611.2024.11022034) |
+| `arxiv-2505-18709` | [10.1109/icccnt61001.2024.10723886](https://doi.org/10.1109/icccnt61001.2024.10723886) |
+| `arxiv-2506-21686` | [10.1109/qpain69676.2026.11545901](https://doi.org/10.1109/qpain69676.2026.11545901) |
+| `arxiv-2507-11084` | [10.1109/ecai65401.2025.11095452](https://doi.org/10.1109/ecai65401.2025.11095452) |
+| `arxiv-2507-18448` | [10.1007/978-3-032-11352-8_3](https://doi.org/10.1007/978-3-032-11352-8_3) |
+| `arxiv-2510-16985` | [10.1109/compas67506.2025.11381789](https://doi.org/10.1109/compas67506.2025.11381789) |
+| `arxiv-2510-18355` | [10.1109/qpain69676.2026.11546653](https://doi.org/10.1109/qpain69676.2026.11546653) |
+| `arxiv-2511-19317` | [10.1007/978-3-032-33805-1_14](https://doi.org/10.1007/978-3-032-33805-1_14) |
+| `arxiv-2511-21381` | [10.1109/spicscon69221.2025.11504105](https://doi.org/10.1109/spicscon69221.2025.11504105) |
+| `arxiv-2511-22769` | [10.1109/bigdata66926.2025.11401059](https://doi.org/10.1109/bigdata66926.2025.11401059) |
+| `arxiv-2511-23264` | [10.1007/s42979-026-05053-x](https://doi.org/10.1007/s42979-026-05053-x) |
+| `arxiv-2512-15547` | [10.1109/iccit68739.2025.11491343](https://doi.org/10.1109/iccit68739.2025.11491343) |
+| `arxiv-2601-17764` | [10.1109/icon-sonics67145.2025.11309238](https://doi.org/10.1109/icon-sonics67145.2025.11309238) |
+| `arxiv-2602-22449` | [10.1109/tcss.2026.3729207](https://doi.org/10.1109/tcss.2026.3729207) |
+| `arxiv-2607-05614` | [10.1007/978-3-032-37335-9_22](https://doi.org/10.1007/978-3-032-37335-9_22) |
+| `arxiv-2608-01471` | [10.1109/isai-nlp66160.2025.11320544](https://doi.org/10.1109/isai-nlp66160.2025.11320544) |
+
 ## IndicTrans2 model artifacts (2026-10-23)
 
 The pinned [Indic to English model API](https://huggingface.co/api/models/ai4bharat/indictrans2-indic-en-1B/revision/ac3daf0ecd37be3b6957764a9179ab2b07fa9d6a) and [English to Indic model API](https://huggingface.co/api/models/ai4bharat/indictrans2-en-indic-1B/revision/89cd0007fd7b9e0693a2fd4404d187e07dac79fd) report MIT, automatic gated access, `ben_Beng` language support, and architecture `IndicTransForConditionalGeneration`. The [official project](https://github.com/AI4Bharat/IndicTrans2/blob/4f08e39cc6bf13cd62e2445dc725f22bff1a9219/README.md#multilingual-translation-models) identifies both artifacts as base benchmarking models and lists their translation directions. The catalog leaves `stage` unset because the cards do not establish it.

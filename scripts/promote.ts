@@ -391,6 +391,27 @@ const systemName = (title: string): string | undefined => {
   return head.toLowerCase();
 };
 
+/**
+ * The catalogued paper an arXiv candidate is probably a preprint of: same first
+ * author and mostly the same title words. A preprint often loses its shared-task
+ * prefix or rewords its subtitle, which exact titles and system names both miss.
+ * Two papers can also be this close, so a match is held for review, not dropped.
+ */
+const titleWords = new Map<string, { author: string; words: Set<string> }>();
+const firstAuthor = (authors: string) => String(authors ?? '').toLowerCase().split(/ et al| and |,/)[0].trim();
+const addTitleWords = (p: { id: string; title: string; authors: string }) =>
+  titleWords.set(p.id, { author: firstAuthor(p.authors), words: new Set(normTitle(p.title).split(' ')) });
+const likelyPreprintOf = (title: string, authors: string): string | undefined => {
+  const words = new Set(normTitle(title).split(' '));
+  const author = firstAuthor(authors);
+  for (const [id, known] of titleWords) {
+    if (known.author !== author) continue;
+    const shared = [...words].filter((word) => known.words.has(word)).length;
+    if (shared / (words.size + known.words.size - shared) >= 0.6) return id;
+  }
+  return undefined;
+};
+
 for (const task of tasks) {
   const f = resolve(paperDir, `${task}.yaml`);
   const list = existsSync(f) ? ((parse(readFileSync(f, 'utf8')) as any[]) ?? []) : [];
@@ -401,6 +422,7 @@ for (const task of tasks) {
     knownTitles.add(normTitle(p.title));
     const n = systemName(p.title);
     if (n) knownNames.add(n);
+    addTitleWords(p);
   }
 }
 
@@ -440,6 +462,13 @@ for (const c of candidates) {
     if (!c.authors || !c.year) {
       leftover.push(c);
       note('arxiv candidate missing author or year');
+      continue;
+    }
+    const published = likelyPreprintOf(title, c.authors);
+    if (published) {
+      leftover.push(c);
+      note('arxiv: likely preprint of a catalogued paper — needs manual triage');
+      console.log(`  held ${link}: resembles ${published}`);
       continue;
     }
     // arXiv ids contain a dot (2308.13545); the id schema allows only [a-z0-9-_].
