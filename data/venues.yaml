@@ -22,6 +22,7 @@ NeurIPS: blue
 # WACV is a computer-vision venue with no tier in this NLP-family palette, so it
 # takes gray — the honest default — rather than an invented tier mapping.
 WACV: gray
+FAccT: gray
 arXiv: gray
 IEEE Access: gray
 IEEE DSAA: gray
@@ -63,6 +64,7 @@ LAW: gray
 LDK: gray
 LoResLM: gray
 MIA: gray
+MMLoW: gray
 MT Summit: gray
 Ninth Workshop on NLP for Similar Languages: gray
 PACLIC: gray
@@ -76,6 +78,7 @@ Second Workshop on Computational Approaches to Code Switching: gray
 W-NUT: gray
 WAT: gray
 WMT: gray
+WiNLP: gray
 WSSANLP: gray
 "Workshop on Benchmarks, Harmonization, Annotation, and Standardization for Human-Centric AI in Indian Languages": gray
 Workshop on Biomedical Language Processing: gray

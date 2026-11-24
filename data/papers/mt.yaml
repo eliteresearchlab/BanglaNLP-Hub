@@ -92,9 +92,9 @@
 - id: arxiv-2504-02293
   title: "Breaking the Silence: A Dataset and Benchmark for Bangla Text-to-Gloss Translation"
   authors: Abdullah et al.
-  venue: arXiv
-  year: 2025
-  link: http://arxiv.org/abs/2504.02293
+  venue: AACL
+  year: 2026
+  link: https://aclanthology.org/2026.aacl-short.11/
   task: mt
 - id: arxiv-2501-05749
   title: "Bridging Dialects: Translating Standard Bangla to Regional Variants Using Neural Models"
@@ -146,11 +146,11 @@
   link: http://arxiv.org/abs/2505.18709
   task: mt
 - id: arxiv-2511-08507
-  title: Introducing A Bangla Sentence - Gloss Pair Dataset for Bangla Sign Language Translation and Research
+  title: Introducing A Bangla Sentence – Gloss Pair Dataset for Bangla Sign Language Translation and Research
   authors: Saha et al.
-  venue: arXiv
-  year: 2025
-  link: http://arxiv.org/abs/2511.08507
+  venue: LREC
+  year: 2026
+  link: https://aclanthology.org/2026.lrec-1.820/
   task: mt
 - id: hossain-etal-2025-bangla-english-word-recognition
   title: Recognition of Bangla and English Words in Bengali Texts Using a Modified BERT-base-NER Model

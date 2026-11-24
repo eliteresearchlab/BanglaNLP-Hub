@@ -92,9 +92,9 @@
 - id: arxiv-2602-12921
   title: "When Words Don't Mean What They Say: Figurative Understanding in Bengali Idioms"
   authors: Sakhawat et al.
-  venue: arXiv
+  venue: LREC
   year: 2026
-  link: http://arxiv.org/abs/2602.12921
+  link: https://aclanthology.org/2026.lrec-1.546/
   task: sentiment
 - id: kawser-etal-2025-hybrid
   title: A Hybrid Transformer--Sequential Model for Depression Detection in Bangla--English Code-Mixed Text
@@ -557,13 +557,6 @@
   venue: Vietnam Journal of Computer Science
   year: 2023
   link: https://doi.org/10.1142/s2196888823500021
-  task: sentiment
-- id: arxiv-2311-15032
-  title: "nlpBDpatriots at BLP-2023 Task 2: A Transfer Learning Approach to Bangla Sentiment Analysis"
-  authors: Goswami et al.
-  venue: arXiv
-  year: 2023
-  link: http://arxiv.org/abs/2311.15032
   task: sentiment
 - id: goswami-etal-2023-nlpbdpatriots
   title: "nlpBDpatriots at BLP-2023 Task 2: A Transfer Learning Approach towards Bangla Sentiment Analysis"

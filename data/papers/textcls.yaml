@@ -300,11 +300,11 @@
   link: https://doi.org/10.14445/22315381/ijett-v72i5p135
   task: textcls
 - id: arxiv-2310-11465
-  title: "BaitBuster-Bangla: A Comprehensive Dataset for Clickbait Detection in Bangla with Multi-Feature and Multi-Modal Analysis"
+  title: "BaitBuster-Bangla: A comprehensive dataset for clickbait detection in Bangla with multi-feature and multi-modal analysis"
   authors: Imran et al.
-  venue: arXiv
-  year: 2023
-  link: http://arxiv.org/abs/2310.11465
+  venue: Data in Brief
+  year: 2024
+  link: https://doi.org/10.1016/j.dib.2024.110239
   task: textcls
 - id: mahtab-etal-2023-banglabait
   title: "BanglaBait: Semi-Supervised Adversarial Approach for Clickbait Detection on Bangla Clickbait Dataset"
