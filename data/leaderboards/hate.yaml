@@ -1,4 +1,29 @@
 - dataset: bdshs
-  label: BD-SHS
-  metric: Weighted F1
-  rows: []
+  label: BD-SHS Task A (hate speech or not)
+  metric: Weighted F1 (0-100)
+  # Table 5, printed p. 5159 / PDF page 7, weighted average column. Test set is 15%.
+  # Features: U word unigrams, C character n-grams, IFT informal FastText,
+  # BFT BengFastText, MFT multilingual FastText, RE as labelled in the table.
+  # https://aclanthology.org/2022.lrec-1.552.pdf#page=7
+  rows:
+    - model: BiLSTM + IFT
+      score: "91.0"
+      paperId: bdshs-p
+    - model: SVM + C
+      score: "90.9"
+      paperId: bdshs-p
+    - model: SVM + U + C
+      score: "90.8"
+      paperId: bdshs-p
+    - model: BiLSTM + RE
+      score: "90.0"
+      paperId: bdshs-p
+    - model: BiLSTM + BFT
+      score: "89.9"
+      paperId: bdshs-p
+    - model: BiLSTM + MFT
+      score: "89.1"
+      paperId: bdshs-p
+    - model: SVM + U
+      score: "88.7"
+      paperId: bdshs-p

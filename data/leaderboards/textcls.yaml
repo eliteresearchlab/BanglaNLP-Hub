@@ -1,4 +1,74 @@
 - dataset: banfakenews
   label: BanFakeNews
-  metric: Macro-F1
-  rows: []
+  metric: F1 of the fake class (0-1)
+  # Table 3, PDF page 6. The overall F1 is 0.98 to 0.99 for every system because about
+  # 97% of the test set is authentic, so the paper also reports the fake class. It gives
+  # no macro F1. Linguistic features use SVM. Majority and random baselines are left out.
+  # https://aclanthology.org/2020.lrec-1.349.pdf#page=6
+  rows:
+    - model: SVM, All Features
+      score: "0.91"
+      paperId: banfakenews-p
+    - model: SVM, L+POS+E(F)+MP
+      score: "0.91"
+      paperId: banfakenews-p
+    - model: SVM, L+POS+E(N)+MP
+      score: "0.91"
+      paperId: banfakenews-p
+    - model: SVM, C3-gram (C3)
+      score: "0.89"
+      paperId: banfakenews-p
+    - model: SVM, L+POS+E(N)
+      score: "0.88"
+      paperId: banfakenews-p
+    - model: SVM, C4-gram (C4)
+      score: "0.87"
+      paperId: banfakenews-p
+    - model: SVM, C3+C4+C5
+      score: "0.87"
+      paperId: banfakenews-p
+    - model: SVM, L+POS+E(F)
+      score: "0.87"
+      paperId: banfakenews-p
+    - model: SVM, All Lexical (L)
+      score: "0.86"
+      paperId: banfakenews-p
+    - model: SVM, L+POS
+      score: "0.86"
+      paperId: banfakenews-p
+    - model: SVM, C5-gram (C5)
+      score: "0.85"
+      paperId: banfakenews-p
+    - model: SVM, Unigram (U)
+      score: "0.83"
+      paperId: banfakenews-p
+    - model: SVM, U+B+T
+      score: "0.80"
+      paperId: banfakenews-p
+    - model: BERT
+      score: "0.68"
+      paperId: banfakenews-p
+    - model: SVM, Bigram (B)
+      score: "0.59"
+      paperId: banfakenews-p
+    - model: CNN
+      score: "0.59"
+      paperId: banfakenews-p
+    - model: LSTM
+      score: "0.53"
+      paperId: banfakenews-p
+    - model: SVM, Embedding (F)
+      score: "0.49"
+      paperId: banfakenews-p
+    - model: SVM, Embedding (N)
+      score: "0.46"
+      paperId: banfakenews-p
+    - model: SVM, Trigram (T)
+      score: "0.44"
+      paperId: banfakenews-p
+    - model: SVM, MP
+      score: "0.27"
+      paperId: banfakenews-p
+    - model: SVM, POS tag
+      score: "0.01"
+      paperId: banfakenews-p
