@@ -3,11 +3,11 @@
   task: mt
   size: 2.75M pairs
   sizeN: 2750000
-  license: Research only
+  license: CC BY-NC-SA 4.0
   year: 2020
   source: Not Low-Resource Anymore (EMNLP 2020)
   link: https://github.com/csebuetnlp/banglanmt
-  verified: 2026-06-28
+  verified: 2026-11-24
   desc: High-quality Bangla–English parallel corpus built with aligner ensembling.
   bibtex: |-
     @inproceedings{hasan-etal-2020-low,
@@ -88,13 +88,13 @@
 - id: samanantar
   name: Samanantar (bn–en)
   task: mt
-  size: 8.6M pairs
-  sizeN: 8600000
-  license: CC0
+  size: 8,604,580 pairs
+  sizeN: 8604580
+  license: CC0 (packaging, project page); CC BY-NC 4.0 (HF card)
   year: 2022
   source: Samanantar (TACL 2022)
   link: https://indicnlp.ai4bharat.org/samanantar/
-  verified: 2026-07-19
+  verified: 2026-11-24
   desc: Largest publicly available bn–en parallel collection.
   bibtex: |-
     @article{ramesh-etal-2022-samanantar,
@@ -167,10 +167,10 @@
   size: 32,500 sentences
   sizeN: 32500
   license: CC BY 4.0
-  year: 2023
+  year: 2024
   source: Vashantor (2023)
   link: https://data.mendeley.com/datasets/bj5jgk878b/2
-  verified: 2026-07-19
+  verified: 2026-11-24
   desc: Translation benchmark from five Bangla regional dialects to standard Bangla.
   bibtex: |-
     @misc{faria2025vashantorlargescalemultilingualbenchmark,

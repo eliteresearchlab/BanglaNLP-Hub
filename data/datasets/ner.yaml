@@ -1,14 +1,14 @@
 - id: multiconer
   name: MultiCoNER (bn)
   task: ner
-  size: 15,300 sentences
-  sizeN: 15300
-  license: CC BY 4.0
+  size: 149,219 sentences
+  sizeN: 149219
+  license: CC BY 4.0 (AWS registry); CC BY-SA 4.0 (paper)
   year: 2022
   source: SemEval-2022 Task 11
   link: https://registry.opendata.aws/multiconer/
-  verified: 2026-06-10
-  desc: "Complex NER: creative works, groups, products; Bangla track."
+  verified: 2026-11-24
+  desc: "Complex NER: creative works, groups, products; Bangla track of MultiCoNER I, train 15,300, dev 800, test 133,119."
   bibtex: |-
     @inproceedings{malmasi-etal-2022-semeval,
         title = "{S}em{E}val-2022 Task 11: Multilingual Complex Named Entity Recognition ({M}ulti{C}o{NER})",
@@ -39,11 +39,11 @@
   task: ner
   size: 22,144 sentences
   sizeN: 22144
-  license: MIT
+  license: CC BY-NC-SA 4.0 (Kaggle); CC BY 4.0 (repository README)
   year: 2023
   source: B-NER (IEEE Access 2023)
   link: https://www.kaggle.com/datasets/mdzahidulhaquealvi/b-ner
-  verified: 2026-07-19
+  verified: 2026-11-24
   desc: Largest gold-standard Bangla NER corpus, 8 entity types.
   bibtex: |-
     @article{Haque_2023, title={B-NER: A Novel Bangla Named Entity Recognition Dataset With Largest Entities and Its Baseline Evaluation}, volume={11}, ISSN={2169-3536}, url={http://dx.doi.org/10.1109/ACCESS.2023.3267746}, DOI={10.1109/access.2023.3267746}, journal={IEEE Access}, publisher={Institute of Electrical and Electronics Engineers (IEEE)}, author={Haque, Md. Zahidul and Zaman, Sakib and Saurav, Jillur Rahman and Haque, Summit and Islam, Md. Saiful and Amin, Mohammad Ruhul}, year={2023}, pages={45194–45205} }

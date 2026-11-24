@@ -38,11 +38,11 @@
   task: summ
   size: 19,096 pairs
   sizeN: 19096
-  license: Research only
+  license: CC0
   year: 2021
   source: Bangla abstractive news summarization
   link: https://www.kaggle.com/datasets/prithwirajsust/bengali-news-summarization-dataset
-  verified: 2026-02-20
+  verified: 2026-11-24
   desc: News summarization pairs crawled from Bangla dailies.
   bibtex: |-
     @InProceedings{10.1007/978-981-33-4673-4_4,

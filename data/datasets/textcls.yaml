@@ -3,11 +3,11 @@
   task: textcls
   size: ~50k articles
   sizeN: 50000
-  license: CC BY-NC 4.0
+  license: CC0
   year: 2020
   source: BanFakeNews (LREC 2020)
   link: https://github.com/Rowan1224/FakeNews
-  verified: 2026-06-11
+  verified: 2026-11-24
   desc: Annotated fake vs. authentic Bangla news articles.
   bibtex: |-
     @inproceedings{hossain-etal-2020-banfakenews,
@@ -43,14 +43,14 @@
 - id: potrika
   name: Potrika
   task: textcls
-  size: 665k articles
-  sizeN: 665000
+  size: 664,880 articles
+  sizeN: 664880
   license: CC BY 4.0
-  year: 2022
+  year: 2021
   source: Potrika (2022)
   link: https://doi.org/10.17632/v362rp78dc.2
-  verified: 2026-01-30
-  desc: Large single-label news corpus, 8 categories, 6 dailies.
+  verified: 2026-11-24
+  desc: Large single-label news corpus, 8 categories, 6 dailies. Size counts the raw corpus; the release also has a 320,000 article balanced set.
   bibtex: |-
     @misc{ahmad2022potrikarawbalancednewspaper,
           title={Potrika: Raw and Balanced Newspaper Datasets in the Bangla Language with Eight Topics and Five Attributes},
