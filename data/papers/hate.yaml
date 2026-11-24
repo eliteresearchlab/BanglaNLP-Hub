@@ -159,6 +159,13 @@
   year: 2025
   link: https://aclanthology.org/2025.banglalp-1.48/
   task: hate
+- id: labib-etal-2025-culturally
+  title: "Culturally Aware Content Moderation for Facebook Reels: A Cross-Modal Attention-Based Fusion Model for Bengali Code-Mixed Data"
+  authors: Labib et al.
+  venue: LDK
+  year: 2025
+  link: https://aclanthology.org/2025.ldk-1.13/
+  task: hate
 - id: hasan-etal-2025-ecstasy
   title: "Ecstasy at BLP-2025 Task 1: TF-IDF Informed Prompt Engineering with LoRA Fine-tuning for Bangla Hate Speech Detection"
   authors: Hasan et al.

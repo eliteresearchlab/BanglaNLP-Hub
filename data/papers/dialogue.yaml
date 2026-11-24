@@ -12,6 +12,20 @@
   year: 2025
   link: http://arxiv.org/abs/2503.22283
   task: dialogue
+- id: karim-uzuner-2025-leveraging
+  title: "Leveraging Machine-Generated Data for Joint Intent Detection and Slot Filling in Bangla: A Resource-Efficient Approach"
+  authors: Karim et al.
+  venue: CHiPSAL
+  year: 2025
+  link: https://aclanthology.org/2025.chipsal-1.21/
+  task: dialogue
+- id: sakib-etal-2023-intent
+  title: "Intent Detection and Slot Filling for Home Assistants: Dataset and Analysis for Bangla and Sylheti"
+  authors: Sakib et al.
+  venue: BLP @ EMNLP
+  year: 2023
+  link: https://aclanthology.org/2023.banglalp-1.6/
+  task: dialogue
 - id: monsur-etal-2022-shonglap
   title: "SHONGLAP: A Large Bengali Open-Domain Dialogue Corpus"
   authors: Monsur et al.

@@ -19,6 +19,13 @@
   year: 2026
   link: http://arxiv.org/abs/2607.23446
   task: qa
+- id: mahadi-etal-2026-small
+  title: Do Small Models Use the Law You Give Them? Measuring Context Use on a Bilingual Bangladesh Legal Benchmark
+  authors: Mahadi et al.
+  venue: NLLP
+  year: 2026
+  link: https://aclanthology.org/2026.nllp-1.24/
+  task: qa
 - id: ahmed-etal-2026-evaluating
   title: Evaluating Large Vision Language Models on Bangla Medical Visual Question Answering
   authors: Ahmed et al.

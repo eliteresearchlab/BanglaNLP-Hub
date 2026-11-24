@@ -1,3 +1,10 @@
+- id: sakib-etal-2026-banglamemex
+  title: "BanglaMemeX: Advancing Cultural Metaphoric Image Interpretation in Bangla with a Multimodal Explainable Dataset"
+  authors: Sakib et al.
+  venue: Findings EMNLP
+  year: 2026
+  link: https://aclanthology.org/2026.findings-emnlp.827/
+  task: vqa
 - id: banglaprotha-p
   title: "BanglaProtha: Evaluating Vision Language Models in Underrepresented Long-tail Cultural Contexts"
   authors: Fahim et al.
@@ -6,6 +13,13 @@
   link: https://openaccess.thecvf.com/content/WACV2026/html/Fahim_BanglaProtha_Evaluating_Vision_Language_Models_in_Underrepresented_Long-tail_Cultural_Contexts_WACV_2026_paper.html
   task: vqa
   note: Aspect-based evaluation of vision-language models on Bengali cultural images with native Bengali questions and multiple-choice options.
+- id: sayeedi-etal-2026-many
+  title: "Many Dialects, Many Languages, One Cultural Lens: Evaluating Multilingual VLMs for Bengali Culture Understanding Across Historically Linked Languages and Regional Dialects"
+  authors: Sayeedi et al.
+  venue: Findings EMNLP
+  year: 2026
+  link: https://aclanthology.org/2026.findings-emnlp.2129/
+  task: vqa
 - id: hasan-etal-2023-visual
   title: Visual Question Generation in Bengali
   authors: Hasan et al.

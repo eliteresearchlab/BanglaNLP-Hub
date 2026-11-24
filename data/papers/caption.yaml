@@ -40,6 +40,13 @@
   year: 2022
   link: https://doi.org/10.1016/j.jksuci.2022.11.015
   task: caption
+- id: khan-etal-2022-ban
+  title: "BAN-Cap: A Multi-Purpose English-Bangla Image Descriptions Dataset"
+  authors: Khan et al.
+  venue: LREC
+  year: 2022
+  link: https://aclanthology.org/2022.lrec-1.740/
+  task: caption
 - id: rahman-etal-2022-capnet-encoder-decoder-neural-network-model
   title: "CapNet: An Encoder-Decoder based Neural Network Model for Automatic Bangla Image Caption Generation"
   authors: Rahman et al.

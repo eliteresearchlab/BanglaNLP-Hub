@@ -1,3 +1,10 @@
+- id: sayed-etal-2026-bansuite
+  title: "BanSuite: A Unified Toolkit and Software Platform for Low-Resource NLP in Bangla"
+  authors: Sayed et al.
+  venue: EACL
+  year: 2026
+  link: https://aclanthology.org/2026.eacl-demo.44/
+  task: pos
 - id: arxiv-2508-15711
   title: Stemming -- The Evolution and Current State with a Focus on Bangla
   authors: Paul et al.
