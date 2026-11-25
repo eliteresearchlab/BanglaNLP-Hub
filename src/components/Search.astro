@@ -3,11 +3,12 @@ import Icon from './Icon.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 interface Props { variant?: 'nav' | 'hero'; id: string; }
 const { variant = 'nav', id } = Astro.props;
-const placeholder = variant === 'hero' ? 'Search the catalog…' : 'Search…';
+const placeholder = variant === 'hero' ? 'Search by resource, author, or task' : 'Search';
 ---
 <div class="catalog-search" data-search data-variant={variant} data-index-url={base + '/search-index.json'}>
   <span class="search-icon"><Icon name="search" /></span>
-  <input id={id} type="search" autocomplete="off" maxlength="1000" placeholder={placeholder} aria-label="Search the catalog" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls={id + '-results'} data-search-input />
+  <input id={id} type="search" autocomplete="off" maxlength="1000" placeholder={placeholder} aria-label="Search the catalog" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls={id + '-results'} aria-keyshortcuts={variant === 'nav' ? 'Control+K Meta+K' : undefined} data-search-input />
+  {variant === 'nav' && <kbd class="search-key" aria-hidden="true">Ctrl K</kbd>}
   <div class="search-panel" data-search-panel tabindex="-1" hidden>
     <div class="search-status" role="status" aria-live="polite" data-search-status></div>
     <div id={id + '-results'} role="listbox" aria-label="Search results" data-search-results></div>
@@ -53,6 +54,15 @@ const placeholder = variant === 'hero' ? 'Search the catalog…' : 'Search…';
     }
     return pending;
   }
+
+  // Ctrl K or Command K reaches the search from anywhere on the page.
+  const searchKey = document.querySelector('.search-key');
+  if (searchKey && /Mac|iPhone|iPad/.test(navigator.platform)) searchKey.textContent = '⌘K';
+  document.addEventListener('keydown', (event) => {
+    if (event.key.toLowerCase() !== 'k' || !(event.ctrlKey || event.metaKey) || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    document.querySelector<HTMLInputElement>('[data-variant="nav"] [data-search-input]')?.focus();
+  });
 
   document.querySelectorAll<HTMLElement>('[data-search]').forEach((root) => {
     const input = root.querySelector<HTMLInputElement>('[data-search-input]');
@@ -156,7 +166,7 @@ const placeholder = variant === 'hero' ? 'Search the catalog…' : 'Search…';
       panel!.hidden = false;
       input!.setAttribute('aria-expanded', 'true');
       if (!index) {
-        status!.textContent = 'Loading search results...';
+        status!.textContent = 'Loading search results…';
         await load(indexUrl);
         if (current !== revision) return;
         if (!index) {

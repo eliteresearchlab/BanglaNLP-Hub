@@ -10,7 +10,7 @@
  */
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
-import Icon from '../components/Icon.astro';
+import CopyIcon from '../components/CopyIcon.astro';
 import { stats, tasks } from '../lib/data.ts';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -41,12 +41,12 @@ const principles = [
 ---
 
 <Base title="About — BanglaNLP Hub" active="about">
-  <main class="page page-wide">
+  <main class="page">
     <PageHeader title="About" bn="পরিচিতি" />
 
-    <div class="editorial-layout">
-      <div class="editorial-body">
-        <section class="prose">
+    <div class="split">
+      <div class="split-main">
+        <div class="prose">
           <p>
             <span class="bn" lang="bn">বাংলা</span>{' '}
             <strong>NLP Hub</strong> is a community-maintained catalog of research resources for Bengali,
@@ -73,58 +73,39 @@ const principles = [
               href={`${base}/contribute`}>how to contribute</a
           >.
           </p>
-        </section>
-
-        <section class="section">
-          <div class="section-heading">
-            <div>
-              <h2 class="section-title">How the catalog is maintained</h2>
-              <p class="section-heading-bn bn" lang="bn">যেভাবে তথ্য যাচাই ও সাজানো হয়</p>
-            </div>
-          </div>
-          <dl class="flow-list">
-            {principles.map((p) => (
-              <div>
-                <dt>{p.title}</dt>
-                <dd>{p.body}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
+        </div>
       </div>
-
-      <aside class="editorial-aside" aria-label="Catalog overview">
+      <aside class="split-aside" aria-label="Catalog overview">
         <h2>In the catalog</h2>
-        <dl class="editorial-counts">
+        <dl class="counts">
           <div><dt><a href={`${base}/papers`}>Papers</a></dt><dd>{stats.papers}</dd></div>
           <div><dt><a href={`${base}/datasets`}>Datasets</a></dt><dd>{stats.datasets}</dd></div>
           <div><dt><a href={`${base}/tasks`}>Models</a></dt><dd>{stats.models}</dd></div>
           <div><dt><a href={`${base}/tools`}>Tools</a></dt><dd>{stats.tools}</dd></div>
-          <div><dt>Tasks</dt><dd>{tasks.length}</dd></div>
+          <div><dt><a href={`${base}/tasks`}>Tasks</a></dt><dd>{tasks.length}</dd></div>
         </dl>
         <p>Counts are generated from the published catalog data.</p>
       </aside>
     </div>
 
     <section class="section">
-      <div class="section-heading">
-        <div>
-          <h2 class="section-title">Cite this catalog</h2>
-          <p class="section-heading-bn bn" lang="bn">উদ্ধৃতি</p>
-        </div>
-      </div>
-      <p class="text-muted citation-description">
-        This citation identifies the project. To cite a release, use its version DOI from <a
-          href="https://doi.org/10.5281/zenodo.22798635" target="_blank" rel="noopener">Zenodo</a>.
-      </p>
-      <div class="citation-panel panel">
+      <div class="band"><div class="bar"><h2 class="bar-title">How the catalog is maintained</h2></div></div>
+      <dl class="facts">
+        {principles.map((p) => <div class="fact"><dt>{p.title}</dt><dd>{p.body}</dd></div>)}
+      </dl>
+    </section>
+
+    <section class="section" id="cite">
+      <div class="band"><div class="bar"><h2 class="bar-title">Cite this catalog</h2></div></div>
+      <div class="panel-body">
+        <p class="muted">
+          This citation identifies the project. To cite a release, use its version DOI from <a
+            href="https://doi.org/10.5281/zenodo.22798635" target="_blank" rel="noopener">Zenodo</a>.
+        </p>
         <pre id="cite-bib" class="code-block">{bibtex}</pre>
-        <button id="cite-copy" class="button button-sm" type="button">
-          <Icon name="copy" size={16} />
-          <span>Copy BibTeX</span>
-        </button>
+        <button id="cite-copy" class="button" type="button"><CopyIcon />Copy BibTeX</button>
+        <p id="cite-status" class="copy-status" aria-live="polite"></p>
       </div>
-      <p id="cite-status" class="copy-status text-muted" aria-live="polite"></p>
     </section>
   </main>
 </Base>
@@ -149,7 +130,11 @@ const principles = [
         copied = document.execCommand('copy');
       } catch {}
       document.body.removeChild(ta);
-        btn?.focus({ preventScroll: true });
+      btn?.focus({ preventScroll: true });
+    }
+    if (copied) {
+      btn.setAttribute('data-copied', '');
+      setTimeout(() => btn.removeAttribute('data-copied'), 1600);
     }
     if (status) status.textContent = copied ? 'BibTeX copied to clipboard.' : 'Copy failed. Select and copy the citation text.';
   });

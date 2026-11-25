@@ -9,49 +9,34 @@
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
 import Icon from '../components/Icon.astro';
+import CopyIcon from '../components/CopyIcon.astro';
 import { tools } from '../lib/data.ts';
 ---
 
 <Base title="Tools & Libraries — BanglaNLP Hub" active="tools">
-  <main class="page page-wide">
+  <main class="page">
     <PageHeader
       title="Tools & Libraries"
       bn="সরঞ্জাম"
       description="Tokenizers, normalizers, embeddings, transliteration, and speech wrappers for working with Bangla text."
-    >
-      <p class="page-description bn" lang="bn">বাংলা ভাষা নিয়ে কাজের সরঞ্জাম</p>
-    </PageHeader>
+    />
 
-    <section class="tool-directory" aria-label="Tools and libraries">
+    <section class="rows" aria-label="Tools and libraries">
       {tools.map((t) => (
-        <article class="tool-entry tool-card" id={t.id} tabindex="-1">
+        <article class="tool" id={t.id} tabindex="-1">
           <div class="tool-identity">
-            <div class="tool-heading">
-              <a class="resource-title tool-list-link" href={t.link} target="_blank" rel="noopener">
-                {t.name}
-                <Icon name="arrow-up-right" size={16} />
-              </a>
-              <span class="metadata text-muted">{t.author}</span>
-            </div>
-            <span class="badge">{t.lang}</span>
+            <h2 class="cell-name"><a class="link-out" href={t.link} target="_blank" rel="noopener">{t.name}<Icon name="arrow-up-right" /></a></h2>
+            <span class="meta">{t.author}, {t.lang}</span>
           </div>
           <div class="tool-summary">
-            <p class="tool-description">{t.desc}</p>
-            <span class="tool-verified"><Icon name="check" />Verified {t.verified}</span>
+            <p>{t.desc}</p>
+            <span class="verified"><Icon name="check" />Verified <time datetime={t.verified}>{t.verified}</time></span>
           </div>
-          <div class="tool-command tool-install">
-            <pre class="mono"><span class="text-muted" aria-hidden="true">$ </span>{t.install}</pre>
-            <button
-              class="button button-sm copy-button"
-              type="button"
-              data-install={t.install}
-              aria-label={`Copy install command for ${t.name}`}
-            >
-              <Icon name="copy" size={16} />
-              <span>Copy</span>
-            </button>
+          <div class="tool-command">
+            <pre><span class="muted" aria-hidden="true">$ </span>{t.install}</pre>
+            <button class="button copy-button" type="button" data-install={t.install} aria-label={`Copy install command for ${t.name}`}><CopyIcon />Copy</button>
           </div>
-          <p class="copy-status text-muted" aria-live="polite"></p>
+          <p class="copy-status" aria-live="polite"></p>
         </article>
       ))}
     </section>
@@ -62,7 +47,7 @@ import { tools } from '../lib/data.ts';
   document.querySelectorAll<HTMLButtonElement>('.copy-button').forEach((btn) => {
     btn.addEventListener('click', async () => {
       const text = btn.dataset.install ?? '';
-      const status = btn.closest('.tool-card')?.querySelector('.copy-status');
+      const status = btn.closest('.tool')?.querySelector('.copy-status');
       let copied = false;
       try {
         await navigator.clipboard.writeText(text);
@@ -78,6 +63,10 @@ import { tools } from '../lib/data.ts';
         } catch {}
         document.body.removeChild(ta);
         btn?.focus({ preventScroll: true });
+      }
+      if (copied) {
+        btn.setAttribute('data-copied', '');
+        setTimeout(() => btn.removeAttribute('data-copied'), 1600);
       }
       if (status) status.textContent = copied ? 'Command copied to clipboard.' : 'Copy failed. Select and copy the command.';
     });

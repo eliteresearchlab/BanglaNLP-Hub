@@ -59,69 +59,25 @@ const sample = `# data/datasets/sentiment.yaml
 ---
 
 <Base title="Contribute — BanglaNLP Hub" active="contribute">
-  <main class="page page-wide">
+  <main class="page">
     <PageHeader
       title="Contribute"
       bn="অবদান রাখুন"
-      description="Every entry on this site lives as a YAML file in a public GitHub repository. The site rebuilds automatically when a pull request is merged — no CMS, no accounts, just Git."
+      description="Every entry is a YAML record in a public GitHub repository. The site rebuilds when a pull request is merged."
     >
       <div class="page-header-actions"><a class="button button-primary" href="#submit-form">Submit a resource<Icon name="chevron-down" /></a></div>
     </PageHeader>
 
-    <div class="editorial-layout">
-      <section class="editorial-body">
-        <div class="section-heading">
-          <div>
-            <h2 class="section-title">From discovery to catalog</h2>
-            <p class="section-heading-bn bn" lang="bn">আবিষ্কার থেকে সংযোজন</p>
-          </div>
-        </div>
-        <ol class="flow-list" aria-label="Contribution steps">
-          {steps.map((s) => (
-            <li>
-              <h3>{s.title}</h3>
-              <p>{s.body}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <aside class="editorial-aside">
-        <div class="section-heading">
-          <div>
-            <h2>Keep every entry sourced</h2>
-            <p class="section-heading-bn bn" lang="bn">প্রতিটি তথ্যের উৎস যাচাই করুন</p>
-          </div>
-        </div>
-        <p>
-          No invented scores, sizes, licenses, or BibTeX. Every leaderboard row must cite the paper
-          reporting that exact number on that exact benchmark — which is why {emptyLeaderboardCount}
-          leaderboards still render an empty state. A working link does not prove the metadata is
-          right. If you are unsure about a field, leave it out and say so in the pull request; missing
-          is fine, wrong is not.
-          Full rules in <a href={`${REPO}/blob/main/CONTRIBUTING.md`} target="_blank" rel="noopener"
->CONTRIBUTING.md</a
->.
-        </p>
-        <details class="entry-format">
-          <summary>View a dataset YAML example</summary>
-          <pre class="code-block">{sample}</pre>
-        </details>
-      </aside>
-    </div>
+    <ol class="facts" aria-label="Contribution steps">
+      {steps.map((s) => <li class="fact"><h2 class="cell-name">{s.title}</h2><p>{s.body}</p></li>)}
+    </ol>
 
     <section class="section">
-      <div class="section-heading">
-        <div>
-          <h2 class="section-title">Submit a resource</h2>
-          <p class="section-heading-bn bn" lang="bn">তথ্য যোগ করুন</p>
-        </div>
-      </div>
-      <p class="section-description text-muted">
-        Not comfortable with Git? Fill this in and we'll turn it into a pull request for you,
-        credited to you.
-      </p>
-      <form id="submit-form" class="contribute-form panel" tabindex="-1">
+      <div class="band"><div class="bar"><h2 class="bar-title">Submit a resource</h2></div></div>
+      <div class="split">
+        <div class="split-main">
+          <p class="muted">Not comfortable with Git? Fill this in and we'll turn it into a pull request for you, credited to you.</p>
+      <form id="submit-form" class="contribute-form" tabindex="-1">
         <label class="form-field">
           <span>Resource type</span>
           <select name="type">
@@ -150,39 +106,47 @@ const sample = `# data/datasets/sentiment.yaml
           <span>Why it belongs in the catalog</span>
           <textarea name="why" rows="3" required placeholder="One or two sentences…"></textarea>
         </label>
-        <div class="form-actions form-field-wide">
+        <div class="actions form-field-wide">
           <button class="button button-primary" type="submit">Submit for review</button>
-          <span class="text-muted">Opens a pre-filled GitHub issue; maintainers review weekly.</span>
+          <span class="meta">Opens a pre-filled GitHub issue; maintainers review weekly.</span>
         </div>
       </form>
-      <p class="text-muted direct-submit">
-        Prefer to skip the form? Open the <a
-          href={`${REPO}/issues/new?template=submit-resource.yml`}
-          target="_blank"
-          rel="noopener">Submit a resource</a
-> issue directly.
-      </p>
+          <p class="meta">
+            Prefer to skip the form? Open the <a
+              href={`${REPO}/issues/new?template=submit-resource.yml`}
+              target="_blank"
+              rel="noopener">Submit a resource</a> issue directly.
+          </p>
+        </div>
+        <aside class="split-aside">
+          <h2>Keep every entry sourced</h2>
+          <p>
+            No invented scores, sizes, licenses, or BibTeX. Every leaderboard row must cite the paper
+            reporting that exact number on that exact benchmark, which is why {emptyLeaderboardCount}{' '}
+            leaderboards still render an empty state. A working link does not prove the metadata is
+            right. If you are unsure about a field, leave it out and say so in the pull request; missing
+            is fine, wrong is not. Full rules are in <a href={`${REPO}/blob/main/CONTRIBUTING.md`} target="_blank" rel="noopener">CONTRIBUTING.md</a>.
+          </p>
+          <details class="entry-format">
+            <summary>View a dataset YAML example</summary>
+            <pre class="code-block">{sample}</pre>
+          </details>
+        </aside>
+      </div>
     </section>
 
     {
-      contributors.length> 0 && (
-        <section class="section contributors-section">
-          <div class="section-heading">
-            <h2 class="section-title">Contributors <span class="bn" lang="bn">অবদানকারী</span></h2>
-          </div>
-          <p class="section-description text-muted">
-            Resources suggested by the community. Each paper's full author list is shown as
-            published.
-          </p>
-          <div class="contributor-list">
+      contributors.length > 0 && (
+        <section class="section">
+          <div class="band"><div class="bar">
+            <h2 class="bar-title">Contributors</h2>
+            <p class="meta">Resources suggested by the community. Author lists are shown as published.</p>
+          </div></div>
+          <div class="cells">
             {contributors.map((c) => (
-              <article class="panel contributor-card">
-                <h3 class="resource-title">
-                  <a href={`https://github.com/${c.github}`} target="_blank" rel="noopener">
-                    {c.name}
-                  </a>
-                  <span class="text-muted contributor-handle">, @{c.github}</span>
-                </h3>
+              <article class="cell">
+                <h3 class="cell-name"><a href={`https://github.com/${c.github}`} target="_blank" rel="noopener">{c.name}</a></h3>
+                <p class="muted">@{c.github}</p>
                 <ul class="contributor-entries">
                   {c.entries.map((e) => {
                     const model = e.kind === 'model' ? modelByName.get(e.title) : undefined;
@@ -200,11 +164,11 @@ const sample = `# data/datasets/sentiment.yaml
                           ? `${dataset.size}, ${dataset.license}`
                           : '');
                     return (
-                      <li class="contributor-entry">
-                        <a class="resource-title" href={href} target="_blank" rel="noopener">
+                      <li>
+                        <a href={href} target="_blank" rel="noopener">
                           {e.title}
                         </a>
-                        {caption && <p class="metadata text-muted">{caption}</p>}
+                        {caption && <p class="meta">{caption}</p>}
                       </li>
                     );
                   })}

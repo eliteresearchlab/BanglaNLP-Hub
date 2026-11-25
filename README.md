@@ -14,7 +14,7 @@ details and choose what to use.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/dark.webp">
-  <img src="docs/screenshots/light.webp" alt="The BanglaNLP Hub home page, with Bangladesh river artwork behind a bilingual heading and the catalog search">
+  <img src="docs/screenshots/light.webp" alt="The BanglaNLP Hub home page, with live catalog counts as its heading, the Bangla alphabet on graph paper, and the catalog search">
 </picture>
 
 ## Run locally

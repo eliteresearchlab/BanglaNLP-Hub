@@ -12,7 +12,9 @@ import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import DatasetName from '../../components/DatasetName.astro';
 import Icon from '../../components/Icon.astro';
+import CopyIcon from '../../components/CopyIcon.astro';
 import { tasks, byTask } from '../../lib/data.ts';
+import { hasBangla } from '../../lib/text-patterns.ts';
 
 export function getStaticPaths() {
   return tasks.map((t) => ({ params: { id: t.id } }));
@@ -40,10 +42,10 @@ const top = topBoard?.rows[0] ?? null;
 const topPaper = top ? paperById.get(top.paperId)! : null;
 
 const tabs = [
-  ['datasets', `Datasets (${datasets.length})`],
-  ['leaderboard', `Leaderboard (${boards.length})`],
-  ['papers', `Papers (${papers.length})`],
-  ['models', `Models (${models.length})`],
+  ['datasets', 'Datasets', datasets.length],
+  ['leaderboard', 'Leaderboards', boards.length],
+  ['papers', 'Papers', papers.length],
+  ['models', 'Models', models.length],
 ] as const;
 
 const cols = [
@@ -59,25 +61,23 @@ const cols = [
 
 <Base title={`${task.name} — BanglaNLP Hub`} description={task.desc} active="tasks">
   <main class="page task-detail">
-    <PageHeader title={task.name} bn={task.bn} description={task.desc}>
+    <PageHeader title={task.name} bn={task.bn} description={task.desc} plate>
       <nav slot="breadcrumbs" class="breadcrumbs" aria-label="Breadcrumb">
-        <a href={`${base}/tasks`}>Tasks</a><span aria-hidden="true">/</span><span>{task.name}</span>
+        <a href={`${base}/tasks`}>Tasks</a><span aria-hidden="true">/</span><span aria-current="page">{task.name}</span>
       </nav>
+      {top && topBoard && topPaper && <p class="page-header-facts">Top listed: {top.model}, {top.score} {topBoard.metric} on {topBoard.label} ({topPaper.year})</p>}
     </PageHeader>
-    <div class="task-summary">
-      <span><strong>{datasets.length}</strong>{datasets.length === 1 ? ' dataset' : ' datasets'}</span>
-      <span><strong>{papers.length}</strong>{papers.length === 1 ? ' paper' : ' papers'}</span>
-      {top && topBoard && topPaper && <span class="badge badge-success">Top listed: {top.model}, {top.score} {topBoard.metric} ({topPaper.year})</span>}
-    </div>
 
+    <div class="band">
     <div
       class="tabs"
       role="tablist"
       aria-label="Task resources"
     >
       {
-        tabs.map(([tid, label]) => (
+        tabs.map(([tid, label, count]) => (
           <button
+            class="tab"
             role="tab"
             id={`tab-${tid}`}
             data-tab={tid}
@@ -85,10 +85,11 @@ const cols = [
             aria-selected={tid === 'datasets' ? 'true' : 'false'}
             tabindex={tid === 'datasets' ? '0' : '-1'}
           >
-            {label}
+            {label} <span class="num">{count}</span>
           </button>
         ))
       }
+    </div>
     </div>
 
     <script is:inline>
@@ -104,7 +105,7 @@ const cols = [
 
     {/* ---- Datasets ---- */}
     <div
-      class:list={[datasets.length > 0 && 'panel table-wrap']}
+      class:list={[datasets.length > 0 && 'table-wrap']}
       role="tabpanel"
       id="panel-datasets"
       aria-labelledby="tab-datasets"
@@ -153,10 +154,10 @@ const cols = [
                 data-year={d.year}
               >
                 <td class="stickycol">
-                  <div class="resource-title"><DatasetName name={d.name} /></div>
-                  <div class="metadata">{d.desc}</div>
+                  <div class="row-name"><DatasetName name={d.name} /></div>
+                  <div class="muted">{d.desc}</div>
                 </td>
-                <td class="mono size-cell">
+                <td class="size-cell">
                   {d.size}
                 </td>
                 <td>
@@ -164,31 +165,33 @@ const cols = [
                     {d.license}
                   </span>
                 </td>
-                <td class="mono row-meta year-cell">
+                <td class="year-cell">
                   {d.year}
                 </td>
-                <td class="metadata">{d.source}</td>
+                <td>{d.source}</td>
                 <td class="source-cell">
-                  <div class="metadata resource-actions">
+                  <div class="actions">
                     <a
+                      class="source-link"
                       href={d.link}
                       target="_blank"
                       rel="noopener"
                       aria-label={`Download ${d.name}`}
                     >
-                      Download <Icon name="arrow-up-right" />
+                      Download<Icon name="arrow-up-right" />
                     </a>
                     {d.bibtex && (
                       <button
-                        class="bibbtn button-sm"
+                        class="button bibbtn"
+                        type="button"
                         data-bibtex={d.bibtex}
                       >
-                        BibTeX
+                        <CopyIcon />BibTeX
                       </button>
                     )}
                   </div>
-                  <div class="metadata verification">
-                    <Icon name="check" /> verified <time datetime={d.verified}>{d.verified}</time>
+                  <div class="verified">
+                    <Icon name="check" />Verified <time datetime={d.verified}>{d.verified}</time>
                   </div>
                 </td>
               </tr>
@@ -198,7 +201,7 @@ const cols = [
       </table>
       )}
     </div>
-    <p id="bib-copy-status" class="section-note" role="status" aria-live="polite"></p>
+    <p id="bib-copy-status" class="note" role="status" aria-live="polite"></p>
 
     {/* ---- Leaderboard ---- */}
     <div
@@ -214,7 +217,8 @@ const cols = [
             <div class="leaderboard-filters">
               {boards.map((b, i) => (
                 <button
-                  class="button button-sm lbpill"
+                  class="button lbpill"
+                  type="button"
                   data-board={i}
                   aria-pressed={i === 0 ? 'true' : 'false'}
                 >
@@ -231,23 +235,17 @@ const cols = [
                     No rows curated for {b.label} yet. <a href={`${base}/contribute`}>Contribute via PR</a>.
                   </div>
                 ) : (
-                <>
-                <div class="section-note">
-                  Results listed for{' '}
-                  <span class="resource-title">{b.label}</span>, metric:{' '}
-                  <span class="mono">{b.metric}</span>
-                </div>
                 <div class="table-wrap">
                   <table class="data-table leaderboard-table">
                     <thead>
                       <tr>
-                        <th scope="col">
+                        <th scope="col" class="rank-cell">
                           #
                         </th>
                         <th scope="col" class="stickycol">
                           Model
                         </th>
-                        <th scope="col">
+                        <th scope="col" class="number-cell">
                           {b.metric}
                         </th>
                         <th scope="col">
@@ -263,24 +261,20 @@ const cols = [
                         const source = paperById.get(r.paperId)!;
                         return (
                         <tr>
-                          <td class="mono row-meta">
+                          <td class="rank-cell">
                             {ri + 1}
                           </td>
-                          <td class="stickycol resource-title">
-                            {r.model}
-                            {ri === 0 && (
-                              <span class="badge badge-success">
-                                Top listed
-                              </span>
-                            )}
+                          <td class="stickycol">
+                            <span class="row-name">{r.model}</span>{' '}
+                            {ri === 0 && <span class="badge">Top listed</span>}
                           </td>
-                          <td class="mono">
+                          <td class="number-cell">
                             {r.score}
                           </td>
-                          <td class="metadata">
+                          <td>
                             <a href={source.link} target="_blank" rel="noopener">{source.title}</a>
                           </td>
-                          <td class="mono row-meta year-cell">
+                          <td class="year-cell">
                             {source.year}
                           </td>
                         </tr>
@@ -289,11 +283,10 @@ const cols = [
                     </tbody>
                   </table>
                 </div>
-                </>
                 )}
               </div>
             ))}
-            <div class="section-note">
+            <div class="note">
               Scores are community-reported; see linked papers for official numbers.{' '}
               <a href={`${base}/contribute`}>Report a correction</a>.
             </div>
@@ -312,24 +305,21 @@ const cols = [
       id="panel-papers"
       aria-labelledby="tab-papers"
       data-panel="papers"
-      class="resource-list"
+      class="rows"
       hidden
     >
       {
         papers.map((p) => {
           return (
             <article
-              class="resource-row"
+              class="row papercard"
             >
-              <time class="row-meta mono" datetime={String(p.year)}>{p.year}</time>
+              <time datetime={String(p.year)}>{p.year}</time>
               <div class="row-main">
-                <h2 class="resource-title"><a class="card-link" href={p.link} target="_blank" rel="noopener">{p.title}</a></h2>
-                <span class="metadata">
-                  {p.authors}
-                  {p.note && <span>, {p.note}</span>}
-                </span>
+                <h2 class:list={['row-name', hasBangla(p.title) && 'bn']} lang={hasBangla(p.title) ? 'bn' : undefined}><a class="card-link" href={p.link} target="_blank" rel="noopener">{p.title}</a></h2>
+                <p class="meta">{p.authors}{p.note && `, ${p.note}`}</p>
               </div>
-              <span class="badge badge-accent">
+              <span class="badge">
                 {p.venue}
               </span>
             </article>
@@ -352,32 +342,19 @@ const cols = [
       id="panel-models"
       aria-labelledby="tab-models"
       data-panel="models"
-      class="resource-grid"
+      class:list={[models.length > 0 && 'cells']}
       hidden
     >
       {
         models.length ? (
           models.map((m) => (
             <article
-              class="resource-card"
+              class="cell"
             >
-              <h2 class="resource-title mono">
-                {m.stage && (
-                  <span class="badge badge-accent">
-                    {m.stage === 'base' ? 'BASE' : 'FINE-TUNED'}
-                  </span>
-                )}
-                <a class="card-link" href={m.link} target="_blank" rel="noopener">{m.name}</a>
-              </h2>
-              <div class="metadata">
-                {[m.arch, m.params].filter(Boolean).join(', ')}
-              </div>
-              {m.note && (
-                <div class="metadata">{m.note}</div>
-              )}
-              <div class="metadata verification">
-                <Icon name="check" /> verified {m.verified}
-              </div>
+              <h2 class="cell-name-sans"><a class="card-link" href={m.link} target="_blank" rel="noopener">{m.name}</a></h2>
+              <p class="muted">{[m.stage && (m.stage === 'base' ? 'Base' : 'Fine-tuned'), m.arch, m.params].filter(Boolean).join(', ')}</p>
+              {m.note && <p class="muted">{m.note}</p>}
+              <p class="cell-foot verified"><Icon name="check" />Verified <time datetime={m.verified}>{m.verified}</time></p>
             </article>
           ))
         ) : (
@@ -502,12 +479,8 @@ const cols = [
       const status = document.getElementById('bib-copy-status');
       if (status) status.textContent = copied ? 'BibTeX copied to clipboard.' : 'Could not copy BibTeX.';
       if (!copied) return;
-      btn.textContent = 'Copied';
       btn.dataset.copied = 'true';
-      setTimeout(() => {
-        btn.textContent = 'BibTeX';
-        delete btn.dataset.copied;
-      }, 1600);
+      setTimeout(() => { delete btn.dataset.copied; }, 1600);
     });
   });
 
