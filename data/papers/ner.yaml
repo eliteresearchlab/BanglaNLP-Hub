@@ -27,7 +27,7 @@
   link: https://aclanthology.org/2025.findings-naacl.380/
   task: ner
 - id: arxiv-2502-04245
-  title: "TriNER: A Series of Named Entity Recognition Models For Hindi, Bengali &amp; Marathi"
+  title: "TriNER: A Series of Named Entity Recognition Models For Hindi, Bengali & Marathi"
   authors: Dhamaskar et al.
   venue: arXiv
   year: 2025

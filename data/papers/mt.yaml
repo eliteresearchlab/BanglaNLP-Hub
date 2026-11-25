@@ -110,13 +110,6 @@
   year: 2025
   link: http://arxiv.org/abs/2508.10687
   task: mt
-- id: shahrier-etal-2025-cuet
-  title: "CUET_Expelliarmus at BLP2025 Task 2: Leveraging Instruction Translation and Refinement for Bangla-to-Python Code Generation with Open-Source LLMs"
-  authors: Shahrier et al.
-  venue: BLP @ IJCNLP-AACL
-  year: 2025
-  link: https://aclanthology.org/2025.banglalp-1.62/
-  task: mt
 - id: arxiv-2512-21709
   title: "Detecting AI-Generated Paraphrases in Bengali: A Comparative Study of Zero-Shot and Fine-Tuned Transformers"
   authors: Islam et al.
@@ -125,7 +118,7 @@
   link: http://arxiv.org/abs/2512.21709
   task: mt
 - id: arxiv-2511-08601
-  title: "Evaluating DisCoCirc in Translation Tasks &amp; its Limitations: A Comparative Study Between Bengali &amp; English"
+  title: "Evaluating DisCoCirc in Translation Tasks & its Limitations: A Comparative Study Between Bengali & English"
   authors: Moon
   venue: arXiv
   year: 2025

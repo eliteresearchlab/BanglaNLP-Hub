@@ -245,6 +245,13 @@
   year: 2025
   link: https://aclanthology.org/2025.banglalp-1.53/
   task: llm
+- id: shahrier-etal-2025-cuet
+  title: "CUET_Expelliarmus at BLP2025 Task 2: Leveraging Instruction Translation and Refinement for Bangla-to-Python Code Generation with Open-Source LLMs"
+  authors: Shahrier et al.
+  venue: BLP @ IJCNLP-AACL
+  year: 2025
+  link: https://aclanthology.org/2025.banglalp-1.62/
+  task: llm
 - id: arxiv-2511-11309
   title: "destroR: A Benchmark and Adversarial-Training Defense for Bangla Transfer Models under Meaning-Preserving Attacks"
   authors: Ahmed et al.
