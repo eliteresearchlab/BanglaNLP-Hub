@@ -211,17 +211,11 @@ const delatex = (s: string) =>
 const debrace = (s: string) => s.replace(patterns.braces, '');
 
 /**
- * Source title -> display title. Beyond brace protection, the bib escapes
+ * Anthology title -> display title. Beyond brace protection, the bib escapes
  * punctuation ("{NALA}{\_}{MAINZ}", "Bias \& Prejudice"), writes dashes in
- * ASCII and sets superscripts in math mode ("{MDC}$^3$"). arXiv's feed is XML,
- * so an ampersand arrives as "&amp;".
+ * ASCII and sets superscripts in math mode ("{MDC}$^3$").
  */
 const titleMarks: [RegExp, string][] = [
-  [/&lt;/g, '<'],
-  [/&gt;/g, '>'],
-  [/&quot;/g, '"'],
-  [/&#39;|&apos;/g, "'"],
-  [/&amp;/g, '&'],
   [/\\([_&%#$])/g, '$1'],
   [/\$\^\{?2\}?\$/g, '²'],
   [/\$\^\{?3\}?\$/g, '³'],
@@ -445,7 +439,7 @@ for (const c of candidates) {
   // (title/authors/year), venue is honestly "arXiv". Title-dedup against the
   // catalog so a preprint whose published version we already hold is skipped. ---
   if (c.kind === 'paper' && c.source === 'arxiv') {
-    const title = displayTitle(String(c.title ?? '')).replace(patterns.whitespace, ' ').trim();
+    const title = debrace(String(c.title ?? '')).replace(patterns.whitespace, ' ').trim();
     if (!title || !BANGLA_TITLE.test(title)) {
       leftover.push(c);
       note('arxiv: title not about Bangla — likely tangential multilingual');
