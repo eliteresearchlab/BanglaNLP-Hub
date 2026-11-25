@@ -106,27 +106,12 @@ export const byTask = {
   leaderboards: (id: string) => leaderboards[id] ?? [],
 };
 
-/** Venue badge tones, mirroring the prototype's `tone()` helper. */
-export function venueTone(venue: string): { fg: string; bg: string } {
-  const tone = venues[venue] ?? 'gray';
-  const map: Record<VenueToneName, [string, string]> = {
-    green: ['var(--green)', 'var(--greenSoft)'],
-    red: ['var(--red)', 'var(--redSoft)'],
-    blue: ['var(--blue)', 'var(--blueSoft)'],
-    gold: ['var(--gold)', 'var(--goldSoft)'],
-    gray: ['var(--gray)', 'var(--graySoft)'],
-  };
-  const [fg, bg] = map[tone];
-  return { fg, bg };
-}
+const plural = new Intl.PluralRules('en');
+const number = new Intl.NumberFormat('en');
 
-/** Resource-type tones used by the Home "Recently added" feed. */
-export const typeTone: Record<string, { fg: string; bg: string }> = {
-  Dataset: { fg: 'var(--green)', bg: 'var(--greenSoft)' },
-  Paper: { fg: 'var(--red)', bg: 'var(--redSoft)' },
-  Model: { fg: 'var(--blue)', bg: 'var(--blueSoft)' },
-  Tool: { fg: 'var(--gold)', bg: 'var(--goldSoft)' },
-};
+/** "1 paper", "821 papers". Every noun the site counts takes a plain -s. */
+export const countLabel = (count: number, noun: 'task' | 'dataset' | 'paper' | 'model' | 'tool') =>
+  `${number.format(count)} ${plural.select(count) === 'one' ? noun : `${noun}s`}`;
 
 export type RecentEntry = {
   type: 'Dataset' | 'Model' | 'Tool';

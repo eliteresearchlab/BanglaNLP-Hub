@@ -1,0 +1,22 @@
+---
+import Plate from './Plate.astro';
+import { byTask, countLabel } from '../lib/data.ts';
+import type { Task } from '../lib/schemas.ts';
+
+interface Props { task: Task; level?: 'h2' | 'h3'; detailed?: boolean; }
+const { task, level: Heading = 'h2', detailed = false } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const board = byTask.leaderboards(task.id).find((b) => b.rows.length > 0);
+const top = board?.rows[0];
+---
+<article class="cell">
+  <Plate text={task.bn} />
+  <Heading class="cell-name"><a class="card-link" href={`${base}/tasks/${task.id}`}>{task.name}</a></Heading>
+  <p class="muted">{task.desc}</p>
+  {detailed && board && top && <p class="muted">Top listed: {top.model}, <span class="num">{top.score}</span> {board.metric} on {board.label}</p>}
+  <p class="cell-foot">
+    <span>{countLabel(byTask.datasets(task.id).length, 'dataset')}</span>
+    <span>{countLabel(byTask.papers(task.id).length, 'paper')}</span>
+    <span>{countLabel(byTask.models(task.id).length, 'model')}</span>
+  </p>
+</article>

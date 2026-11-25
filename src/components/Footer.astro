@@ -4,15 +4,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <footer class="site-footer">
   <div class="footer-content">
-    <div class="footer-credit">
-      <a class="brand" href={base + '/'}>BanglaNLP Hub</a>
-      <p>A community catalog, maintained by <a href="https://elitelab.ai/" target="_blank" rel="noopener">ELITE Research Lab</a>.</p>
-      <p class="footer-bn bn" lang="bn">ভাষা থেকে সম্ভাবনা।</p>
-    </div>
+    <p>Maintained by <a href="https://elitelab.ai/" target="_blank" rel="noopener">ELITE Research Lab</a></p>
+    <p class="bn" lang="bn">ভাষা থেকে সম্ভাবনা।</p>
     <nav aria-label="Footer" class="footer-links">
-      <a href={base + '/contribute'}>Contribute</a>
-      <a href={base + '/about'}>Cite this catalog</a>
-      <a href="https://github.com/eliteresearchlab/BanglaNLP-Hub" target="_blank" rel="noopener">Data on GitHub<Icon name="arrow-up-right" /></a>
+      <a href={base + '/about#cite'}>Cite this catalog</a>
+      <a class="link-out" href="https://github.com/eliteresearchlab/BanglaNLP-Hub" target="_blank" rel="noopener">Data on GitHub<Icon name="arrow-up-right" /></a>
     </nav>
   </div>
 </footer>

@@ -2,94 +2,75 @@
 import Base from '../layouts/Base.astro';
 import Search from '../components/Search.astro';
 import Icon from '../components/Icon.astro';
-import CatalogWorkbench from '../components/CatalogWorkbench.astro';
-import { Image, getImage } from 'astro:assets';
-import landscape from '../assets/art/bangla-river-collage.webp';
-import nightLandscape from '../assets/art/bangla-river-night.webp';
-import { tasks, byTask, recentlyAdded, models, datasets, tools, communityContributors, codeContributors } from '../lib/data.ts';
+import TaskCell from '../components/TaskCell.astro';
+import { tasks, recentlyAdded, models, datasets, tools, stats, countLabel, communityContributors, codeContributors } from '../lib/data.ts';
+import { hasBangla } from '../lib/text-patterns.ts';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const allEntries = [...models, ...datasets, ...tools];
 const contributors = communityContributors.map((c) => ({ ...c, entries: allEntries.filter((e) => String(e.link ?? '').includes(c.match)).length }));
 const recent = recentlyAdded(6);
-const landscapeWidths = [640, 1024, 1600];
-const nightImages = await Promise.all(landscapeWidths.map(width => getImage({ src: nightLandscape, width, format: 'webp', quality: 80 })));
-const nightSrcSet = nightImages.map((image, index) => `${image.src} ${landscapeWidths[index]}w`).join(', ');
+// The Bangla alphabet in order, down the left margin and then down the right.
+const alphabet = [...'অআইঈউঊঋএঐওঔকখগঘঙচছজঝঞটঠডঢণতথদধনপফবভমযরলশষসহ', 'ড়', 'ঢ়', 'য়'];
 ---
 <Base title="BanglaNLP Hub — Bangla NLP research in one place">
   <main class="page home">
-    <section class="home-intro">
-      <template>
-        <picture class="hero-landscape" aria-hidden="true">
-          <source data-theme-art srcset={nightSrcSet} sizes="100vw" media="not all" />
-          <Image src={landscape} alt="" widths={landscapeWidths} sizes="100vw" format="webp" quality={80} loading="eager" fetchpriority="high" />
-        </picture>
-      </template>
-      <script is:inline>
-        // Choose the saved theme before connecting images, avoiding two speculative fetches.
-        const artTemplate = document.currentScript.previousElementSibling;
-        const artPicture = artTemplate.content.querySelector('picture');
-        artPicture.querySelector('source').media = document.documentElement.classList.contains('dark') ? 'all' : 'not all';
-        artTemplate.replaceWith(artPicture);
-      </script>
-      <noscript class="hero-landscape" aria-hidden="true">
-        <Image src={landscape} alt="" widths={landscapeWidths} sizes="100vw" format="webp" quality={80} loading="eager" fetchpriority="high" />
-        <style is:inline>.home-intro > noscript.hero-landscape { display: block; }</style>
-      </noscript>
-      <div class="hero">
-        <h1>A home for Bangla language research.</h1>
-        <p class="hero-bangla bn" lang="bn">বাংলা ভাষা, অসীম সম্ভাবনা।</p>
-        <p class="hero-description">Discover Bangla NLP papers, datasets, models, and tools in one open catalog.</p>
-        <Search variant="hero" id="hero-search" />
-        <p class="search-hint">Search by resource, author, or task. Try <button class="example-query" type="button" data-query="BanglaBERT">BanglaBERT</button> or <button class="example-query" type="button" data-query="sentiment">sentiment</button>.</p>
-      </div>
-      <div class="home-workbench"><CatalogWorkbench /></div>
+    <div class="band">
+      <section class="hero graph">
+        <div class="letters letters-start bn" lang="bn" aria-hidden="true">{alphabet.slice(0, 23).map((letter) => <span>{letter}</span>)}</div>
+        <div class="letters letters-end bn" lang="bn" aria-hidden="true">{alphabet.slice(23).map((letter) => <span class:list={letter === 'ব' && 'is-mark'}>{letter}</span>)}</div>
+        <div class="hero-inner">
+          <h1><span>{countLabel(stats.papers, 'paper')},</span>{' '}<span>{countLabel(stats.datasets, 'dataset')},</span>{' '}<span>{countLabel(stats.models, 'model')}.</span></h1>
+          <p class="hero-description">One open catalog of Bangla language research, every entry linked to its source.</p>
+          <p class="hero-bangla bn" lang="bn">বাংলা ভাষা, অসীম সম্ভাবনা।</p>
+          <Search variant="hero" id="hero-search" />
+          <p class="search-hint">Try <button class="example-query" type="button" data-query="BanglaBERT">BanglaBERT</button> or <button class="example-query" type="button" data-query="sentiment">sentiment</button></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="section">
+      <div class="band"><div class="bar">
+        <h2 class="bar-title">Tasks</h2>
+        <a class="button" href={base + '/tasks'}>View all {tasks.length}<Icon name="arrow-right" /></a>
+      </div></div>
+      <div class="cells">{tasks.slice(0, 8).map((task) => <TaskCell task={task} level="h3" />)}</div>
     </section>
 
     <section class="section">
-      <div class="section-heading">
-        <div><h2 class="section-title">Browse by task</h2><p class="section-heading-bn bn" lang="bn">গবেষণার ক্ষেত্র</p><p class="section-description">Start with the problem you want to solve.</p></div>
-        <a class="button" href={base + '/tasks'}>Explore all {tasks.length} tasks<Icon name="arrow-right" /></a>
-      </div>
-      <div class="task-index">
-        {tasks.slice(0, 8).map((task) => <a class="task-index-row" href={base + '/tasks/' + task.id}>
-          <span class="task-index-name">{task.name}{' '}<span class="bn text-muted" lang="bn">{task.bn}</span></span>
-          <span class="task-index-count">{byTask.datasets(task.id).length} datasets<span aria-hidden="true"> /</span> {byTask.papers(task.id).length} papers</span>
-          <Icon name="arrow-up-right" />
-        </a>)}
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading"><div><h2 class="section-title">Recently verified</h2><p class="section-heading-bn bn" lang="bn">সম্প্রতি যাচাই করা</p><p class="section-description">The latest resource checks in the catalog.</p></div><span class="badge">From the main branch</span></div>
-      <div class="panel recent-list">
-        {recent.map((resource) => <a class="recent-row" href={resource.href}>
-          <span class="badge">{resource.type}</span>
-          <span class="recent-name">{resource.name}<span class="row-meta">{resource.task}</span></span>
+      <div class="band"><div class="bar"><h2 class="bar-title">Recently verified</h2></div></div>
+      <div class="rows">
+        {recent.map((resource) => <a class="row" href={resource.href}>
+          <span class="row-kind meta">{resource.type}</span>
+          <span class="row-main"><span class:list={['row-name', hasBangla(resource.name) && 'bn']} lang={hasBangla(resource.name) ? 'bn' : undefined}>{resource.name}</span></span>
+          <span class="meta">{resource.task}</span>
           <time datetime={resource.date}>{resource.date}</time>
-          <Icon name="arrow-up-right" />
         </a>)}
       </div>
     </section>
 
     <section class="section">
-      <div class="section-heading"><div><h2 class="section-title">Powered by the community</h2><p class="section-heading-bn bn" lang="bn">বাংলা গবেষণার মানুষ ও প্রতিষ্ঠান</p><p class="section-description">Groups, labs, and maintainers whose openly released resources appear in the catalog. Credited by contribution, not ranking.</p></div></div>
-      <div class="community-directory">
-        {contributors.map((contributor) => <article class="resource-card community-card">
-          <h3 class="resource-title"><a href={contributor.link} target="_blank" rel="noopener">{contributor.name}<Icon name="arrow-up-right" /></a></h3>
-          <p class="text-muted">{contributor.blurb}</p><p class="community-notable">{contributor.notable}</p>
-          {contributor.entries > 0 && <span class="badge">{contributor.entries} in catalog</span>}
+      <div class="band"><div class="bar">
+        <h2 class="bar-title">Community</h2>
+        <a class="button" href={base + '/contribute'}>Add a contribution<Icon name="arrow-right" /></a>
+      </div></div>
+      <div class="cells">
+        {contributors.map((contributor) => <article class="cell">
+          <h3 class="cell-name"><a class="card-link" href={contributor.link} target="_blank" rel="noopener">{contributor.name}</a></h3>
+          <p>{contributor.blurb}</p>
+          <p class="muted">{contributor.notable}</p>
+          {contributor.entries > 0 && <p class="cell-foot">{contributor.entries} in the catalog</p>}
         </article>)}
       </div>
-      <p class="section-note">Missing someone whose open work belongs here? <a href={base + '/contribute'}>Add a contribution.</a></p>
     </section>
 
     <section class="section">
-      <div class="section-heading"><div><h2 class="section-title">Built by</h2><p class="section-heading-bn bn" lang="bn">নির্মাণ ও রক্ষণাবেক্ষণ</p><p class="section-description">The people who build and maintain the catalog, ingestion tooling, and site. Credited from merged contributions.</p></div></div>
-      <div class="community-directory">
-        {codeContributors.map((contributor) => <article class="resource-card community-card">
-          <h3 class="resource-title"><a href={contributor.link} target="_blank" rel="noopener">{contributor.name}<Icon name="arrow-up-right" /></a></h3>
-          <span class="text-muted">{'@' + contributor.handle}</span>
-          <p class="text-muted">{contributor.blurb}</p><p class="community-notable">{contributor.notable}</p>
+      <div class="band"><div class="bar"><h2 class="bar-title">Built by</h2></div></div>
+      <div class="cells">
+        {codeContributors.map((contributor) => <article class="cell">
+          <h3 class="cell-name"><a class="card-link" href={contributor.link} target="_blank" rel="noopener">{contributor.name}</a></h3>
+          <p class="muted">@{contributor.handle}</p>
+          <p>{contributor.blurb}</p>
+          <p class="muted">{contributor.notable}</p>
         </article>)}
       </div>
     </section>

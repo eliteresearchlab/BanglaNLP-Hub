@@ -5,47 +5,50 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 interface Props { active?: string; }
 const { active = '' } = Astro.props;
 const links = [
-  ['tasks', 'Tasks', 'কাজসমূহ'],
-  ['datasets', 'Datasets', 'ডেটাসেট'],
-  ['papers', 'Papers', 'প্রবন্ধ'],
-  ['tools', 'Tools', 'সরঞ্জাম'],
+  ['tasks', 'Tasks'],
+  ['datasets', 'Datasets'],
+  ['papers', 'Papers'],
+  ['tools', 'Tools'],
+  ['contribute', 'Contribute'],
+  ['about', 'About'],
 ];
 ---
 <header class="site-header">
   <div class="navbar">
     <a class="brand" href={base + '/'} aria-label="BanglaNLP Hub home">
       <span class="brand-mark bn" lang="bn">ব</span>
-      <span><span class="brand-bn bn" lang="bn">বাংলা</span> NLP <span class="text-muted">Hub</span></span>
+      <span class="brand-name">BanglaNLP Hub</span>
     </a>
-    <nav id="primary-nav" class="navrow" aria-label="Primary" popover>
-      {links.map(([id, label, bn]) => <a class="navlink" href={base + '/' + id} aria-current={id === active ? 'page' : undefined}><span class="nav-label">{label}</span>{' '}<span class="nav-bn bn" lang="bn">{bn}</span></a>)}
-      <a class="navlink nav-contribute" href={base + '/contribute'} aria-current={active === 'contribute' ? 'page' : undefined}><span class="nav-label">Contribute</span>{' '}<span class="nav-bn bn" lang="bn">অবদান</span></a>
-      <a class="navlink nav-secondary" href={base + '/about'} aria-current={active === 'about' ? 'page' : undefined}><span class="nav-label">About</span>{' '}<span class="nav-bn bn" lang="bn">পরিচিতি</span></a>
-    </nav>
-    <Search variant="nav" id="nav-search" />
-    <div class="nav-actions">
-      <button id="theme-toggle" class="button button-icon" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+    <div class="nav-tools">
+      <Search variant="nav" id="nav-search" />
+      <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch to dark theme">
         <span class="theme-moon"><Icon name="moon" /></span><span class="theme-sun"><Icon name="sun" /></span>
       </button>
-      <a class="button contribute-link" href={base + '/contribute'}><span class="nav-label">Contribute</span>{' '}<span class="nav-bn bn" lang="bn">অবদান</span><Icon name="arrow-up-right" /></a>
-      <button id="nav-menu-toggle" class="button button-icon navtoggle" type="button" aria-label="Menu" popovertarget="primary-nav">
+      <button id="nav-menu-toggle" class="icon-button navtoggle" type="button" aria-label="Menu" popovertarget="primary-nav">
         <span class="menu-open"><Icon name="menu" /></span><span class="menu-close"><Icon name="close" /></span>
       </button>
     </div>
+    <nav id="primary-nav" class="navrow" aria-label="Primary" popover>
+      {links.map(([id, label]) => <a class="navlink" href={base + '/' + id} aria-current={id === active ? 'page' : undefined}>{label}</a>)}
+    </nav>
   </div>
 </header>
 
 <script>
   const themeButton = document.getElementById('theme-toggle');
+  const root = document.documentElement;
   const syncTheme = () => {
-    const dark = document.documentElement.classList.contains('dark');
-    document.querySelectorAll<HTMLSourceElement>('[data-theme-art]').forEach(source => { source.media = dark ? 'all' : 'not all'; });
-    themeButton?.setAttribute('aria-pressed', String(dark));
+    const dark = root.classList.contains('dark');
     themeButton?.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#181816' : '#f7f6f3');
   };
   syncTheme();
   themeButton?.addEventListener('click', () => {
-    const dark = document.documentElement.classList.toggle('dark');
+    // Hold transitions back so every color changes in the same frame.
+    root.classList.add('switching-theme');
+    const dark = root.classList.toggle('dark');
+    void document.body.offsetHeight;
+    requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove('switching-theme')));
     try { localStorage.bnlpTheme = dark ? 'dark' : 'light'; } catch {}
     syncTheme();
   });
@@ -57,7 +60,7 @@ const links = [
   const nav = document.getElementById('primary-nav');
   menuButton?.addEventListener('click', (event) => { if (nav) nav.dataset.motion = String(event.detail > 0); });
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && nav) nav.dataset.motion = 'false'; });
-  matchMedia('(width >= 72rem)').addEventListener('change', (event) => {
+  matchMedia('(width >= 64rem)').addEventListener('change', (event) => {
     if (event.matches && nav && 'hidePopover' in nav && nav.matches(':popover-open')) nav.hidePopover();
   });
 </script>

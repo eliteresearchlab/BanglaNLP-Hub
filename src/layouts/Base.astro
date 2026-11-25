@@ -1,7 +1,7 @@
 ---
 /**
  * Shared document shell. Owns everything the prototype kept in <helmet>:
- * font loading, the no-flash theme script, and the shared BoardUI design tokens.
+ * font loading, the no-flash theme script, and the shared design tokens.
  */
 import '../styles/global.css';
 import SiteNav from '../components/SiteNav.astro';
@@ -9,7 +9,6 @@ import Footer from '../components/Footer.astro';
 import readingFont from '../assets/fonts/sourcesans3-latin.woff2';
 import displayFont from '../assets/fonts/newsreader-latin.woff2';
 import bengaliFont from '../assets/fonts/noto-serif-bengali-bengali.woff2';
-import monoFont from '../assets/fonts/geist-mono-latin.woff2';
 
 interface Props {
   title: string;
@@ -37,10 +36,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <link rel="preload" href={readingFont} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={bengaliFont} as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href={monoFont} as="font" type="font/woff2" crossorigin />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f7f6f3" />
     <link rel="canonical" href={canonical} />
     <!-- Open Graph / Twitter social card -->
     <meta property="og:type" content="website" />
@@ -60,14 +59,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <link rel="icon" type="image/svg+xml" href={base + '/favicon.svg'} />
     <!-- Restore the saved or system theme before first paint. -->
     <script is:inline>
-      // Keep the fallback fade disabled after a native page transition finishes.
-      window.addEventListener('pagereveal', (event) => {
-        if (event.viewTransition) document.documentElement.classList.add('native-navigation');
-      });
       try {
         const theme = localStorage.bnlpTheme;
         const dark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
         document.documentElement.classList.toggle('dark', dark);
+        if (dark) document.querySelector('meta[name="theme-color"]').content = '#181816';
       } catch (e) {}
     </script>
   </head>

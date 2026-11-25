@@ -3,11 +3,16 @@ const trailingHighSurrogate = /[\uD800-\uDBFF]$/;
 export function initCatalogFilters(
   controls: Record<string, HTMLInputElement | HTMLSelectElement>,
   items: HTMLElement[],
-  apply: () => void,
+  render: () => void,
   reveal: (item: HTMLElement) => void,
 ) {
   const clear = document.getElementById('f-clear') as HTMLButtonElement;
   const entries = Object.entries(controls);
+
+  function apply() {
+    render();
+    clear.hidden = entries.every(([, control]) => !control.value);
+  }
 
   function writeURL(push = false) {
     const url = new URL(location.href);
@@ -57,8 +62,9 @@ export function initCatalogFilters(
       writeURL(control instanceof HTMLSelectElement);
     });
   }
-  clear.hidden = false;
   clear.addEventListener('click', () => {
+    // The button hides itself once nothing is filtered, so hand focus on first.
+    entries[0]?.[1].focus();
     reset();
     writeURL(true);
   });

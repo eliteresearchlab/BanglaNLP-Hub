@@ -6,16 +6,16 @@
  * change, so the full list is present without JS.
  */
 import Base from '../layouts/Base.astro';
-import Icon from '../components/Icon.astro';
 import PageHeader from '../components/PageHeader.astro';
 import CatalogInitialState from '../components/CatalogInitialState.astro';
-import { papers, tasks, taskName } from '../lib/data.ts';
+import { papers, tasks, taskName, countLabel } from '../lib/data.ts';
 import { hasBangla } from '../lib/text-patterns.ts';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const list = [...papers].sort((a, b) => b.year - a.year);
 const yearOpts = [...new Set(list.map((p) => p.year))].sort((a, b) => b - a);
+const years = yearOpts.map((year) => ({ year, papers: list.filter((p) => p.year === year) }));
 const venueOpts = [...new Set(list.map((p) => p.venue))].sort();
 ---
 
@@ -24,16 +24,16 @@ const venueOpts = [...new Set(list.map((p) => p.venue))].sort();
     <PageHeader
       title="Papers"
       bn="গবেষণাপত্র"
-      description={`${list.length} indexed publications on Bangla NLP, newest first.`}
+      description={`${countLabel(list.length, 'paper')} on Bangla NLP, newest first.`}
     />
 
-    <div class="filterbar" role="search" aria-label="Filter papers">
+    <div class="band"><div class="filterbar" role="search" aria-label="Filter papers">
       <input
         class="field filter-search"
         id="f-q"
         type="search"
         maxlength="1000"
-        placeholder="Filter by title or author…"
+        placeholder="Title or author"
         aria-label="Filter papers"
       />
       <select class="field" id="f-year" aria-label="Filter by year">
@@ -48,38 +48,42 @@ const venueOpts = [...new Set(list.map((p) => p.venue))].sort();
         <option value="">All tasks</option>
         {tasks.map((t) => <option value={t.id}>{t.name}</option>)}
       </select>
-      <button class="button button-sm" id="f-clear" type="button" hidden>Clear filters</button>
-      <span class="text-muted" id="f-count" aria-live="polite">{list.length} shown</span>
-    </div>
+      <div class="filter-result">
+        <span id="f-count" aria-live="polite">{list.length} shown</span>
+        <button class="button" id="f-clear" type="button" hidden>Clear filters</button>
+      </div>
+    </div></div>
 
     <CatalogInitialState stage="start" />
 
-    <div class="resource-list catalog-results">
-      {
-        list.map((p) => (
-          <article
-            class="resource-row papercard"
-            id={p.id}
-            tabindex="-1"
-            data-year={p.year}
-            data-venue={p.venue}
-            data-task={p.task}
-            data-text={`${p.title} ${p.authors}`.toLowerCase()}
-          >
-            <span class="mono metadata">{p.year}</span>
-            <div class="row-main">
-              <h2 class:list={['resource-title', hasBangla(p.title) && 'bn']} lang={hasBangla(p.title) ? 'bn' : undefined}><a class="card-link" href={p.link} target="_blank" rel="noopener">{p.title}</a></h2>
-              <span class="row-meta">
-                <span class={hasBangla(p.authors) ? 'bn' : undefined} lang={hasBangla(p.authors) ? 'bn' : undefined}>{p.authors}</span>, {taskName(p.task)}
-                {p.note && <span>, {p.note}</span>}
-              </span>
-            </div>
-            <span class="badge badge-accent">{p.venue}</span>
-            <Icon name="arrow-up-right" size={16} />
-          </article>
-        ))
-      }
-      <div class="panel empty-state" id="f-empty" hidden>
+    <div class="catalog-results">
+      {years.map(({ year, papers }) => (
+        <section class="year-group" aria-labelledby={`year-${year}`}>
+          <h2 class="year-title" id={`year-${year}`}>{year}</h2>
+          <div class="rows">
+            {papers.map((p) => (
+              <article
+                class="row papercard"
+                id={p.id}
+                tabindex="-1"
+                data-year={p.year}
+                data-venue={p.venue}
+                data-task={p.task}
+                data-text={`${p.title} ${p.authors}`.toLowerCase()}
+              >
+                <div class="row-main">
+                  <h3 class:list={['row-name', hasBangla(p.title) && 'bn']} lang={hasBangla(p.title) ? 'bn' : undefined}><a class="card-link" href={p.link} target="_blank" rel="noopener">{p.title}</a></h3>
+                  <p class="meta">
+                    <span class={hasBangla(p.authors) ? 'bn' : undefined} lang={hasBangla(p.authors) ? 'bn' : undefined}>{p.authors}</span>, {taskName(p.task)}{p.note && `, ${p.note}`}
+                  </p>
+                </div>
+                <span class="badge">{p.venue}</span>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+      <div class="empty-state" id="f-empty" hidden>
         Nothing matches those filters. <a href={`${base}/contribute`}>Add a missing paper via PR</a>.
       </div>
     </div>

@@ -70,8 +70,12 @@ because a task description says so. `DesignSync` is a main-conversation tool and
 
 - **No client framework.** Vanilla JS islands only, and only where interaction
   requires them: catalog search, theme toggle, task tabs, table sort, BibTeX copy.
-- **Design tokens** live in `src/styles/global.css`, transcribed verbatim from the
-  prototype. Do not hand-tune them.
+- **Design tokens** live in `src/styles/global.css`. The page is a ruled frame after
+  component.gallery: hairlines, serif names, one red mark (`--mark`) for the current
+  place and Bangla titles. Change a token there, never a value in a component.
+- **Plates** (`Plate.astro`) hang a Bangla name from ruled lines. The rule offset comes
+  from the Noto Serif Bengali metrics noted in `global.css`; remeasure it if the font
+  or the plate's line height changes.
 - **Bangla text** uses `class="bn"` (Noto Serif Bengali, `line-height: 1.6`). Every
   Bangla string needs it.
 - **Internal links** must be prefixed with `import.meta.env.BASE_URL`, or they break
