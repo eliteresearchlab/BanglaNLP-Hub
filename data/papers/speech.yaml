@@ -43,7 +43,7 @@
 - id: mitra-etal-2026-bengali
   title: Bengali-English and Hindi-English Code Mixed Speech Data with Disfluencies
   authors: Mitra et al.
-  venue: Workshop on Indian Language Data
+  venue: WILDRE
   year: 2026
   link: https://aclanthology.org/2026.wildre-1.5/
   task: speech
@@ -58,7 +58,7 @@
 - id: ahmad-etal-2026-descriptor-bangla-audio-spoofing-four
   title: "Descriptor: Bangla Audio Spoofing With Four Conditions and Real Speech (BAS4R)"
   authors: Ahmad et al.
-  venue: IEEE data descriptions.
+  venue: IEEE Data Descriptions
   year: 2026
   link: https://doi.org/10.1109/ieeedata.2026.3703743
   task: speech
@@ -128,19 +128,19 @@
 - id: chowdhury-etal-2025-bangla-speech-processing-analytical-feature
   title: "Bangla Speech Processing: An Analytical Study of Feature Extraction and Recognition Methods"
   authors: Chowdhury et al.
-  venue: Mathematical Modelling and Engineering Problems
+  venue: Mathematical Modelling of Engineering Problems
   year: 2025
   link: https://doi.org/10.18280/mmep.120718
   task: speech
 - id: chowdhury-etal-2025-bangla-speech-processing-time-delay
   title: "Bangla Speech Processing: Time Delay Neural Networks Enhanced by Advanced Algorithms"
   authors: Chowdhury et al.
-  venue: Mathematical Modelling and Engineering Problems
+  venue: Mathematical Modelling of Engineering Problems
   year: 2025
   link: https://doi.org/10.18280/mmep.120908
   task: speech
 - id: chowdhury-etal-2025-bangla-speech-recognition-power-spectral
-  title: "Bangla Speech Recognition: Power Spectral Analysis, LPC &amp; MFCC as Feature Extraction Techniques in Deep Learning"
+  title: "Bangla Speech Recognition: Power Spectral Analysis, LPC & MFCC as Feature Extraction Techniques in Deep Learning"
   authors: Chowdhury et al.
   venue: International Journal of Engineering Trends and Technology
   year: 2025
@@ -309,7 +309,7 @@
   task: speech
 - id: arxiv-2209-08119
   title: An Automatic Speech Recognition System for Bengali Language based on Wav2Vec2 and Transfer Learning
-  authors: Showrav et al.
+  authors: Showrav
   venue: arXiv
   year: 2022
   link: http://arxiv.org/abs/2209.08119
@@ -366,7 +366,7 @@
 - id: samin-etal-2021-deep-learning-large-vocabulary-continuous
   title: Deep learning based large vocabulary continuous speech recognition of an under-resourced language Bangladeshi Bangla
   authors: Samin et al.
-  venue: Nippon Onkyo Gakkaishi/Acoustical science and technology/Nihon Onkyo Gakkaishi
+  venue: Acoustical Science and Technology
   year: 2021
   link: https://doi.org/10.1250/ast.42.252
   task: speech
@@ -401,7 +401,7 @@
 - id: ahmad-etal-2021-sust-tts-corpus-phonetically-balanced
   title: "SUST TTS Corpus: A phonetically-balanced corpus for Bangla text-to-speech synthesis"
   authors: Ahmad et al.
-  venue: Nippon Onkyo Gakkaishi/Acoustical science and technology/Nihon Onkyo Gakkaishi
+  venue: Acoustical Science and Technology
   year: 2021
   link: https://doi.org/10.1250/ast.42.326
   task: speech
@@ -434,7 +434,7 @@
   link: https://doi.org/10.5121/ijma.2020.12402
   task: speech
 - id: ahmed-etal-2020-preparation
-  title: Preparation of Bangla Speech Corpus from Publicly Available Audio \& Text
+  title: Preparation of Bangla Speech Corpus from Publicly Available Audio & Text
   authors: Ahmed et al.
   venue: LREC
   year: 2020
@@ -450,7 +450,7 @@
 - id: ahmad-etal-2019-encoder-decoder-grapheme-phoneme-converter
   title: An encoder-decoder based grapheme-to-phoneme converter for Bangla speech synthesis
   authors: Ahmad et al.
-  venue: Nippon Onkyo Gakkaishi/Acoustical science and technology/Nihon Onkyo Gakkaishi
+  venue: Acoustical Science and Technology
   year: 2019
   link: https://doi.org/10.1250/ast.40.374
   task: speech
@@ -589,7 +589,7 @@
   link: https://doi.org/10.17950/ijer/v3s2/211
   task: speech
 - id: firoze-etal-2013-bangla-user-adaptive-word-speech
-  title: Bangla User Adaptive Word Speech Recognition
+  title: "Bangla User Adaptive Word Speech Recognition: Approaches and Comparisons"
   authors: Firoze et al.
   venue: International Journal of Fuzzy System Applications
   year: 2013

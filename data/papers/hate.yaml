@@ -132,7 +132,7 @@
   link: https://aclanthology.org/2025.banglalp-1.41/
   task: hate
 - id: islam-etal-2025-code
-  title: "Code\\_Gen at BLP-2025 Task 1: Enhancing Bangla Hate Speech Detection with Transformers through Token-Aware Adversarial Contrastive Training and Layer-wise Learning Rate Decay"
+  title: "Code_Gen at BLP-2025 Task 1: Enhancing Bangla Hate Speech Detection with Transformers through Token-Aware Adversarial Contrastive Training and Layer-wise Learning Rate Decay"
   authors: Islam et al.
   venue: BLP @ IJCNLP-AACL
   year: 2025
@@ -146,14 +146,14 @@
   link: https://aclanthology.org/2025.banglalp-1.44/
   task: hate
 - id: hossan-etal-2025-cuet-nlp-zenith
-  title: "CUET-NLP\\_Zenith at BLP-2025 Task 1: A Multi-Task Ensemble Approach for Detecting Hate Speech in Bengali YouTube Comments"
+  title: "CUET-NLP_Zenith at BLP-2025 Task 1: A Multi-Task Ensemble Approach for Detecting Hate Speech in Bengali YouTube Comments"
   authors: Hossan et al.
   venue: BLP @ IJCNLP-AACL
   year: 2025
   link: https://aclanthology.org/2025.banglalp-1.38/
   task: hate
 - id: tripty-etal-2025-cuet
-  title: "CUET\\_Sntx\\_Srfrs at BLP-2025 Task 1: Combining Hierarchical Classification and Ensemble Learning for Bengali Hate Speech Detection"
+  title: "CUET_Sntx_Srfrs at BLP-2025 Task 1: Combining Hierarchical Classification and Ensemble Learning for Bengali Hate Speech Detection"
   authors: Tripty et al.
   venue: BLP @ IJCNLP-AACL
   year: 2025
@@ -188,7 +188,7 @@
   link: https://aclanthology.org/2025.banglalp-1.42/
   task: hate
 - id: nabil-etal-2025-nsu
-  title: "NSU\\_MILab at BLP-2025 Task 1: Decoding Bangla Hate Speech: Fine-Grained Type and Target Detection via Transformer Ensembles"
+  title: "NSU_MILab at BLP-2025 Task 1: Decoding Bangla Hate Speech: Fine-Grained Type and Target Detection via Transformer Ensembles"
   authors: Nabil et al.
   venue: BLP @ IJCNLP-AACL
   year: 2025
@@ -293,7 +293,7 @@
   link: http://arxiv.org/abs/2310.10781
   task: hate
 - id: arxiv-2312-10528
-  title: "Cross-Linguistic Offensive Language Detection: BERT-Based Analysis of Bengali, Assamese, &amp; Bodo Conversational Hateful Content from Social Media"
+  title: "Cross-Linguistic Offensive Language Detection: BERT-Based Analysis of Bengali, Assamese, & Bodo Conversational Hateful Content from Social Media"
   authors: Mim et al.
   venue: arXiv
   year: 2023
@@ -314,7 +314,7 @@
   link: http://arxiv.org/abs/2304.04087
   task: hate
 - id: veeramani-etal-2023-lowresourcenlu
-  title: "LowResourceNLU at BLP-2023 Task 1 \\& 2: Enhancing Sentiment Classification and Violence Incitement Detection in Bangla Through Aggregated Language Models"
+  title: "LowResourceNLU at BLP-2023 Task 1 & 2: Enhancing Sentiment Classification and Violence Incitement Detection in Bangla Through Aggregated Language Models"
   authors: Veeramani et al.
   venue: BLP @ EMNLP
   year: 2023
@@ -364,7 +364,7 @@
   link: https://aclanthology.org/2023.banglalp-1.18/
   task: hate
 - id: riyad-etal-2023-team
-  title: "Team\\_Syrax at BLP-2023 Task 1: Data Augmentation and Ensemble Based Approach for Violence Inciting Text Detection in Bangla"
+  title: "Team_Syrax at BLP-2023 Task 1: Data Augmentation and Ensemble Based Approach for Violence Inciting Text Detection in Bangla"
   authors: Riyad et al.
   venue: BLP @ EMNLP
   year: 2023
@@ -372,13 +372,13 @@
   task: hate
 - id: arxiv-2312-05467
   title: "Textual Toxicity in Social Media: Understanding the Bangla Toxic Language Expressed in Facebook Comment"
-  authors: Rashid et al.
+  authors: Rashid
   venue: arXiv
   year: 2023
   link: http://arxiv.org/abs/2312.05467
   task: hate
 - id: tariquzzaman-etal-2023-linguists
-  title: "the\\_linguists at BLP-2023 Task 1: A Novel Informal Bangla Fasttext Embedding for Violence Inciting Text Detection"
+  title: "the_linguists at BLP-2023 Task 1: A Novel Informal Bangla Fasttext Embedding for Violence Inciting Text Detection"
   authors: Tariquzzaman et al.
   venue: BLP @ EMNLP
   year: 2023
@@ -416,7 +416,7 @@
 - id: das-etal-2022-hate-speech
   title: Hate Speech and Offensive Language Detection in Bengali
   authors: Das et al.
-  venue: IJCNLP
+  venue: AACL
   year: 2022
   link: https://aclanthology.org/2022.aacl-main.23/
   task: hate

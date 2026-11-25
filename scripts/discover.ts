@@ -108,6 +108,15 @@ const entryPatterns = {
   summary: /<summary>([\s\S]*?)<\/summary>/,
 };
 
+/** arXiv's feed is XML and OpenAlex repeats escaped Crossref titles. */
+const unescapeXml = (text: string) =>
+  text
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&amp;/g, '&');
+
 type Candidate = {
   source: 'acl' | 'arxiv' | 'huggingface' | 'openalex';
   kind: 'paper' | 'dataset' | 'model';
@@ -284,7 +293,7 @@ async function fromArxiv(): Promise<Candidate[]> {
       out.push({
         source: 'arxiv',
         kind: 'paper',
-        title,
+        title: unescapeXml(title),
         link: id.replace(patterns.arxivVersion, ''),
         year: Number(pick('published')?.slice(0, 4)) || undefined,
         authors: authors.length ? `${authors[0].split(' ').pop()} et al.` : undefined,
@@ -368,7 +377,7 @@ async function fromOpenAlex(): Promise<Candidate[]> {
     };
     if (!body.results?.length) break;
     for (const w of body.results) {
-      const title = w.display_name?.trim();
+      const title = w.display_name && unescapeXml(w.display_name).trim();
       const link = w.doi ?? w.primary_location?.landing_page_url ?? w.id;
       if (!title || !link) continue;
       const first = w.authorships?.[0]?.author?.display_name;

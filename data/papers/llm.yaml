@@ -133,7 +133,7 @@
   task: llm
 - id: arxiv-2606-16383
   title: "Surpassing Scale by Efficiency: A Compact 135M Parameter Foundational LLM Natively Adapted for the Bangla Language"
-  authors: Nandi et al.
+  authors: Nandi
   venue: arXiv
   year: 2026
   link: http://arxiv.org/abs/2606.16383
@@ -225,14 +225,14 @@
   task: llm
   note: 134,375 question-option pairs across 41 domains.
 - id: juboraj-etal-2025-bracu
-  title: "BRACU\\_CL at BLP-2025 Task 2: CodeMist: A Transformer-Based Framework for Bangla Instruction-to-Code Generation"
+  title: "BRACU_CL at BLP-2025 Task 2: CodeMist: A Transformer-Based Framework for Bangla Instruction-to-Code Generation"
   authors: Juboraj et al.
   venue: BLP @ IJCNLP-AACL
   year: 2025
   link: https://aclanthology.org/2025.banglalp-1.67/
   task: llm
 - id: agarwala-etal-2025-code
-  title: "Code\\_Gen at BLP-2025 Task 2: BanglaCode: A Cross-lingual Benchmark for Code Generation with Translation and Assertion Strategies"
+  title: "Code_Gen at BLP-2025 Task 2: BanglaCode: A Cross-lingual Benchmark for Code Generation with Translation and Assertion Strategies"
   authors: Agarwala et al.
   venue: BLP @ IJCNLP-AACL
   year: 2025
@@ -244,6 +244,13 @@
   venue: BLP @ IJCNLP-AACL
   year: 2025
   link: https://aclanthology.org/2025.banglalp-1.53/
+  task: llm
+- id: shahrier-etal-2025-cuet
+  title: "CUET_Expelliarmus at BLP2025 Task 2: Leveraging Instruction Translation and Refinement for Bangla-to-Python Code Generation with Open-Source LLMs"
+  authors: Shahrier et al.
+  venue: BLP @ IJCNLP-AACL
+  year: 2025
+  link: https://aclanthology.org/2025.banglalp-1.62/
   task: llm
 - id: arxiv-2511-11309
   title: "destroR: A Benchmark and Adversarial-Training Defense for Bangla Transfer Models under Meaning-Preserving Attacks"
@@ -310,7 +317,7 @@
   link: https://aclanthology.org/2025.findings-ijcnlp.21/
   task: llm
 - id: pal-das-2025-ju
-  title: "JU\\_NLP at BLP-2025 Task 2: Leveraging Zero-Shot Prompting for Bangla Natural Language to Python Code Generation"
+  title: "JU_NLP at BLP-2025 Task 2: Leveraging Zero-Shot Prompting for Bangla Natural Language to Python Code Generation"
   authors: Pal et al.
   venue: BLP @ IJCNLP-AACL
   year: 2025
@@ -331,7 +338,7 @@
   link: http://arxiv.org/abs/2511.22769
   task: llm
 - id: hasan-etal-2025-musafir
-  title: "Musafir at BLP\\_2025 Task 2: Generating Python Code from Bangla Prompts using a Multi Model Cascade and Unit Test Validation"
+  title: "Musafir at BLP_2025 Task 2: Generating Python Code from Bangla Prompts using a Multi Model Cascade and Unit Test Validation"
   authors: Hasan et al.
   venue: BLP @ IJCNLP-AACL
   year: 2025
@@ -345,14 +352,14 @@
   link: http://arxiv.org/abs/2511.16787
   task: llm
 - id: saadi-etal-2025-nala
-  title: "NALA\\_MAINZ at BLP-2025 Task 2: A Multi-agent Approach for Bengali Instruction to Python Code Generation"
+  title: "NALA_MAINZ at BLP-2025 Task 2: A Multi-agent Approach for Bengali Instruction to Python Code Generation"
   authors: Saadi et al.
   venue: BLP @ IJCNLP-AACL
   year: 2025
   link: https://aclanthology.org/2025.banglalp-1.61/
   task: llm
 - id: fahmid-etal-2025-nsu
-  title: "NSU\\_PiedPiper at BLP-2025 Task 2: A Chain-of-Thought with Iterative Debugging Approach for Code Generation with Bangla Instruction"
+  title: "NSU_PiedPiper at BLP-2025 Task 2: A Chain-of-Thought with Iterative Debugging Approach for Code Generation with Bangla Instruction"
   authors: Fahmid et al.
   venue: BLP @ IJCNLP-AACL
   year: 2025
@@ -465,7 +472,7 @@
   link: https://aclanthology.org/2025.emnlp-main.966/
   task: llm
 - id: aupi-etal-2025-wonbias
-  title: "WoNBias: A Dataset for Classifying Bias \\& Prejudice Against Women in Bengali Text"
+  title: "WoNBias: A Dataset for Classifying Bias & Prejudice Against Women in Bengali Text"
   authors: Aupi et al.
   venue: GeBNLP
   year: 2025

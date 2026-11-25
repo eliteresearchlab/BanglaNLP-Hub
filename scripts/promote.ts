@@ -69,6 +69,11 @@ const patterns = {
 };
 
 const venueRules: [RegExp, string][] = [
+  // Workshops whose booktitle also names the host conference.
+  [/\bWILDRE\b|Workshop on Indian Language Data/i, 'WILDRE'],
+  [/^Proceedings of the \d+\w+ Workshop on Building and Using Comparable Corpora/i, 'BUCC'],
+  // AACL and IJCNLP have met jointly; AACL leads the title when it leads the volume.
+  [/^Proceedings of the \d+\w+ Conference of the Asia-Pacific Chapter/i, 'AACL'],
   [/Annual Meeting of the Association for Computational Linguistics/i, 'ACL'],
   [/Conference on Empirical Methods in Natural Language Processing/i, 'EMNLP'],
   // NAACL renamed its 2025 edition "Nations of the Americas Chapter".
@@ -85,7 +90,7 @@ const venueRules: [RegExp, string][] = [
   [/Transactions of the Association for Computational Linguistics/i, 'TACL'],
   [/Machine Translation Summit|MT Summit/i, 'MT Summit'],
   [/European Association for Machine Translation/i, 'EAMT'],
-  [/Conference on Machine Translation|Workshop on (Statistical )?Machine Translation|\bWMT\b/i, 'WMT'],
+  [/Conference on Machine Translation|Workshop on (Statistical )?Machine Translation(?! and Parsing)|\bWMT\b/i, 'WMT'],
   [/Workshop on Spoken Language Translation|\bIWSLT\b/i, 'IWSLT'],
   [/Pacific Asia Conference|PACLIC/i, 'PACLIC'],
   [/Recent Advances in Natural Language Processing|RANLP/i, 'RANLP'],
@@ -204,6 +209,21 @@ const delatex = (s: string) =>
 
 /** ACL brace-protects capitals: "{B}engali" -> "Bengali". */
 const debrace = (s: string) => s.replace(patterns.braces, '');
+
+/**
+ * Anthology title -> display title. Beyond brace protection, the bib escapes
+ * punctuation ("{NALA}{\_}{MAINZ}", "Bias \& Prejudice"), writes dashes in
+ * ASCII and sets superscripts in math mode ("{MDC}$^3$").
+ */
+const titleMarks: [RegExp, string][] = [
+  [/\\([_&%#$])/g, '$1'],
+  [/\$\^\{?2\}?\$/g, '²'],
+  [/\$\^\{?3\}?\$/g, '³'],
+  [/---/g, '—'],
+  [/--/g, '–'],
+];
+const displayTitle = (raw: string) =>
+  titleMarks.reduce((title, [mark, text]) => title.replace(mark, text), debrace(raw));
 
 /** "Sadhu, Jayanta and Khan, Ayan and ..." -> "Sadhu et al." */
 function authorLabel(raw: string | undefined): string | undefined {
@@ -345,7 +365,7 @@ for (const raw of bib.split(patterns.bibEntry)) {
   if (!year) continue;
   byUrl.set(url.replace(patterns.trailingSlashes, ''), {
     key,
-    title: debrace(titleRaw),
+    title: displayTitle(titleRaw),
     authors: authorLabel(field(raw, 'author')) ?? '',
     venue: normalizeVenue(field(raw, 'booktitle') ?? field(raw, 'journal'), key) ?? '',
     year,

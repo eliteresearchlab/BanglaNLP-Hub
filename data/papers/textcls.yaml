@@ -49,7 +49,7 @@
   task: textcls
 - id: tanjim-etal-2026-bangla-fake-news-linguistic-psychological
   title: Detecting Fake News in Bangla Using Linguistic and Psychological Features
-  authors: Tanjim et al.
+  authors: Mahmud et al.
   venue: ACM Transactions on Social Computing
   year: 2026
   link: https://doi.org/10.1145/3798302
@@ -159,6 +159,7 @@
   year: 2025
   link: http://arxiv.org/abs/2501.18766
   task: textcls
+  note: The published ICCCNT 2024 version was retracted in March 2026.
 - id: rahman-ali-2025-clustering
   title: Clustering LLM-based Word Embeddings to Determine Topics from Bangla Articles
   authors: Rahman et al.
@@ -209,7 +210,7 @@
   link: https://aclanthology.org/2025.indonlp-1.12/
   task: textcls
 - id: arxiv-2508-00605
-  title: "GHTM: A Graph-based Hybrid Topic Modeling Approach with a Benchmark Dataset for the Low-Resource Bengali Language"
+  title: "GHTM: A graph-based hybrid topic modeling approach for Bengali language"
   authors: Haque et al.
   venue: arXiv
   year: 2025
@@ -223,7 +224,7 @@
   link: https://doi.org/10.1016/j.ijdrr.2025.105673
   task: textcls
 - id: shanto-etal-2025-mdc3
-  title: "MDC$^3$: A Novel Multimodal Dataset for Commercial Content Classification in Bengali"
+  title: "MDC³: A Novel Multimodal Dataset for Commercial Content Classification in Bengali"
   authors: Shanto et al.
   venue: NAACL
   year: 2025

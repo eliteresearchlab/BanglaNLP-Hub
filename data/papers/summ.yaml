@@ -36,7 +36,7 @@
 - id: tanjila-etal-2025-bengali
   title: "Bengali ChartSumm: A Benchmark Dataset and study on feasibility of Large Language Models on Bengali Chart to Text Summarization"
   authors: Tanjila et al.
-  venue: First Workshop on Challenges in Processing South Asian Languages
+  venue: CHiPSAL
   year: 2025
   link: https://aclanthology.org/2025.chipsal-1.4/
   task: summ
@@ -140,7 +140,7 @@
   link: https://doi.org/10.4236/jdaip.2022.101003
   task: summ
 - id: haque-etal-2020-bangla-summarization-trends
-  title: "Approaches and Trends of Automatic Bangla Text Summarization"
+  title: "Approaches and Trends of Automatic Bangla Text Summarization: Challenges and Opportunities"
   authors: Haque et al.
   venue: International Journal of Technology Diffusion
   year: 2020
